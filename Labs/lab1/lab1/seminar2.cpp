@@ -11,6 +11,13 @@ void seminar2() {
 
 
 
+
+
+
+
+
+
+
 	
 	int n;
 	do {
