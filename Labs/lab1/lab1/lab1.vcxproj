@@ -154,10 +154,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="Minimal.cpp" />
+    <ClCompile Include="search.cpp" />
     <ClCompile Include="seminar1.cpp" />
     <ClCompile Include="seminar2.cpp" />
     <ClCompile Include="seminar3.cpp" />
     <ClCompile Include="sort.cpp" />
+    <ClCompile Include="string_in.cpp" />
+    <ClCompile Include="string_out.cpp" />
     <ClCompile Include="sum.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -18,3 +18,7 @@ int sum(int size, int sizec, int** array);
 int** changec(int size, int** array, int k, int j);
 int character(int size, int sizec, int** array, int j);
 int** sort(int size, int sizec, int** array);
+
+std::string in(std::string path);
+void out(std::string n);
+void search(std::string a);

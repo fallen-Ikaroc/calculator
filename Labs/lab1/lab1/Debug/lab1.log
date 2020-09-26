@@ -1,2 +1,3 @@
-﻿  seminar2.cpp
+﻿  search.cpp
+E:\Git\calculator\Labs\lab1\lab1\search.cpp(7,20): warning C4018: <: несоответствие типов со знаком и без знака
   lab1.vcxproj -> E:\Git\calculator\Labs\lab1\Debug\lab1.exe

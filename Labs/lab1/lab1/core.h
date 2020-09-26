@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-#include <cctype>
+#include <string>
+#include <fstream>
 #include "prototyps.h"
 
 using namespace std;
