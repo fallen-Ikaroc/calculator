@@ -149,12 +149,15 @@
   <ItemGroup>
     <ClCompile Include="ArrayIn.cpp" />
     <ClCompile Include="ArrayOut.cpp" />
+    <ClCompile Include="changec.cpp" />
+    <ClCompile Include="character.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="interface.cpp" />
     <ClCompile Include="Minimal.cpp" />
     <ClCompile Include="seminar1.cpp" />
     <ClCompile Include="seminar2.cpp" />
     <ClCompile Include="seminar3.cpp" />
+    <ClCompile Include="sort.cpp" />
     <ClCompile Include="sum.cpp" />
   </ItemGroup>
   <ItemGroup>
