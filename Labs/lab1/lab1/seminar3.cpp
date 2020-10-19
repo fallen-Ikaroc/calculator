@@ -5,26 +5,45 @@ void seminar3() {
 	cout << "Семинар 3" << endl << "Написать программу, которая считывает текст из файла и выводит на экран" << endl <<
 		"только цитаты, то есть предложения, заключенные в кавычки." << endl;
 
-	string path,str;
-	cout << endl << "Введите путь к файлу:" << endl;
-	bool control;
-	do {
-		cin >> path;
-		str = "";
-		control = false;
-		str = in(path);
-		if (str == "Eror 404!")
-			control = true;
-	} while (control);
-	cout << endl << "Текст:" << endl<<endl;
-	cout << str<<endl<<endl;
-	cout << "Цитаты из текста:" << endl << endl;
-	search(str);
+	char text[10][100],textl[1000]="";
+	bool control=true;
 	int n;
-	do {
-		cout << "\n\n\n" << "Если хотите вернутсья к выбору семинара введите 0." << endl;
+	bool k = true;
+	while (k) {
+		cout << endl << "Choose an action:" << endl;
+		cout << "1 - Open file." << endl;
+		cout << "2 - Display text." << endl;
+		cout << "3 - Display quotes." << endl;
+		cout << "0 - Back to seminar selection." << endl;
 		cin >> n;
-	} while (n != 0);
-	if (n == 0)
-		interface();
+		switch (n) {
+		case 1:
+			in(text);
+			for (int i = 0; i < 10; i++)
+				strcat_s(textl, text[i]);
+			break;
+		case 2:
+			out(text);
+			break;
+		case 3:
+			search(textl);
+			break;
+		case 0:
+			k = false;
+			break;
+		}
+	}
+	interface();
+	
+	//cout << endl << "Текст:" << endl<<endl;
+	///*cout << str<<endl<<endl;*/
+	//cout << "Цитаты из текста:" << endl << endl;
+	///*search(str);*/
+	//int n;
+	//do {
+	//	cout << "\n\n\n" << "Если хотите вернутсья к выбору семинара введите 0." << endl;
+	//	cin >> n;
+	//} while (n != 0);
+	//if (n == 0)
+	
 }

@@ -148,7 +148,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArrayIn.cpp" />
+    <ClCompile Include="ArrayInM.cpp" />
     <ClCompile Include="ArrayOut.cpp" />
+    <ClCompile Include="ArrayOutM.cpp" />
     <ClCompile Include="changec.cpp" />
     <ClCompile Include="character.cpp" />
     <ClCompile Include="main.cpp" />
@@ -159,9 +161,11 @@
     <ClCompile Include="seminar2.cpp" />
     <ClCompile Include="seminar3.cpp" />
     <ClCompile Include="sort.cpp" />
+    <ClCompile Include="sorta.cpp" />
     <ClCompile Include="string_in.cpp" />
     <ClCompile Include="string_out.cpp" />
     <ClCompile Include="sum.cpp" />
+    <ClCompile Include="sumofdoublearray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.h" />

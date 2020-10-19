@@ -1,9 +1,7 @@
-Не будем о том, как оформлять библиографическую сноску - это нам не очень нужно. А вот правильно указать имя автора и цитируемой произведение требуется часто. Итак, если указание на автора или источник идет непосредственно после цитаты, то оно заключается в скобки. Точка после кавычек не ставится, а ставится после закрывающей скобки.
-
-"Видя бой со стороны, каждый мнит себя стратегом" (Козьма Прутков).
-
-При этом, если первое слово указания на источник или автора не является именем собственным, то пишется с маленькой буквы.
-
-"Слова — наименее эффективное средство общения. Они наиболее открыты для неверных интерпретаций и чаще всего бывают поняты неверно" (из книги «Беседы с Богом» Нила Доналда Уолша).
-
-Если же имя автора и источник указываются ниже цитаты, на следующей строке, то они пишутся без скобок и каких-либо других знаков препинания. После цитаты в таком случае ставится точка (или другой знак, как в оригинале).
+There are four types of schools in the English and Welsh education system — nursery. "Primary, 
+secondary and private schools. Scotland has its own education system, which is different."
+Children start school at the age of five, but there is some free nursery-school education before 
+that age. "The state nursery schools are not for all. They are for some families, for example for 
+families with only one parent. In most areas there are private nursery schools." Parents who want 
+their children to go to nursery school pay for their children under 5 years old to go to these 
+private nursery schools.

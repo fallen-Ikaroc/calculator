@@ -6,41 +6,42 @@ void seminar1() {
 		"1) номер минимального элемента массива;" << endl <<
 		"2) сумму элементов массива, расположенных между первым и вторым отрицательными элементами." << endl<<
 		"Преобразовать массив таким образом, чтобы сначала располагались все элементы,"<<endl<<"модуль которых не превышает 1, а потом - все остальные."<<endl<<endl;
-	int size;
-	double* array;
-	cout << "Введите длину массива:"<<endl;
-	bool sizectrl;
-
-	do {
-		
-		cin >> size;
-
-		if (size > 0)
-			sizectrl = false;
-		else {
-			sizectrl = true;
-			cout << "Ошибка! Введите корректную длину массива!"<<endl;
-		}
-	} while (sizectrl);
-
-	cout <<endl<< "Введите массив:"<<endl;
-	array = ArrayIn(size);
-
-	cout << endl <<endl<< "Введенный массив:" << endl;
-	ArrayOut(size, array);
-
-	cout << endl << "Номер минимального элемента:" << endl;
-	cout << Minimal(array,size) << endl;
-
-	cout << endl << "Сумма элементов: " << endl;
-	cout << sum(size, array) << endl;
+	int n, size=0;
+	double* array=0;
+	bool k = true;
 	
-	int n;
-	do {
-		cout << "\n\n\n" << "Если хотите вернутсья к выбору семинара введите 0." << endl;
+	while (k) {
+		cout << endl << "Choose an action:" << endl;
+		cout << "1 - Enter an array." << endl;
+		cout << "2 - Minimum element of an array." << endl;
+		cout << "3 - Sum of elements." << endl;
+		cout << "4 - Sorting an array." << endl;
+		cout << "5 - Out an array." << endl;
+		cout << "0 - Back to seminar selection." << endl;
 		cin >> n;
-	} while (n != 0);
-
-	if (n == 0)
-		interface();
+		switch (n) {
+		case 1:
+			array = ArrayIn(size);
+			break;
+		case 2:
+			Minimal(array, size);
+			break;
+		case 3:
+			sum(size, array);
+			break;
+		case 4:
+			sort(size, array);
+			break;
+		case 5:
+			ArrayOut(size, array);
+			break;
+		case 0:
+			k = false;
+			break;
+		default:
+			cout << "Wrong action!" << endl;
+			break;
+		}
+	}
+	interface();
 }

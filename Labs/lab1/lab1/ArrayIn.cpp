@@ -1,17 +1,19 @@
 #include "core.h"
 
-double* ArrayIn(int size) {
+double* ArrayIn(int &size) {
+	cout << "Enter the size of the array:" << endl;
+
+	while (true) {
+		cin >> size;
+		if (size > 0)
+			break;
+		else
+			cout << "Incorrect array size! Enter the size of the array:" << endl;
+	}
+	
+	cout << endl << "Enter an array:" << endl;
 	double *array = new double[size];
 	for (int i = 0; i < size; i++)
 		cin >> array[i];
-	return array;
-}
-int** ArrayIn(int size, int sizec) {
-	int** array = new int* [size];
-	for (int i = 0; i < size; i++)
-		array[i] = new int[sizec];
-	for (int i = 0; i < size; i++)
-		for (int j = 0; j < sizec; j++)
-			cin >> array[i][j];
 	return array;
 }
