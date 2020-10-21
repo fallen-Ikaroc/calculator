@@ -35,15 +35,4 @@ void seminar3() {
 	}
 	interface();
 	
-	//cout << endl << "Текст:" << endl<<endl;
-	///*cout << str<<endl<<endl;*/
-	//cout << "Цитаты из текста:" << endl << endl;
-	///*search(str);*/
-	//int n;
-	//do {
-	//	cout << "\n\n\n" << "Если хотите вернутсья к выбору семинара введите 0." << endl;
-	//	cin >> n;
-	//} while (n != 0);
-	//if (n == 0)
-	
 }

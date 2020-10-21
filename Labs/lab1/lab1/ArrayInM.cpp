@@ -1,10 +1,18 @@
 #include "core.h"
 
 int** ArrayIn(int &size, int &sizec) {
-	cout << endl << "¬ведите количество строк матрицы:" << endl << endl;
-	cin >> size;
-	cout << endl << "¬ведите количество стобцов матрицы:" << endl << endl;
-	cin >> sizec;
+	while (true) {
+		cout << endl << "¬ведите количество строк матрицы:" << endl << endl;
+		cin >> size;
+		if (size < 0)
+			break;
+	}
+	while (true) {
+		cout << endl << "¬ведите количество стобцов матрицы:" << endl << endl;
+		cin >> sizec;
+		if (sizec > 0)
+			break;
+	}
 	cout << endl << "¬ведите массив:" << endl << endl;
 	int** array = new int* [size];
 	for (int i = 0; i < size; i++)
