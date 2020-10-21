@@ -5,14 +5,14 @@ void in(char (&text)[10][100]) {
 	ifstream file;
 	while (true) {
 		cout << "Enter file path: ";
-		cin>>path;
+		cin >> path;
 		file.open(path);
 		if (file.is_open())
 			break;
 		else
-			cout << "‘айл не открыт! ¬ведите другой путь!" << endl;
+			cout << "The file is not open! Enter another way!" << endl;
 	}
 	for (int r = 0; r < 10; r++) 
 		file.getline(text[r], 99);
-
+	file.close();
 }

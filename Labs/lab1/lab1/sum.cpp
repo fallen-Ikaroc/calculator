@@ -2,7 +2,7 @@
 
 void sum(int size, double* array) {
     double _sum = 0;
-    int c = 0, k = 0, d=-2;
+    int c = 0, k = 0, d = 0;
     bool error = false;
     for (int i = 0; i < size; i++) {
         if (array[i] < 0)
@@ -18,8 +18,6 @@ void sum(int size, double* array) {
             if ((i - 1) == d) {
                 error = true;
             }
-            
-
         }
         if (c == 1) {
             _sum += array[i];

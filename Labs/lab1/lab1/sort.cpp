@@ -4,7 +4,7 @@ void sort(int size, int sizec, int** array) {
 	int** _array = array;
 	bool k = true;
 	for (int i = 0; i < sizec; i++) {
-		if (character(size, sizec, _array, i) == -1)
+		if (character(size, sizec, _array, i) == 0)
 			k = false;
 	}
 	if (k) {

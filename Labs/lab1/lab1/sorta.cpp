@@ -1,7 +1,7 @@
 #include "core.h"
 
 void sort(int size, double* array) {
-	int _i=0;
+	int _i = 0;
     double* _mas = new double[size];
     for (int i = 0; i < size; i++) {
         if (fabs(array[i]) <= 1) {
@@ -19,4 +19,5 @@ void sort(int size, double* array) {
     for (int i = 0; i < size; i++) {
         cout << _mas[i] << ' ';
     }
+    delete[] _mas;
 }

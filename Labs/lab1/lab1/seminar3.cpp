@@ -2,11 +2,11 @@
 
 void seminar3() {
 	system("cls");
-	cout << "Семинар 3" << endl << "Написать программу, которая считывает текст из файла и выводит на экран" << endl <<
-		"только цитаты, то есть предложения, заключенные в кавычки." << endl;
+	cout << "Seminar 3" << endl << "Write a program that reads text from a file and displays only quotations," << endl << 
+		"i.e. sentences enclosed in inverted commas." << endl;
 
-	char text[10][100],textl[1000]="";
-	bool control=true;
+	char text[10][100], textl[1000] = "";
+	bool control = true;
 	int n;
 	bool k = true;
 	while (k) {
@@ -33,6 +33,8 @@ void seminar3() {
 			break;
 		}
 	}
+	delete[] text;
+	delete[] textl;
 	interface();
 	
 }

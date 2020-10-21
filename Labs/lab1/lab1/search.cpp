@@ -2,7 +2,7 @@
 
 void search(char text[1000])
 {
-	int k = 0,c=0;
+	int k = 0, c = 0;
 	bool q = true;
 	char l[1000] = "";
 	for (int i = 0; i < strlen(text); i++) {
@@ -10,7 +10,7 @@ void search(char text[1000])
 			q = false;
 			i++;
 			k++;
-			if (k != 0 && k % 2 == 0) {
+			if (k % 2 == 0) {
 				l[c] = '\n';
 				c++;
 			}
