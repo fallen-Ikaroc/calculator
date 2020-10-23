@@ -1,6 +1,6 @@
 #include "core.h"
 
-void search(char text[1000])
+char* search(char text[1000])
 {
 	int k = 0,c=0;
 	bool q = true;
@@ -24,4 +24,6 @@ void search(char text[1000])
 		cout << "There are no quotes in the text!";
 	else
 		cout << l;
+	char *_l = new char[strlen(l)];
+	return _l;
 }

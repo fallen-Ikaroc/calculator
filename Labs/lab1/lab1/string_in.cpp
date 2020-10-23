@@ -14,5 +14,5 @@ void in(char (&text)[10][100]) {
 	}
 	for (int r = 0; r < 10; r++) 
 		file.getline(text[r], 99);
-
+	
 }

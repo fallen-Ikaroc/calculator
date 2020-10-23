@@ -1,6 +1,6 @@
 #include "core.h"
 
-void sort(int size, int sizec, int** array) {
+int** sort(int size, int sizec, int** array) {
 	int** _array = array;
 	bool k = true;
 	for (int i = 0; i < sizec; i++) {
@@ -17,5 +17,6 @@ void sort(int size, int sizec, int** array) {
 	}
 	else
 		cout << "The array cannot be sorted!"<<endl;
+	return _array;
 	
 }

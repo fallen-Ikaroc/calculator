@@ -1,6 +1,6 @@
 #include "core.h"
 
-void sum(int size, double* array) {
+double sum(int size, double* array) {
     double _sum = 0;
     int c = 0, k = 0, d=-2;
     bool error = false;
@@ -40,5 +40,5 @@ void sum(int size, double* array) {
             cout << "Sum of elements: " << _sum << endl;
         break;
     }
-    
+    return _sum;
 }

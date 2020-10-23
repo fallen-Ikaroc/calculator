@@ -1,6 +1,6 @@
 #include "core.h"
 
-void sum(int size, int sizec, int** array) {
+int sum(int size, int sizec, int** array) {
 	int _sum = 0;
 	bool neg;
 	for (int j = 0; j < sizec; j++) {
@@ -16,4 +16,5 @@ void sum(int size, int sizec, int** array) {
 			_sum += _sum_2;
 	}
 	cout  << "Сумма элементов:" << _sum << endl;
+	return _sum;
 }

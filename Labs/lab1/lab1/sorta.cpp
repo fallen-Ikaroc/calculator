@@ -1,6 +1,6 @@
 #include "core.h"
 
-void sort(int size, double* array) {
+double* sort(int size, double* array) {
 	int _i=0;
     double* _mas = new double[size];
     for (int i = 0; i < size; i++) {
@@ -19,4 +19,5 @@ void sort(int size, double* array) {
     for (int i = 0; i < size; i++) {
         cout << _mas[i] << ' ';
     }
+    return _mas;
 }
