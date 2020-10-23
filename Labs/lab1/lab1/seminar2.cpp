@@ -2,14 +2,14 @@
 
 void seminar2() {
 	system("cls");
-	cout << "Семинар 2" << endl << "Характеристикой столбца целочисленной матрицы назовем сумму модулей его" << endl <<
-		"отрицательных нечетных элементов. Переставляя столбцы заданной матрицы, расположить" << endl <<
-		"их в соответвии с ростом характеристик." << endl <<
-		"Найти сумму элементов в теъ столбцах, которые содержат хотя бы один" << endl <<
-		"отрицательных элементов." << endl;
+	cout << "Seminar 2" << endl << "The characteristic feature of the column of the integer matrix is the sum of" << endl << 
+		"the modules of its negative odd-numbered elements. By rearranging the columns" << endl << 
+		"of a given matrix, arrange them according to the growth of characteristics." << endl << 
+		"Find the sum of elements of those columns that contain at least one negative" << endl <<
+		"element." << endl;
 	bool k = true;
-	int size=0, sizec=0,n;
-	int** array=0;
+	int size = 0, sizec = 0, n;
+	int** array = 0;
 	while (k) {
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Enter an array." << endl;
@@ -39,5 +39,8 @@ void seminar2() {
 			break;
 		}
 	}
+	for (int i = 0; i < size; i++)
+		delete[] array[i];
+	delete[] array;
 	interface();
 }

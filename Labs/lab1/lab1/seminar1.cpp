@@ -2,12 +2,12 @@
 
 void seminar1() {
 	system("cls");
-	cout <<"—еминар 1"<<endl <<endl<< "¬ одномерном массиве, состо€щем из n вещественных элементов, вычислить:" << endl <<
-		"1) номер минимального элемента массива;" << endl <<
-		"2) сумму элементов массива, расположенных между первым и вторым отрицательными элементами." << endl<<
-		"ѕреобразовать массив таким образом, чтобы сначала располагались все элементы,"<<endl<<"модуль которых не превышает 1, а потом - все остальные."<<endl<<endl;
-	int n, size=0;
-	double* array=0;
+	cout <<"Seminar 1"<< endl << endl<< "Calculate in a one-dimensional array consisting of n-real elements:" << endl <<
+		"1) minimum array number;" << endl <<
+		"2) the sum of array elements located between the first and second negative" << endl << "elements." << endl <<
+		"Transform the array so that all the elements whose module does not exceed 1 are" << endl << "located first and then all the others." << endl << endl;
+	int n, size = 0;
+	double* array = 0;
 	bool k = true;
 	
 	while (k) {
@@ -43,5 +43,6 @@ void seminar1() {
 			break;
 		}
 	}
+	delete[] array;
 	interface();
 }

@@ -2,10 +2,9 @@
 
 void interface() {
 	system("cls");
-	setlocale(LC_ALL, "Russian");
 	int n;
 	while(true){
-		cout << "Выберите номер семинара: 1, 2, 3." << endl << "Для завершения программы введите 0." << endl;
+		cout << "Select the seminar number: 1, 2, 3." << endl << "To finish the program, enter 0." << endl;
 		cin >> n;
 		if (n == 1 || n == 2 || n == 3 || n == 0)
 			break;
