@@ -8,7 +8,7 @@ void seminar2() {
 		"Find the sum of elements of those columns that contain at least one negative" << endl <<
 		"element." << endl;
 	bool k = true;
-	int size = 0, sizec = 0, n;
+	int size = 0, sizec = 0, n,_sum;
 	int** array = 0;
 	while (k) {
 		cout << endl << "Choose an action:" << endl;
@@ -26,7 +26,7 @@ void seminar2() {
 			sort(size, sizec, array);
 			break;
 		case 3:
-			sum(size, sizec, array);
+			_sum=sum(size, sizec, array);
 			break;
 		case 4:
 			ArrayOut(size, sizec, array);

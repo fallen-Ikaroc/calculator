@@ -9,7 +9,7 @@ void seminar1() {
 	int n, size = 0;
 	double* array = 0;
 	bool k = true;
-	
+	double _sum, minimal;
 	while (k) {
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Enter an array." << endl;
@@ -24,10 +24,10 @@ void seminar1() {
 			array = ArrayIn(size);
 			break;
 		case 2:
-			Minimal(array, size);
+			minimal=Minimal(array, size);
 			break;
 		case 3:
-			sum(size, array);
+			_sum=sum(size, array);
 			break;
 		case 4:
 			sort(size, array);

@@ -20,5 +20,5 @@ double* sort(int size, double* array) {
         cout << _mas[i] << ' ';
     }
     return _mas;
-    delete[] _mas;
+    
 }
