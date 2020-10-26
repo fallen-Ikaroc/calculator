@@ -44,5 +44,6 @@ void seminar1() {
 		}
 	}
 	delete[] array;
+
 	interface();
 }

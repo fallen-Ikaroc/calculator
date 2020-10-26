@@ -1,6 +1,6 @@
 #include "core.h"
 
-void Minimal(double* array, int size) {
+double Minimal(double* array, int size) {
     double* array_of_index = new double[size];
 
     int minimal = 0, minimal_quantity=-1;
@@ -21,4 +21,5 @@ void Minimal(double* array, int size) {
     cout << endl << "Minimal element: " << array[minimal] << endl;
 
     delete[] array_of_index;
+    return array[minimal];
 }
