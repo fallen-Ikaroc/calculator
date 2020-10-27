@@ -1,7 +1,7 @@
 ﻿#include "core.h"
 
 int main(){
-    interface();
+    maininterface();
     return 0;
 }
 

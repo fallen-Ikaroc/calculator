@@ -15,6 +15,5 @@ int sum(int size, int sizec, int** array) {
 		if (neg)
 			_sum += _sum_2;
 	}
-	cout  << "Amount of elements: " << _sum << endl;
 	return _sum;
 }

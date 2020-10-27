@@ -5,20 +5,31 @@ void seminar3() {
 	cout << "Seminar 3" << endl << "Write a program that reads text from a file and displays only quotations," << endl << 
 		"i.e. sentences enclosed in inverted commas." << endl;
 
-	char text[10][100], textl[1000] = "";
-	bool control = true;
-	int n;
-	bool k = true;
+	char textl[1000] = "", *l=new char[1000],** text = new char* [10];
+	bool control = true, a;
+	int n, c;
+	bool k = true, q = true;
+	for (int i = 0; i < 10; i++) {
+		text[i] = new char[100];
+	}
 	while (k) {
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Open file." << endl;
 		cout << "2 - Display text." << endl;
 		cout << "3 - Display quotes." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		cin >> n;
+		while (!(cin >> n)) {
+			cin.clear();
+			cin.ignore();
+		}
 		switch (n) {
 		case 1:
-			in(text);
+			cout << "Enter file path: ";
+			do {
+				text=in(a);
+				if(a)
+					cout << "The file is not open! Enter another way!" << endl;
+			} while (a);
 			for (int i = 0; i < 10; i++)
 				strcat_s(textl, text[i]);
 			break;
@@ -26,15 +37,19 @@ void seminar3() {
 			out(text);
 			break;
 		case 3:
-			search(textl);
+			l=search(textl, q, c);
+			if (q)
+				cout << "There are no quotes in the text!";
+			else
+				for (int i = 0; i < c; i++)
+					cout << l[i];
 			break;
 		case 0:
 			k = false;
 			break;
 		}
 	}
-	delete[] text;
-	delete[] textl;
-	interface();
+	
+	maininterface();
 	
 }

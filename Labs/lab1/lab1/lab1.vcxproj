@@ -154,7 +154,7 @@
     <ClCompile Include="changec.cpp" />
     <ClCompile Include="character.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="interface.cpp" />
+    <ClCompile Include="interfase.cpp" />
     <ClCompile Include="Minimal.cpp" />
     <ClCompile Include="search.cpp" />
     <ClCompile Include="seminar1.cpp" />
