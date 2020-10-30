@@ -13,64 +13,73 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\seminar1">
+      <UniqueIdentifier>{81486625-4687-4cfc-84c2-246016393d10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\seminar3">
+      <UniqueIdentifier>{5b1f9083-c0f3-4560-80ab-be7e6a459fd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\seminar2">
+      <UniqueIdentifier>{040947f0-02f6-45aa-9fef-ee22c3e12002}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="seminar1.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="seminar2.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="seminar3.cpp">
+    <ClCompile Include="interfase.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ArrayIn.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\seminar1</Filter>
     </ClCompile>
     <ClCompile Include="ArrayOut.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\seminar1</Filter>
     </ClCompile>
     <ClCompile Include="Minimal.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\seminar1</Filter>
     </ClCompile>
     <ClCompile Include="sum.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="character.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="changec.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="sort.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="string_in.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="string_out.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="search.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ArrayInM.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ArrayOutM.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="sumofdoublearray.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\seminar1</Filter>
     </ClCompile>
     <ClCompile Include="sorta.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\seminar1</Filter>
     </ClCompile>
-    <ClCompile Include="interfase.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="seminar1.cpp">
+      <Filter>Исходные файлы\seminar1</Filter>
+    </ClCompile>
+    <ClCompile Include="seminar2.cpp">
+      <Filter>Исходные файлы\seminar2</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayInM.cpp">
+      <Filter>Исходные файлы\seminar2</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayOutM.cpp">
+      <Filter>Исходные файлы\seminar2</Filter>
+    </ClCompile>
+    <ClCompile Include="sumofdoublearray.cpp">
+      <Filter>Исходные файлы\seminar2</Filter>
+    </ClCompile>
+    <ClCompile Include="changec.cpp">
+      <Filter>Исходные файлы\seminar2</Filter>
+    </ClCompile>
+    <ClCompile Include="character.cpp">
+      <Filter>Исходные файлы\seminar2</Filter>
+    </ClCompile>
+    <ClCompile Include="sort.cpp">
+      <Filter>Исходные файлы\seminar2</Filter>
+    </ClCompile>
+    <ClCompile Include="search.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
+    </ClCompile>
+    <ClCompile Include="seminar3.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
+    </ClCompile>
+    <ClCompile Include="string_in.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
+    </ClCompile>
+    <ClCompile Include="string_out.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
