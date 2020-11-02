@@ -9,11 +9,7 @@ void seminar2() {
 		"element." << endl;
 	bool k = true, h;
 	int size = 0, sizec = 0, n, _sum;
-	int** array = new int*[size], ** _array = new int*[size];
-	for (int i = 0; i < size; i++) {
-		array[i] = new int[sizec];
-		_array[i] = new int[sizec];
-	}
+	int** array = NULL, ** _array = NULL;
 	while (k) {
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Enter an array." << endl;
@@ -21,24 +17,30 @@ void seminar2() {
 		cout << "3 - Sum of elements." << endl;
 		cout << "4 - Out an array." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		while (!(cin >> n)) {
+		while (!(cin >> n)) 
+		{
 			cin.clear();
 			cin.ignore();
 		}
-		switch (n) {
+		switch (n) 
+		{
 		case 1:
-			while (true) {
+			while (true) 
+			{
 				cout << endl << "Enter the number of rows in the matrix:" << endl << endl;
-				while (!(cin >> size)) {
+				while (!(cin >> size)) 
+				{
 					cin.clear();
 					cin.ignore();
 				}
 				if (size > 0)
 					break;
 			}
-			while (true) {
+			while (true) 
+			{
 				cout << endl << "Enter the number of stolls of the matrix:" << endl << endl;
-				while (!(cin >> sizec)) {
+				while (!(cin >> sizec)) 
+				{
 					cin.clear();
 					cin.ignore();
 				}
@@ -50,7 +52,8 @@ void seminar2() {
 			break;
 		case 2:
 			_array=sort(size, sizec, array, h);
-			if (h) {
+			if (h) 
+			{
 				cout << "Sorted ";
 				ArrayOut(size, sizec, _array);
 			}
@@ -74,9 +77,6 @@ void seminar2() {
 	}
 	for (int i = 0; i < size; i++)
 		delete array[i];
-	for (int i = 0; i < size; i++)
-		delete _array[i];
 	delete[] array;
-	delete[] _array;
 	maininterface();
 }

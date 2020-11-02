@@ -6,11 +6,12 @@ void seminar1() {
 		"1) minimum array number;" << endl <<
 		"2) the sum of array elements located between the first and second negative" << endl << "elements." << endl <<
 		"Transform the array so that all the elements whose module does not exceed 1 are" << endl << "located first and then all the others." << endl << endl;
-	int n, size=0, *array_of_index= new int[size], minimal_quantity, z;
-	double* array = 0, *_array=0;
+	int n, size=0, *array_of_index = NULL, minimal_quantity, z;
+	double* array = NULL, *_array = NULL;
 	bool k = true, p;
 	double _sum;
-	while (k) {
+	while (k) 
+	{
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Enter an array." << endl;
 		cout << "2 - Minimum element of an array." << endl;
@@ -18,18 +19,22 @@ void seminar1() {
 		cout << "4 - Sorting an array." << endl;
 		cout << "5 - Out an array." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		while (!(cin >> n)) {
+		while (!(cin >> n)) 
+		{
 			cin.clear();
 			cin.ignore();
 		}
-		switch (n) {
+		switch (n) 
+		{
 		case 1:
 			cout << "Enter the size of the array:" << endl;
-			while (true) {
+			while (true) 
+			{
 				cin >> size;
 				if (size > 0)
 					break;
-				else {
+				else 
+				{
 					cout << "Incorrect array size! Enter the size of the array:" << endl;
 					cin.clear();
 					cin.ignore();
@@ -48,7 +53,8 @@ void seminar1() {
 			break;
 		case 3:
 			_sum=sum(size, array, z, p);
-			switch (z) {
+			switch (z) 
+			{
 			case 0:
 				cout << "The array does not have negative elements!" << endl;
 				break;
@@ -66,9 +72,8 @@ void seminar1() {
 		case 4:
 			_array=sort(size, array);
 			cout << "Sorted array:";
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < size; i++)
 				cout << _array[i] << ' ';
-			}
 			break;
 		case 5:
 			ArrayOut(size, array);

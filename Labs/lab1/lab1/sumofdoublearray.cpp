@@ -1,9 +1,11 @@
 #include "core.h"
 
-int sum(int size, int sizec, int** array) {
+int sum(int size, int sizec, int** array) 
+{
 	int _sum = 0;
 	bool neg;
-	for (int j = 0; j < sizec; j++) {
+	for (int j = 0; j < sizec; j++) 
+	{
 		neg = false;
 		int _sum_2 = 0;
 		for (int i = 0; i < size; i++)

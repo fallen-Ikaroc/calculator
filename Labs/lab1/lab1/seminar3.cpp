@@ -1,6 +1,7 @@
 #include "core.h"
 
-void seminar3() {
+void seminar3() 
+{
 	system("cls");
 	cout << "Seminar 3" << endl << "Write a program that reads text from a file and displays only quotations," << endl << 
 		"i.e. sentences enclosed in inverted commas." << endl;
@@ -9,20 +10,22 @@ void seminar3() {
 	bool control = true, a;
 	int n, c;
 	bool k = true, q = true;
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 10; i++) 
 		text[i] = new char[100];
-	}
-	while (k) {
+	while (k) 
+	{
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Open file." << endl;
 		cout << "2 - Display text." << endl;
 		cout << "3 - Display quotes." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		while (!(cin >> n)) {
+		while (!(cin >> n)) 
+		{
 			cin.clear();
 			cin.ignore();
 		}
-		switch (n) {
+		switch (n) 
+		{
 		case 1:
 			cout << "Enter file path: ";
 			do {

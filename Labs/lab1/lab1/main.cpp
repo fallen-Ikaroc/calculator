@@ -1,6 +1,7 @@
 ﻿#include "core.h"
 
-int main(){
+int main()
+{
     maininterface();
     return 0;
 }

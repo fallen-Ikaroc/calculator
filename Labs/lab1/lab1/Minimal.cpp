@@ -1,6 +1,7 @@
 #include "core.h"
 
-int* Minimal(double* array, int size, int &minimal_quantity) {
+int* Minimal(double* array, int size, int &minimal_quantity) 
+{
     int* array_of_index = new int[size];
 
     int minimal = 0;
@@ -11,7 +12,8 @@ int* Minimal(double* array, int size, int &minimal_quantity) {
             minimal = i;
 
     for (int i = 0; i < size; i++)
-        if (array[i] == array[minimal]) {
+        if (array[i] == array[minimal]) 
+        {
             minimal_quantity++;
             array_of_index[minimal_quantity] = i;
         }   
