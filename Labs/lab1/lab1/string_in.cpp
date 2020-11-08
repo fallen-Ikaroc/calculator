@@ -1,41 +1,22 @@
 #include "core.h"
 
-char** in(bool &error) 
+char** in(bool &a) 
 {
-	ifstream file;
-	char** text = new char* [10], path[100]="";
-	int choose;
+	char** text = new char* [10];
 	for (int i = 0; i < 10; i++) 
 		text[i] = new char[100];
-	cout << "Do you want use standart path(0) or enter your path(1)"<<endl;
-	while (true)
-	{
-		choose = EnterInt();
-		if (choose == 0)
-		{
-			strcat_s(path, "text.txt");
-			break;
-		}
-		else
-			if (choose == 1)
-			{
-				cout << "Please enter path:" << endl;
-				cin >> path;
-				break;
-			}
-			else
-				cout << "Wrong value! Please repeat!" << endl;
-
-	}
+	char path[100];
+	ifstream file;
+	cin >> path;
 	file.open(path);
 	if (file.is_open()) 
 	{
-		for (int row = 0; row < 10; row++)
-			file.getline(text[row], 99);
+		for (int r = 0; r < 10; r++)
+			file.getline(text[r], 99);
 		file.close();
-		error = false;
+		a = false;
 	}
 	else
-		error = true;
+		a = true;
 	return text;
 }

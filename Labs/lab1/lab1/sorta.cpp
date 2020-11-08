@@ -2,22 +2,26 @@
 
 double* sort(int size, double* array) 
 {
-	int indexOfArray = 0;
+	int _i = 0;
     double* _mas = new double[size];
 
     for (int i = 0; i < size; i++) 
+    {
         if (fabs(array[i]) <= 1) 
         {
-           _mas[indexOfArray] = array[i];
-           indexOfArray++;
+           _mas[_i] = array[i];
+            _i++;
         }
+    }
 
     for (int i = 0; i < size; i++) 
-        if (fabs(array[i]) > 1 && indexOfArray < size)
+    {
+        if (fabs(array[i]) > 1 && _i< size) 
         {
-            _mas[indexOfArray] = array[i];
-            indexOfArray++;
+            _mas[_i] = array[i];
+            _i++;
         }
+    }
     
     return _mas;
 }

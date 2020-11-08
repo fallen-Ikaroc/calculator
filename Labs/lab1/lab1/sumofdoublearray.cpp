@@ -1,10 +1,9 @@
 #include "core.h"
 
-int sum(int size, int sizec, int** array, bool &triger) 
+int sum(int size, int sizec, int** array) 
 {
 	int _sum = 0;
 	bool neg;
-	triger=false;
 	for (int j = 0; j < sizec; j++) 
 	{
 		neg = false;
@@ -15,10 +14,8 @@ int sum(int size, int sizec, int** array, bool &triger)
 				neg = true;
 			_sum_2 += array[i][j];
 		}
-		if (neg) {
-			triger = true;
+		if (neg)
 			_sum += _sum_2;
-		}
 	}
 	return _sum;
 }

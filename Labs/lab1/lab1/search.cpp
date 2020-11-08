@@ -1,28 +1,28 @@
 #include "core.h"
 
-char* search(char text[1000], bool& ErrorQuotes, int &SizeOfText)
+char* search(char text[1000], bool& q, int &c)
 {
-	int numberOfQuotes = 0;
-	SizeOfText = 0;
-	char *Quotes = new char[1000];
+	int k = 0;
+	c = 0;
+	char *l = new char[1000];
 	for (int i = 0; i < strlen(text); i++) 
 	{
 		if (text[i] == '\"') 
 		{
-			ErrorQuotes = false;
+			q = false;
 			i++;
-			numberOfQuotes++;
-			if (numberOfQuotes % 2 == 0)
+			k++;
+			if (k % 2 == 0) 
 			{
-				Quotes[SizeOfText] = '\n';
-				SizeOfText++;
+				l[c] = '\n';
+				c++;
 			}
 		}
-		if (numberOfQuotes % 2 == 1)
+		if (k % 2 == 1) 
 		{
-			Quotes[SizeOfText] = text[i];
-			SizeOfText++;
+			l[c] = text[i];
+			c++;
 		}
 	}
-	return Quotes;
+	return l;
 }

@@ -1,9 +1,6 @@
 #pragma once
 
 void maininterface();
-int EnterInt();
-double EnterDouble();
-int EnterSize();
 
 //seminar 1
 void seminar1();
@@ -16,7 +13,7 @@ void ArrayOut(int size, double* array);
 //seminar 2
 void seminar2();
 int** ArrayIn(int size, int sizec);
-int sum(int size, int sizec, int** array, bool& triger);
+int sum(int size, int sizec, int** array);
 int** changec(int size, int** array, int k, int j);
 int character(int size, int sizec, int** array, int j);
 int** sort(int size, int sizec, int** array, bool& k);

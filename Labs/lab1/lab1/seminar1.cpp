@@ -6,11 +6,11 @@ void seminar1() {
 		"1) minimum array number;" << endl <<
 		"2) the sum of array elements located between the first and second negative" << endl << "elements." << endl <<
 		"Transform the array so that all the elements whose module does not exceed 1 are" << endl << "located first and then all the others." << endl << endl;
-	int partOfSeminar, size=0, *array_of_index = NULL, minimal_quantity, treatmentError;
+	int n, size=0, *array_of_index = NULL, minimal_quantity, z;
 	double* array = NULL, *_array = NULL;
-	bool mainCycle = true, errorTreatment, fixForEnterArray=false;
+	bool k = true, p;
 	double _sum;
-	while (mainCycle)
+	while (k) 
 	{
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Enter an array." << endl;
@@ -19,71 +19,67 @@ void seminar1() {
 		cout << "4 - Sorting an array." << endl;
 		cout << "5 - Out an array." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		partOfSeminar = EnterInt();
-		switch (partOfSeminar) 
+		while (!(cin >> n)) 
+		{
+			cin.clear();
+			cin.ignore();
+		}
+		switch (n) 
 		{
 		case 1:
-			cout << "Enter the size of the array >1 and <50" << endl;
-			size = EnterSize();
-			cout << endl << "Enter an array:" << endl;
-			array = ArrayIn(size);
-			fixForEnterArray = true;
-			break;
-		case 2:
-			if (fixForEnterArray)
+			cout << "Enter the size of the array:" << endl;
+			while (true) 
 			{
-				array_of_index = Minimal(array, size, minimal_quantity);
-				cout << "Number of minimal element(s): " << minimal_quantity + 1 << endl;
-				cout << "Index of minimal element(s): ";
-				for (int i = 0; i <= minimal_quantity; i++)
-					cout << array_of_index[i] << ' ';
-				cout << endl << "Minimal element: " << array[array_of_index[0]] << endl;
-			}
-			else
-				cout << "Error! Please enter array!" << endl;
-			break;
-		case 3:
-			if (fixForEnterArray)
-			{
-				_sum = sum(size, array, treatmentError, errorTreatment);
-				switch (treatmentError)
+				cin >> size;
+				if (size > 0)
+					break;
+				else 
 				{
-				case 0:
-					cout << "The array does not have negative elements!" << endl;
-					break;
-				case 1:
-					cout << "The array have just one negative element!" << endl;
-					break;
-				default:
-					if (errorTreatment)
-						cout << "Negative elements are in a row!" << endl;
-					else
-						cout << "Sum of elements: " << _sum << endl;
-					break;
+					cout << "Incorrect array size! Enter the size of the array:" << endl;
+					cin.clear();
+					cin.ignore();
 				}
 			}
-			else
-				cout << "Error! Please enter array!" << endl;
+			cout << endl << "Enter an array:" << endl;
+			array = ArrayIn(size);
+			break;
+		case 2:
+			array_of_index = Minimal(array, size, minimal_quantity);
+			cout << "Number of minimal element(s): " << minimal_quantity + 1 << endl;
+			cout << "Index of minimal element(s): ";
+			for (int i = 0; i <= minimal_quantity; i++)
+				cout << array_of_index[i] << ' ';
+			cout << endl << "Minimal element: " << array[array_of_index[0]] << endl;
+			break;
+		case 3:
+			_sum=sum(size, array, z, p);
+			switch (z) 
+			{
+			case 0:
+				cout << "The array does not have negative elements!" << endl;
+				break;
+			case 1:
+				cout << "The array have just one negative element!" << endl;
+				break;
+			default:
+				if (p)
+					cout << "Negative elements are in a row!" << endl;
+				else
+					cout << "Sum of elements: " << _sum << endl;
+				break;
+			}
 			break;
 		case 4:
-			if (fixForEnterArray)
-			{
-				_array = sort(size, array);
-				cout << "Sorted array:";
-				for (int i = 0; i < size; i++)
-					cout << _array[i] << ' ';
-			}
-			else
-				cout << "Error! Please enter array!" << endl;
+			_array=sort(size, array);
+			cout << "Sorted array:";
+			for (int i = 0; i < size; i++)
+				cout << _array[i] << ' ';
 			break;
 		case 5:
-			if (fixForEnterArray)
-				ArrayOut(size, array);
-			else
-				cout << "Error! Please enter array!" << endl;
+			ArrayOut(size, array);
 			break;
 		case 0:
-			mainCycle = false;
+			k = false;
 			break;
 		default:
 			cout << "Wrong action!" << endl;

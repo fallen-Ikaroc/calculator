@@ -3,17 +3,22 @@
 void maininterface() 
 {
 	system("cls");
-	int seminar;
+	int n;
 	
 	while(true)
 	{
+
 		cout << "Select the seminar number: 1, 2, 3." << endl << "To finish the program, enter 0." << endl;
-		seminar = EnterInt();
-		if (seminar == 1 || seminar == 2 || seminar == 3 || seminar == 0)
+		while (!(cin >> n))
+		{
+			cin.clear();
+			cin.ignore();
+			cout << "Select the seminar number: 1, 2, 3." << endl << "To finish the program, enter 0." << endl;
+		}
+		if (n == 1 || n == 2 || n == 3 || n == 0)
 			break;
 	}
-
-	switch (seminar)
+	switch (n) 
 	{
 	case 1: seminar1(); break;
 	case 2: seminar2(); break;
