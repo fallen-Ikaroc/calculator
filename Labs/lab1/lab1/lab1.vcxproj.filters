@@ -81,6 +81,15 @@
     <ClCompile Include="string_out.cpp">
       <Filter>Исходные файлы\seminar3</Filter>
     </ClCompile>
+    <ClCompile Include="EnterInt.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="EnterSize.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="EnterDouble.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.h">

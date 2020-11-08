@@ -6,11 +6,11 @@ void seminar1() {
 		"1) minimum array number;" << endl <<
 		"2) the sum of array elements located between the first and second negative" << endl << "elements." << endl <<
 		"Transform the array so that all the elements whose module does not exceed 1 are" << endl << "located first and then all the others." << endl << endl;
-	int n, size=0, *array_of_index = NULL, minimal_quantity, z;
+	int partOfSeminar, size=0, *array_of_index = NULL, minimal_quantity, treatmentError;
 	double* array = NULL, *_array = NULL;
-	bool k = true, p;
+	bool mainCycle = true, errorTreatment, fixForEnterArray=false;
 	double _sum;
-	while (k) 
+	while (mainCycle)
 	{
 		cout << endl << "Choose an action:" << endl;
 		cout << "1 - Enter an array." << endl;
@@ -19,67 +19,71 @@ void seminar1() {
 		cout << "4 - Sorting an array." << endl;
 		cout << "5 - Out an array." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		while (!(cin >> n)) 
-		{
-			cin.clear();
-			cin.ignore();
-		}
-		switch (n) 
+		partOfSeminar = EnterInt();
+		switch (partOfSeminar) 
 		{
 		case 1:
-			cout << "Enter the size of the array:" << endl;
-			while (true) 
-			{
-				cin >> size;
-				if (size > 0)
-					break;
-				else 
-				{
-					cout << "Incorrect array size! Enter the size of the array:" << endl;
-					cin.clear();
-					cin.ignore();
-				}
-			}
+			cout << "Enter the size of the array >1 and <50" << endl;
+			size = EnterSize();
 			cout << endl << "Enter an array:" << endl;
 			array = ArrayIn(size);
+			fixForEnterArray = true;
 			break;
 		case 2:
-			array_of_index = Minimal(array, size, minimal_quantity);
-			cout << "Number of minimal element(s): " << minimal_quantity + 1 << endl;
-			cout << "Index of minimal element(s): ";
-			for (int i = 0; i <= minimal_quantity; i++)
-				cout << array_of_index[i] << ' ';
-			cout << endl << "Minimal element: " << array[array_of_index[0]] << endl;
+			if (fixForEnterArray)
+			{
+				array_of_index = Minimal(array, size, minimal_quantity);
+				cout << "Number of minimal element(s): " << minimal_quantity + 1 << endl;
+				cout << "Index of minimal element(s): ";
+				for (int i = 0; i <= minimal_quantity; i++)
+					cout << array_of_index[i] << ' ';
+				cout << endl << "Minimal element: " << array[array_of_index[0]] << endl;
+			}
+			else
+				cout << "Error! Please enter array!" << endl;
 			break;
 		case 3:
-			_sum=sum(size, array, z, p);
-			switch (z) 
+			if (fixForEnterArray)
 			{
-			case 0:
-				cout << "The array does not have negative elements!" << endl;
-				break;
-			case 1:
-				cout << "The array have just one negative element!" << endl;
-				break;
-			default:
-				if (p)
-					cout << "Negative elements are in a row!" << endl;
-				else
-					cout << "Sum of elements: " << _sum << endl;
-				break;
+				_sum = sum(size, array, treatmentError, errorTreatment);
+				switch (treatmentError)
+				{
+				case 0:
+					cout << "The array does not have negative elements!" << endl;
+					break;
+				case 1:
+					cout << "The array have just one negative element!" << endl;
+					break;
+				default:
+					if (errorTreatment)
+						cout << "Negative elements are in a row!" << endl;
+					else
+						cout << "Sum of elements: " << _sum << endl;
+					break;
+				}
 			}
+			else
+				cout << "Error! Please enter array!" << endl;
 			break;
 		case 4:
-			_array=sort(size, array);
-			cout << "Sorted array:";
-			for (int i = 0; i < size; i++)
-				cout << _array[i] << ' ';
+			if (fixForEnterArray)
+			{
+				_array = sort(size, array);
+				cout << "Sorted array:";
+				for (int i = 0; i < size; i++)
+					cout << _array[i] << ' ';
+			}
+			else
+				cout << "Error! Please enter array!" << endl;
 			break;
 		case 5:
-			ArrayOut(size, array);
+			if (fixForEnterArray)
+				ArrayOut(size, array);
+			else
+				cout << "Error! Please enter array!" << endl;
 			break;
 		case 0:
-			k = false;
+			mainCycle = false;
 			break;
 		default:
 			cout << "Wrong action!" << endl;

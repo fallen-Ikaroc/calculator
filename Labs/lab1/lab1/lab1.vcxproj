@@ -86,10 +86,12 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,6 +155,9 @@
     <ClCompile Include="ArrayOutM.cpp" />
     <ClCompile Include="changec.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="EnterDouble.cpp" />
+    <ClCompile Include="EnterInt.cpp" />
+    <ClCompile Include="EnterSize.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="interfase.cpp" />
     <ClCompile Include="Minimal.cpp" />
