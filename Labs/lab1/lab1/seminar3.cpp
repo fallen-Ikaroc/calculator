@@ -54,10 +54,11 @@ void seminar3()
 			break;
 		}
 	}
-	delete[] Quotes;
-	for (int i = 0; i < 10; i++)
-		delete text[i];
-	delete[] text;
+	if (Quotes != NULL && text != NULL) {
+		delete[] Quotes;
+		for (int i = 0; i < 10; i++)
+			delete text[i];
+		delete[] text;
+	}
 	maininterface();
-	
 }

@@ -7,7 +7,7 @@ void seminar2() {
 		"of a given matrix, arrange them according to the growth of characteristics." << endl << 
 		"Find the sum of elements of those columns that contain at least one negative" << endl <<
 		"element." << endl;
-	bool mainCycle = true, h, fixForEnterArray = false, trigger;
+	bool mainCycle = true, error, fixForEnterArray = false, trigger;
 	int size = 0, sizec = 0, partOfSeminar, _sum;
 	int** array = NULL, ** _array = NULL;
 	while (mainCycle) {
@@ -32,8 +32,8 @@ void seminar2() {
 		case 2:
 			if (fixForEnterArray)
 			{
-				_array = sort(size, sizec, array, h);
-				if (h)
+				_array = sort(size, sizec, array, error);
+				if (error)
 				{
 					cout << "Sorted ";
 					ArrayOut(size, sizec, _array);

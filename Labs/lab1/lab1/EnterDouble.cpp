@@ -13,7 +13,6 @@ double EnterDouble() {
         }
         else
         {
-            cin.ignore(32767, '\n');
             return num;
         }
     }

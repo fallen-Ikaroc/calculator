@@ -69,9 +69,8 @@ void seminar1() {
 			if (fixForEnterArray)
 			{
 				_array = sort(size, array);
-				cout << "Sorted array:";
-				for (int i = 0; i < size; i++)
-					cout << _array[i] << ' ';
+				cout << "Sorted ";
+				ArrayOut(size, _array);
 			}
 			else
 				cout << "Error! Please enter array!" << endl;

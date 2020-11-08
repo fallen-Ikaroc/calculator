@@ -6,7 +6,9 @@ int** sort(int size, int sizec, int** array, bool &error)
 	int** _array = new int*[size];
 	for (int i = 0; i < size; i++)
 		_array[i] = new int[sizec];
-	
+	for (int i = 0; i < size; i++)
+		for (int j = 0; j < sizec; j++)
+			_array[i][j] = array[i][j];
 	for (int i = 0; i < sizec; i++) 
 	{
 		if (character(size, sizec, _array, i) == 0)
