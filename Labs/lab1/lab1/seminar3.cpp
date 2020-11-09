@@ -1,14 +1,16 @@
 #include "core.h"
 
-void seminar3() 
+void seminar3()
 {
 	system("cls");
+	// start seminar 3
 	cout << "Seminar 3" << endl << "Write a program that reads text from a file and displays only quotations," << endl << 
 		"i.e. sentences enclosed in inverted commas." << endl;
-
 	char textl[1000] = "", *Quotes=NULL, ** text = NULL;
 	bool control = true, ErrorFile, fixForEnterFile=false, mainCycle = true, ErrorQuotes = true;
 	int partOfSeminar, SizeOfText;
+
+	// actions selection
 	while (mainCycle)
 	{
 		cout << endl << "Choose an action:" << endl;
@@ -19,6 +21,7 @@ void seminar3()
 		partOfSeminar = EnterInt();
 		switch (partOfSeminar)
 		{
+		// file opening
 		case 1:
 			cout << "Enter file path: ";
 			do {
@@ -30,12 +33,16 @@ void seminar3()
 				strcat_s(textl, text[i]);
 			fixForEnterFile = true;
 			break;
+
+		// display text
 		case 2:
 			if (fixForEnterFile)
 				out(text);
 			else
 				cout << "Eror! Please enter path and open file with text!" << endl;
 			break;
+
+		// display quotes
 		case 3:
 			if (fixForEnterFile)
 			{
@@ -49,11 +56,14 @@ void seminar3()
 			else
 				cout << "Eror! Please enter path and open file with text!" << endl;
 			break;
+
+		// back to seminar selection
 		case 0:
 			mainCycle = false;
 			break;
 		}
 	}
+	// clearing memory
 	if (Quotes != NULL && text != NULL) {
 		delete[] Quotes;
 		for (int i = 0; i < 10; i++)

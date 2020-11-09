@@ -1,7 +1,9 @@
 #include "core.h"
 
-void seminar2() {
+void seminar2()
+{
 	system("cls");
+	// start seminar 2
 	cout << "Seminar 2" << endl << "The characteristic feature of the column of the integer matrix is the sum of" << endl << 
 		"the modules of its negative odd-numbered elements. By rearranging the columns" << endl << 
 		"of a given matrix, arrange them according to the growth of characteristics." << endl << 
@@ -18,8 +20,11 @@ void seminar2() {
 		cout << "4 - Out an array." << endl;
 		cout << "0 - Back to seminar selection." << endl;
 		partOfSeminar = EnterInt();
+
+		// actions selection
 		switch (partOfSeminar)
 		{
+		// array input
 		case 1:
 			cout << endl << "Enter the number of rows in the matrix >1 and <50:" << endl;
 			size=EnterSize();
@@ -29,6 +34,8 @@ void seminar2() {
 			array = ArrayIn(size, sizec);
 			fixForEnterArray = true;
 			break;
+
+		// sorting an array 
 		case 2:
 			if (fixForEnterArray)
 			{
@@ -44,6 +51,8 @@ void seminar2() {
 			else
 				cout << "Error! Please enter array!" << endl;
 			break;
+
+		// finding the sum of elements
 		case 3:
 			if (fixForEnterArray)
 			{
@@ -56,12 +65,16 @@ void seminar2() {
 			else
 				cout << "Error! Please enter array!" << endl;	
 			break;
+
+		// out an array
 		case 4:
 			if (fixForEnterArray)
 				ArrayOut(size, sizec, array);
 			else
 				cout << "Error! Please enter array!" << endl;			
 			break;
+
+		// back to seminar selection
 		case 0:
 			mainCycle = false;
 			break;
@@ -70,6 +83,7 @@ void seminar2() {
 			break;
 		}
 	}
+	// clearing memory
 	for (int i = 0; i < size; i++) {
 		delete array[i];
 		delete _array[i];

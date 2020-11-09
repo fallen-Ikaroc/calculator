@@ -1,7 +1,9 @@
 #include "core.h"
 
-void seminar1() {
+void seminar1()
+{
 	system("cls");
+	// start seminar 1
 	cout <<"Seminar 1"<< endl << endl<< "Calculate in a one-dimensional array consisting of n-real elements:" << endl <<
 		"1) minimum array number;" << endl <<
 		"2) the sum of array elements located between the first and second negative" << endl << "elements." << endl <<
@@ -10,6 +12,8 @@ void seminar1() {
 	double* array = NULL, *_array = NULL;
 	bool mainCycle = true, errorTreatment, fixForEnterArray=false;
 	double _sum;
+
+	// actions selection
 	while (mainCycle)
 	{
 		cout << endl << "Choose an action:" << endl;
@@ -22,6 +26,7 @@ void seminar1() {
 		partOfSeminar = EnterInt();
 		switch (partOfSeminar) 
 		{
+		// array input
 		case 1:
 			cout << "Enter the size of the array >1 and <50" << endl;
 			size = EnterSize();
@@ -29,6 +34,8 @@ void seminar1() {
 			array = ArrayIn(size);
 			fixForEnterArray = true;
 			break;
+
+		// finding the minimum element 
 		case 2:
 			if (fixForEnterArray)
 			{
@@ -42,6 +49,8 @@ void seminar1() {
 			else
 				cout << "Error! Please enter array!" << endl;
 			break;
+
+		// finding the sum of elements
 		case 3:
 			if (fixForEnterArray)
 			{
@@ -65,6 +74,8 @@ void seminar1() {
 			else
 				cout << "Error! Please enter array!" << endl;
 			break;
+
+		// sorting an array
 		case 4:
 			if (fixForEnterArray)
 			{
@@ -75,12 +86,16 @@ void seminar1() {
 			else
 				cout << "Error! Please enter array!" << endl;
 			break;
+
+		// out an array
 		case 5:
 			if (fixForEnterArray)
 				ArrayOut(size, array);
 			else
 				cout << "Error! Please enter array!" << endl;
 			break;
+
+		// back to seminar selection
 		case 0:
 			mainCycle = false;
 			break;
@@ -89,6 +104,7 @@ void seminar1() {
 			break;
 		}
 	}
+	// clearing memory
 	delete[] array;
 	delete[] _array;
 	delete[] array_of_index;
