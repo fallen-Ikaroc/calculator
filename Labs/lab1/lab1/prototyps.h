@@ -11,7 +11,7 @@ int EnterSize();
 void seminar1();
 double* ArrayIn(int size);
 int* Minimal(double* array, int size, int &minimal_quantity);
-double sum(int size, double* array, int& k, bool& error);
+double sum(int size, double* array, int& treatmentError, bool& error, bool& JustOneElement);
 double* sort(int size, double* array);
 void ArrayOut(int size, double* array);
 //end seminar 1

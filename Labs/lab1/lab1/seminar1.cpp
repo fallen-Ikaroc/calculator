@@ -12,7 +12,7 @@ void seminar1()
 	int* array_of_index = NULL;
 	double* array = NULL, *_array = NULL;
 	double _sum;
-	bool mainCycle = true, errorTreatment, fixForEnterArray=false;
+	bool mainCycle = true, errorTreatment, fixForEnterArray=false, JustOneElement;
 	
 
 	// actions selection
@@ -56,7 +56,7 @@ void seminar1()
 		case 3:
 			if (fixForEnterArray)
 			{
-				_sum = sum(size, array, treatmentError, errorTreatment);
+				_sum = sum(size, array, treatmentError, errorTreatment, JustOneElement);
 				switch (treatmentError)
 				{
 				case 0:
@@ -69,7 +69,10 @@ void seminar1()
 					if (errorTreatment)
 						cout << "Negative elements are in a row!" << endl;
 					else
-						cout << "Sum of elements: " << _sum << endl;
+						if (JustOneElement)
+							cout << "There is only one element between negative elements!" << endl;
+						else
+							cout << "Sum of elements: " << _sum << endl;
 					break;
 				}
 			}

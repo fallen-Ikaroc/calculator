@@ -8,14 +8,14 @@ void seminar3()
 		"i.e. sentences enclosed in inverted commas." << endl;
 	char textl[1000] = "";
 	char* Quotes = NULL, ** text = NULL;
-	bool control = true, ErrorFile, fixForEnterFile=false, mainCycle = true, ErrorQuotes = true;
+	bool control = true, ErrorFile, fixForEnterFile = false, mainCycle = true, ErrorQuotes = true;
 	int partOfSeminar, SizeOfText;
 
 	// actions selection
 	while (mainCycle)
 	{
 		cout << endl << "Choose an action:" << endl;
-		cout << "1 - Choose your file." << endl;
+		cout << "1 - Choose file." << endl;
 		cout << "2 - Display text." << endl;
 		cout << "3 - Display quotes." << endl;
 		cout << "0 - Back to seminar selection." << endl;
@@ -26,7 +26,7 @@ void seminar3()
 		case 1:
 			cout << "Enter file path: ";
 			do {
-				text=in(ErrorFile);
+				text = in(ErrorFile);
 				if(ErrorFile)
 					cout << "The file is not open! Enter another way!" << endl;
 			} while (ErrorFile);
@@ -39,7 +39,7 @@ void seminar3()
 			if (fixForEnterFile)
 				out(text);
 			else
-				cout << "Eror! Please enter path and open file with text!" << endl;
+				cout << "Error! Please enter path and open file with text!" << endl;
 			break;
 
 		// display quotes
@@ -54,7 +54,7 @@ void seminar3()
 						cout << Quotes[i];
 			}
 			else
-				cout << "Eror! Please enter path and open file with text!" << endl;
+				cout << "Error! Please enter path and open file with text!" << endl;
 			break;
 
 		// back to seminar selection
