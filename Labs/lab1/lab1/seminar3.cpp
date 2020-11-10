@@ -6,7 +6,8 @@ void seminar3()
 	// start seminar 3
 	cout << "Seminar 3" << endl << "Write a program that reads text from a file and displays only quotations," << endl << 
 		"i.e. sentences enclosed in inverted commas." << endl;
-	char textl[1000] = "", *Quotes=NULL, ** text = NULL;
+	char textl[1000] = "";
+	char* Quotes = NULL, ** text = NULL;
 	bool control = true, ErrorFile, fixForEnterFile=false, mainCycle = true, ErrorQuotes = true;
 	int partOfSeminar, SizeOfText;
 
@@ -14,7 +15,7 @@ void seminar3()
 	while (mainCycle)
 	{
 		cout << endl << "Choose an action:" << endl;
-		cout << "1 - Open file." << endl;
+		cout << "1 - Choose your file." << endl;
 		cout << "2 - Display text." << endl;
 		cout << "3 - Display quotes." << endl;
 		cout << "0 - Back to seminar selection." << endl;
@@ -33,7 +34,6 @@ void seminar3()
 				strcat_s(textl, text[i]);
 			fixForEnterFile = true;
 			break;
-
 		// display text
 		case 2:
 			if (fixForEnterFile)

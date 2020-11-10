@@ -1,5 +1,7 @@
 #pragma once
 
+
+//common
 void maininterface();
 int EnterInt();
 double EnterDouble();

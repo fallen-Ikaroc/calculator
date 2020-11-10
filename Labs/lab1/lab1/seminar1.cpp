@@ -8,10 +8,12 @@ void seminar1()
 		"1) minimum array number;" << endl <<
 		"2) the sum of array elements located between the first and second negative" << endl << "elements." << endl <<
 		"Transform the array so that all the elements whose module does not exceed 1 are" << endl << "located first and then all the others." << endl << endl;
-	int partOfSeminar, size=0, *array_of_index = NULL, minimal_quantity, treatmentError;
+	int partOfSeminar, size=0, minimal_quantity, treatmentError;
+	int* array_of_index = NULL;
 	double* array = NULL, *_array = NULL;
-	bool mainCycle = true, errorTreatment, fixForEnterArray=false;
 	double _sum;
+	bool mainCycle = true, errorTreatment, fixForEnterArray=false;
+	
 
 	// actions selection
 	while (mainCycle)
