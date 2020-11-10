@@ -24,7 +24,7 @@ void seminar1()
 		cout << "3 - Sum of elements." << endl;
 		cout << "4 - Sorting an array." << endl;
 		cout << "5 - Out an array." << endl;
-		cout << "0 - Back to seminar selection." << endl;
+		cout << "0 - Back to seminar selection.1" << endl;
 		partOfSeminar = EnterInt();
 		switch (partOfSeminar) 
 		{
