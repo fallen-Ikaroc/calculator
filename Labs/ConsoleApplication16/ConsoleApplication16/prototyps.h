@@ -5,6 +5,7 @@ void maininterface();
 int EnterSize();
 int DataTypeIn();
 #include "EnterElement.h"
+
 //start seminar 1
 #include "ArrayIn.h"
 #include "ArrayOut.h"
@@ -23,3 +24,10 @@ int DataTypeIn();
 #include "sumofdoublearray.h"
 #include "seminar2.h"
 //end seminar 2
+
+//start seminar 3
+void seminar3();
+char** in(bool& error);
+void out(char** text);
+char* search(char text[1000], bool& ErrorQuotes, int& SizeOfText);
+//end seminar 3

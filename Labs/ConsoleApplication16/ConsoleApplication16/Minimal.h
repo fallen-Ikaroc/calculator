@@ -1,5 +1,5 @@
-
 #include "core.h"
+
 template<typename Type>
 int* Minimal(Type* array, int size, int& minimal_quantity)
 {

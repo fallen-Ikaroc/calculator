@@ -1,16 +1,20 @@
 #include "core.h"
 
-int DataTypeIn() {
+int DataTypeIn()
+{
 	int type;
-	while (true) {
-		cout << "Enter type:" << endl;
-		cout << "1 - int" << endl;
-		cout << "2 - float" << endl;
-		cout << "3 - double" << endl;
-		cout << "Please enter type: ";
+	while (true)
+	{
+		cout << endl << "Choose data type:" << endl;
+		cout << "1 - Integer" << endl;
+		cout << "2 - Float" << endl;
+		cout << "3 - Double" << endl;
+		cout << "Enter type: ";
 		type = EntElement<int>();
 		if (type >= 1 && type <= 3)
 			break;
+		else
+			cout << endl << "Please choose one of three types!" << endl;
 	}
 	return type;
 }

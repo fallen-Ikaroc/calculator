@@ -150,6 +150,10 @@
     <ClCompile Include="EnterSize.cpp" />
     <ClCompile Include="interfase.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="search.cpp" />
+    <ClCompile Include="seminar3.cpp" />
+    <ClCompile Include="string_in.cpp" />
+    <ClCompile Include="string_out.cpp" />
     <ClCompile Include="type.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +173,9 @@
     <ClInclude Include="sorta.h" />
     <ClInclude Include="sum.h" />
     <ClInclude Include="sumofdoublearray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

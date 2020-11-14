@@ -1,6 +1,7 @@
 #include "core.h"
 
-int EnterSize() {
+int EnterSize()
+{
 	int size;
 	while (true)
 	{

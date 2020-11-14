@@ -1,5 +1,5 @@
-
 #include "core.h"
+
 template<typename Type>
 Type sum(int size, Type* array, int& treatmentError, bool& error, bool& JustOneElement)
 {

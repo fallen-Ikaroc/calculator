@@ -1,6 +1,7 @@
 #include "core.h"
+
 template<typename EnteredType>
-void seminar1()
+void seminar1(int type)
 {
 	system("cls");
 	// start seminar 1
@@ -8,11 +9,25 @@ void seminar1()
 		"1) minimum array number;" << endl <<
 		"2) the sum of array elements located between the first and second negative" << endl << "elements." << endl <<
 		"Transform the array so that all the elements whose module does not exceed 1 are" << endl << "located first and then all the others." << endl << endl;
+
 	int partOfSeminar, size = 0, minimal_quantity, treatmentError;
 	int* array_of_index = NULL;
 	EnteredType* array = NULL, * _array = NULL;
 	EnteredType _sum;
 	bool mainCycle = true, errorTreatment, fixForEnterArray = false, JustOneElement;
+
+	switch(type)
+	{
+	case 1:
+		cout << "Choosen type: integer." << endl;
+		break;
+	case 2:
+		cout << "Choosen type: float." << endl;
+		break;
+	case 3:
+		cout << "Choosen type: double." << endl;
+		break;
+	}
 
 	// actions selection
 	while (mainCycle)

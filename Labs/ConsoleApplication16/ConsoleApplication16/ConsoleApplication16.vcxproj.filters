@@ -19,6 +19,9 @@
     <Filter Include="Исходные файлы\seminar2">
       <UniqueIdentifier>{978cfc49-dee9-4f56-9ffd-134ae2df9c58}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\seminar3">
+      <UniqueIdentifier>{235bf576-3daf-43e8-a121-3862127d107d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -32,6 +35,18 @@
     </ClCompile>
     <ClCompile Include="type.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="seminar3.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
+    </ClCompile>
+    <ClCompile Include="search.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
+    </ClCompile>
+    <ClCompile Include="string_in.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
+    </ClCompile>
+    <ClCompile Include="string_out.cpp">
+      <Filter>Исходные файлы\seminar3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,5 +98,10 @@
     <ClInclude Include="sumofdoublearray.h">
       <Filter>Исходные файлы\seminar2</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="text.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
   </ItemGroup>
 </Project>

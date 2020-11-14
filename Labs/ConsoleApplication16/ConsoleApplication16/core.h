@@ -8,4 +8,3 @@
 #include <cstdio>
 using namespace std;
 #include "prototyps.h"
-

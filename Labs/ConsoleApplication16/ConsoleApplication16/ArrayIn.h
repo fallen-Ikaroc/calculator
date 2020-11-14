@@ -1,5 +1,5 @@
-
 #include "core.h"
+
 template<typename Type>
 Type* ArrayIn(int size)
 {
