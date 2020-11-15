@@ -1,7 +1,7 @@
 #include "core.h"
 
 template<typename EnteredType>
-void seminar1(int type)
+void seminar1(EnteredType ChosenType)
 {
 	system("cls");
 	// start seminar 1
@@ -16,19 +16,13 @@ void seminar1(int type)
 	EnteredType _sum;
 	bool mainCycle = true, errorTreatment, fixForEnterArray = false, JustOneElement;
 
-	switch(type)
-	{
-	case 1:
+	if(ChosenType==1)
 		cout << "Choosen type: integer." << endl;
-		break;
-	case 2:
+	if(ChosenType==2.0f)
 		cout << "Choosen type: float." << endl;
-		break;
-	case 3:
+	if(ChosenType==3.0)
 		cout << "Choosen type: double." << endl;
-		break;
-	}
-
+	
 	// actions selection
 	while (mainCycle)
 	{

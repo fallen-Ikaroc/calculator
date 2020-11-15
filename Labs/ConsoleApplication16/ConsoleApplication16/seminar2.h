@@ -1,6 +1,6 @@
 #include "core.h"
 template<typename EnteredType>
-void seminar2(int type)
+void seminar2(EnteredType ChosenType)
 {
 	system("cls");
 	// start seminar 2
@@ -14,18 +14,12 @@ void seminar2(int type)
 	EnteredType** array = NULL, ** _array = NULL;
 	EnteredType _sum;
 
-	switch (type)
-	{
-	case 1:
+	if (ChosenType == 1)
 		cout << "Choosen type: integer." << endl;
-		break;
-	case 2:
+	if (ChosenType == 2.0f)
 		cout << "Choosen type: float." << endl;
-		break;
-	case 3:
+	if (ChosenType == 3.0)
 		cout << "Choosen type: double." << endl;
-		break;
-	}
 
 	while (mainCycle)
 	{

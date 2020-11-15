@@ -20,18 +20,18 @@ void maininterface()
 		type = DataTypeIn();
 		switch (type)
 		{
-		case 1: seminar1<int>(type); break;
-		case 2: seminar1<float>(type); break;
-		case 3: seminar1<double>(type); break;
+		case 1: seminar1(1); break;
+		case 2: seminar1(2.0f); break;
+		case 3: seminar1(3.0); break;
 		}
 		break;
 	case 2:
 		type = DataTypeIn();
 		switch (type)
 		{
-		case 1: seminar2<int>(type); break;
-		case 2: seminar2<float>(type); break;
-		case 3: seminar2<double>(type); break;
+		case 1: seminar2(1); break;
+		case 2: seminar2(2.0f); break;
+		case 3: seminar2(3.0); break;
 		}
 		break;
 	case 3:
