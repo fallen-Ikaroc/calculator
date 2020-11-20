@@ -10,8 +10,11 @@ int main(array<System::String ^> ^args)
     array<int>^ R = gcnew array<int>(n);
     array<int>^ T = gcnew array<int>(n);
     Console::Write("Lab 2\nSpecify values for integer elements of matrixes P and Q with dimension 4 by 7\nand form arrays R and T from the sums of negative elements of matrix rows P and\nQ respectively.\n");
-    P=MatrixIn(n, m);
-    Q=MatrixIn(n, m);
+    Console::WriteLine("\nHow do you want to fill in the matrixes:");
+    Console::WriteLine("1 - Enter from the keypad.");
+    Console::WriteLine("2 - Fill it in automatically.\n");
+    P = MatrixIn(n, m);
+    Q = MatrixIn(n, m);
     for (int i = 0; i < n; i++) {
         sum = 0;
         for (int j = 0; j < m; j++) {
@@ -45,5 +48,6 @@ int main(array<System::String ^> ^args)
     Console::Write("\n");
     for (int i = 0; i < n; i++)
         Console::Write("{0} ", T[i]);
+
     return 0;
 }
