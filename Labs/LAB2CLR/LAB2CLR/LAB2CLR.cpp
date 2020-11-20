@@ -15,14 +15,7 @@ int main(array<System::String ^> ^args)
     Console::WriteLine("2 - Fill it in automatically.\n");
     P = MatrixIn(n, m);
     Q = MatrixIn(n, m);
-    for (int i = 0; i < n; i++) {
-        sum = 0;
-        for (int j = 0; j < m; j++) {
-            if(P[i,j]<0)
-                sum += P[i, j];
-        }
-        R[i] = sum;
-    }
+
     for (int i = 0; i < n; i++) {
         sum = 0;
         for (int j = 0; j < m; j++) {
