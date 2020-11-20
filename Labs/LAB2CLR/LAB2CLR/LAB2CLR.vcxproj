@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="LAB2CLR.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MatrixIn.cpp" />
     <ClCompile Include="MatrixOut.cpp" />
     <ClCompile Include="pch.cpp">
