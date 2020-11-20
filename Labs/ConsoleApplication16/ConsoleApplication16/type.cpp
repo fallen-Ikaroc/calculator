@@ -1,8 +1,8 @@
 #include "core.h"
 
-int DataTypeIn()
+char DataTypeIn()
 {
-	int type;
+	char type;
 	while (true)
 	{
 		cout << endl << "Choose data type:" << endl;
@@ -10,8 +10,8 @@ int DataTypeIn()
 		cout << "2 - Float" << endl;
 		cout << "3 - Double" << endl;
 		cout << "Enter type: ";
-		type = EntElement<int>();
-		if (type >= 1 && type <= 3)
+		cin >> type;
+		if (type >= '1' && type <= '3')
 			break;
 		else
 			cout << endl << "Please choose one of three types!" << endl;

@@ -10,7 +10,7 @@ char** in(bool& error)
 	cout << "Do you want use standart path(0) or enter your path(1)" << endl;
 	while (true)
 	{
-		choose = EntElement<int>();
+		choose = EntElement(1);
 		if (choose == 0)
 		{
 			strcat_s(path, "text.txt");

@@ -19,7 +19,7 @@ void seminar3()
 		cout << "2 - Display text." << endl;
 		cout << "3 - Display quotes." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		partOfSeminar = EntElement<int>();
+		partOfSeminar = EntElement(1);
 		switch (partOfSeminar)
 		{
 			// file opening

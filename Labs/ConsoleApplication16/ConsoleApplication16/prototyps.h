@@ -3,7 +3,7 @@
 //common
 void maininterface();
 int EnterSize();
-int DataTypeIn();
+char DataTypeIn();
 #include "EnterElement.h"
 
 //start seminar 1

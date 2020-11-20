@@ -1,7 +1,7 @@
 #include "core.h"
 
-template<typename EnteredType>
-void seminar1(EnteredType ChosenType)
+template<typename Type>
+void seminar1(Type ChosenType)
 {
 	system("cls");
 	// start seminar 1
@@ -12,16 +12,9 @@ void seminar1(EnteredType ChosenType)
 
 	int partOfSeminar, size = 0, minimal_quantity, treatmentError;
 	int* array_of_index = NULL;
-	EnteredType* array = NULL, * _array = NULL;
-	EnteredType _sum;
+	Type* array = NULL, * _array = NULL;
+	Type _sum;
 	bool mainCycle = true, errorTreatment, fixForEnterArray = false, JustOneElement;
-
-	if(ChosenType==1)
-		cout << "Choosen type: integer." << endl;
-	if(ChosenType==2.0f)
-		cout << "Choosen type: float." << endl;
-	if(ChosenType==3.0)
-		cout << "Choosen type: double." << endl;
 	
 	// actions selection
 	while (mainCycle)
@@ -33,7 +26,7 @@ void seminar1(EnteredType ChosenType)
 		cout << "4 - Sorting an array." << endl;
 		cout << "5 - Out an array." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		partOfSeminar = EntElement<int>();
+		partOfSeminar = EntElement(1);
 		switch (partOfSeminar)
 		{
 			// array input
@@ -41,7 +34,7 @@ void seminar1(EnteredType ChosenType)
 			cout << "Enter the size of the array >1 and <50" << endl;
 			size = EnterSize();
 			cout << endl << "Enter an array:" << endl;
-			array = ArrayIn<EnteredType>(size);
+			array = ArrayIn(size, ChosenType);
 			fixForEnterArray = true;
 			break;
 

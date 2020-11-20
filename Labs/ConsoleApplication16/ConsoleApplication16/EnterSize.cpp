@@ -5,7 +5,7 @@ int EnterSize()
 	int size;
 	while (true)
 	{
-		size = EntElement<int>();
+		size = EntElement(1);
 		if (size > 1 && size < 50)
 			break;
 		else

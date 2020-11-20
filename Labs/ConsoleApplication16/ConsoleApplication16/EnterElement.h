@@ -1,6 +1,6 @@
 #include "core.h"
 template<typename Type>
-Type EntElement() {
+Type EntElement(Type T) {
     Type num;
     while (true)
     {
@@ -12,8 +12,6 @@ Type EntElement() {
             cout << "Entered value is not number. Please, repeat your last response: ";
         }
         else
-        {
             return num;
-        }
     }
 }

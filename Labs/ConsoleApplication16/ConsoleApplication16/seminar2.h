@@ -1,6 +1,6 @@
 #include "core.h"
-template<typename EnteredType>
-void seminar2(EnteredType ChosenType)
+template<typename Type>
+void seminar2(Type ChosenType)
 {
 	system("cls");
 	// start seminar 2
@@ -11,15 +11,8 @@ void seminar2(EnteredType ChosenType)
 		"element." << endl << endl;
 	bool mainCycle = true, error, fixForEnterArray = false, trigger;
 	int size = 0, sizec = 0, partOfSeminar;
-	EnteredType** array = NULL, ** _array = NULL;
-	EnteredType _sum;
-
-	if (ChosenType == 1)
-		cout << "Choosen type: integer." << endl;
-	if (ChosenType == 2.0f)
-		cout << "Choosen type: float." << endl;
-	if (ChosenType == 3.0)
-		cout << "Choosen type: double." << endl;
+	Type** array = NULL, ** _array = NULL;
+	Type _sum;
 
 	while (mainCycle)
 	{
@@ -29,7 +22,7 @@ void seminar2(EnteredType ChosenType)
 		cout << "3 - Sum of elements." << endl;
 		cout << "4 - Out an array." << endl;
 		cout << "0 - Back to seminar selection." << endl;
-		partOfSeminar = EntElement<int>();
+		partOfSeminar = EntElement(1);
 
 		// actions selection
 		switch (partOfSeminar)
@@ -41,7 +34,7 @@ void seminar2(EnteredType ChosenType)
 			cout << endl << "Enter the number of stolls of the matrix >1 and <50:" << endl;
 			sizec = EnterSize();
 			cout << endl << "Enter the array:" << endl;
-			array = ArrayIn<EnteredType>(size, sizec);
+			array = ArrayIn(size, sizec, ChosenType);
 			fixForEnterArray = true;
 			break;
 
