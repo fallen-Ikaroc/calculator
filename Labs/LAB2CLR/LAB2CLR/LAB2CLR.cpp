@@ -1,20 +1,17 @@
 #include "pch.h"
-
+#include "core.h"
 using namespace System;
 
 int main(array<System::String ^> ^args)
 {
     int n=4, m=7, sum;
-    Random^ rnd = gcnew Random;
-    array<int, 2>^ P = gcnew array<int, 2>(n, m);
-    array<int, 2>^ Q = gcnew array<int, 2>(n, m);
+    array<int, 2>^ P;
+    array<int, 2>^ Q;
     array<int>^ R = gcnew array<int>(n);
     array<int>^ T = gcnew array<int>(n);
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++) {
-            P[i, j] = rnd->Next() / 10000000 - 100;
-            Q[i, j] = rnd->Next() / 10000000 - 100;
-        }
+    Console::Write("Lab 2\nSpecify values for integer elements of matrixes P and Q with dimension 4 by 7\nand form arrays R and T from the sums of negative elements of matrix rows P and\nQ respectively.\n");
+    P=MatrixIn(n, m);
+    Q=MatrixIn(n, m);
     for (int i = 0; i < n; i++) {
         sum = 0;
         for (int j = 0; j < m; j++) {
