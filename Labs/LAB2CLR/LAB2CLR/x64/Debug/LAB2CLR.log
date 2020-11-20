@@ -1,3 +1,4 @@
-﻿  LAB2CLR.cpp
-  AssemblyInfo.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+﻿  MatrixIn.cpp
+C:\Users\Vlad\Documents\GitHub\calculator\Labs\LAB2CLR\LAB2CLR\MatrixIn.cpp(13,36): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+  ArrayOut.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   LAB2CLR.vcxproj -> C:\Users\Vlad\Documents\GitHub\calculator\Labs\LAB2CLR\x64\Debug\LAB2CLR.exe
