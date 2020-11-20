@@ -4,7 +4,7 @@ using namespace System;
 
 int main()
 {
-    int n = 4, m = 7, sum;
+    int n = 4, m = 7;
     array<int, 2>^ P, ^ Q;
     array<int>^ R, ^ T;
 
