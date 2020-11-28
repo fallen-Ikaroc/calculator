@@ -77,11 +77,11 @@ namespace LAB31 {
 			// 
 			this->calculate->BackColor = System::Drawing::Color::Gainsboro;
 			this->calculate->Enabled = false;
-			this->calculate->Font = (gcnew System::Drawing::Font(L"High Tower Text", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->calculate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->calculate->Location = System::Drawing::Point(28, 161);
 			this->calculate->Name = L"calculate";
-			this->calculate->Size = System::Drawing::Size(481, 32);
+			this->calculate->Size = System::Drawing::Size(533, 32);
 			this->calculate->TabIndex = 2;
 			this->calculate->Text = L"Calculate";
 			this->calculate->UseVisualStyleBackColor = false;
@@ -90,22 +90,22 @@ namespace LAB31 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"High Tower Text", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(23, 91);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(171, 25);
+			this->label1->Size = System::Drawing::Size(202, 25);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Triangles base (cm)";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"High Tower Text", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(284, 91);
+			this->label2->Location = System::Drawing::Point(347, 91);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(186, 25);
+			this->label2->Size = System::Drawing::Size(214, 25);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Triangles height (cm)";
 			// 
@@ -125,7 +125,7 @@ namespace LAB31 {
 			// 
 			this->height->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->height->Location = System::Drawing::Point(289, 119);
+			this->height->Location = System::Drawing::Point(341, 119);
 			this->height->MaxLength = 10;
 			this->height->Name = L"height";
 			this->height->Size = System::Drawing::Size(220, 32);
@@ -136,22 +136,22 @@ namespace LAB31 {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"High Tower Text", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(28, 208);
+			this->label3->Location = System::Drawing::Point(23, 210);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(246, 25);
+			this->label3->Size = System::Drawing::Size(291, 25);
 			this->label3->TabIndex = 8;
 			this->label3->Text = L"Triangle square equally (cm):";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"High Tower Text", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->label4->Location = System::Drawing::Point(23, 25);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(450, 50);
+			this->label4->Size = System::Drawing::Size(538, 50);
 			this->label4->TabIndex = 10;
 			this->label4->Text = L"Application for triangle area calculation, if the base and\r\nheight of the triangl"
 				L"e are known (in cm).";
@@ -161,7 +161,7 @@ namespace LAB31 {
 			this->result->AutoSize = true;
 			this->result->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->result->Location = System::Drawing::Point(279, 210);
+			this->result->Location = System::Drawing::Point(320, 212);
 			this->result->Name = L"result";
 			this->result->Size = System::Drawing::Size(0, 23);
 			this->result->TabIndex = 11;
@@ -171,7 +171,7 @@ namespace LAB31 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->ClientSize = System::Drawing::Size(537, 258);
+			this->ClientSize = System::Drawing::Size(590, 258);
 			this->Controls->Add(this->result);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
