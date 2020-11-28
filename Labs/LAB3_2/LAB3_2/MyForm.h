@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cmath>
 namespace LAB32 {
 
 	using namespace System;
@@ -34,21 +34,15 @@ namespace LAB32 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ width;
-	private: System::Windows::Forms::TextBox^ height;
+	private: System::Windows::Forms::TextBox^ line;
+	protected:
+
+
 	private: System::Windows::Forms::Button^ start;
 	private: System::Windows::Forms::Label^ Lheight;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel1;
 	private: System::Windows::Forms::TableLayoutPanel^ tableLayoutPanel2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	protected:
-
-	protected:
-
-
-
-
-
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -62,37 +56,27 @@ namespace LAB32 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::Label^ Lwidth;
-			this->width = (gcnew System::Windows::Forms::TextBox());
-			this->height = (gcnew System::Windows::Forms::TextBox());
+			this->line = (gcnew System::Windows::Forms::TextBox());
 			this->start = (gcnew System::Windows::Forms::Button());
 			this->Lheight = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			Lwidth = (gcnew System::Windows::Forms::Label());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// width
+			// line
 			// 
-			this->width->Location = System::Drawing::Point(3, 24);
-			this->width->Name = L"width";
-			this->width->Size = System::Drawing::Size(100, 20);
-			this->width->TabIndex = 0;
-			// 
-			// height
-			// 
-			this->height->Location = System::Drawing::Point(3, 74);
-			this->height->Name = L"height";
-			this->height->Size = System::Drawing::Size(100, 20);
-			this->height->TabIndex = 1;
+			this->line->Location = System::Drawing::Point(3, 22);
+			this->line->Name = L"line";
+			this->line->Size = System::Drawing::Size(100, 20);
+			this->line->TabIndex = 0;
 			// 
 			// start
 			// 
-			this->start->Location = System::Drawing::Point(3, 106);
+			this->start->Location = System::Drawing::Point(3, 45);
 			this->start->Name = L"start";
 			this->start->Size = System::Drawing::Size(75, 23);
 			this->start->TabIndex = 2;
@@ -100,23 +84,14 @@ namespace LAB32 {
 			this->start->UseVisualStyleBackColor = true;
 			this->start->Click += gcnew System::EventHandler(this, &MyForm::start_Click);
 			// 
-			// Lwidth
-			// 
-			Lwidth->AutoSize = true;
-			Lwidth->Location = System::Drawing::Point(3, 50);
-			Lwidth->Name = L"Lwidth";
-			Lwidth->Size = System::Drawing::Size(32, 13);
-			Lwidth->TabIndex = 3;
-			Lwidth->Text = L"width";
-			// 
 			// Lheight
 			// 
 			this->Lheight->AutoSize = true;
 			this->Lheight->Location = System::Drawing::Point(3, 0);
 			this->Lheight->Name = L"Lheight";
-			this->Lheight->Size = System::Drawing::Size(36, 13);
+			this->Lheight->Size = System::Drawing::Size(23, 13);
 			this->Lheight->TabIndex = 4;
-			this->Lheight->Text = L"height";
+			this->Lheight->Text = L"line";
 			this->Lheight->UseWaitCursor = true;
 			// 
 			// tableLayoutPanel1
@@ -140,19 +115,17 @@ namespace LAB32 {
 			this->tableLayoutPanel2->ColumnCount = 1;
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel2->Controls->Add(this->width, 0, 1);
-			this->tableLayoutPanel2->Controls->Add(this->start, 0, 4);
+			this->tableLayoutPanel2->Controls->Add(this->line, 0, 1);
 			this->tableLayoutPanel2->Controls->Add(this->Lheight, 0, 0);
-			this->tableLayoutPanel2->Controls->Add(this->height, 0, 3);
-			this->tableLayoutPanel2->Controls->Add(Lwidth, 0, 2);
+			this->tableLayoutPanel2->Controls->Add(this->start, 0, 2);
 			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->tableLayoutPanel2->Location = System::Drawing::Point(310, 3);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
-			this->tableLayoutPanel2->RowCount = 5;
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 42)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 58)));
+			this->tableLayoutPanel2->RowCount = 3;
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 46.15385F)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 53.84615F)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 299)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 21)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 32)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 238)));
 			this->tableLayoutPanel2->Size = System::Drawing::Size(181, 342);
 			this->tableLayoutPanel2->TabIndex = 0;
@@ -192,13 +165,32 @@ namespace LAB32 {
 		Bitmap^ img = gcnew Bitmap(pw, ph);
 		Graphics^ g = Graphics::FromImage(img);
 		int mx = pw/2, my = ph/2;
-		g->DrawLine(Pens::Red, mx, 0, mx, ph);//верт
-		g->DrawLine(Pens::Red, 0, my, pw, my);//гор
-		g->DrawLine(Pens::Green, 10, 10, 20, 10);
-		g->DrawLine(Pens::Green, 20, 10, 25, 15);
-		g->DrawLine(Pens::Green, 25, 15, 25, 25);
-		g->DrawLine(Pens::Green, 25, 25, 20, 30);
-		g->DrawLine(Pens::Green, 20, 30, , );
+		const double pi = 3.14159265358979323846;
+		double a = Convert::ToDouble(line->Text);
+		array<double>^ x=gcnew array<double>(6), ^ y=gcnew array<double>(6);
+		for (int i = 0; i < 6; i++)
+		{
+			double angle = pi * i / 3;
+			x[i] = cos(angle) * a+a;
+			y[i] = sin(angle) * a+a-a/10;
+		}
+		array<Point>^ myPoint =
+		{
+		Point(x[0], y[0]),
+		Point(x[1], y[1]),
+		Point(x[2], y[2]),
+		Point(x[3], y[3]),
+		Point(x[4], y[4]),
+		Point(x[5], y[5])
+		};
+		g->DrawPolygon(Pens::Blue, myPoint);
+		//g->DrawLine(Pens::Red, mx, 0, mx, ph);//верт
+		//g->DrawLine(Pens::Red, 0, my, pw, my);//гор
+		//g->DrawLine(Pens::Green, 10, 10, 20, 10);
+		//g->DrawLine(Pens::Green, 20, 10, 25, 15);
+		//g->DrawLine(Pens::Green, 25, 15, 25, 25);
+		//g->DrawLine(Pens::Green, 25, 25, 20, 30);
+		//g->DrawLine(Pens::Green, 20, 30, , );
 		this->pictureBox1->Image = img;
 	}
 };
