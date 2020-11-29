@@ -161,7 +161,6 @@ namespace LAB32
 			this->tableLayoutPanel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
-
 		}
 
 #pragma endregion
@@ -175,7 +174,6 @@ namespace LAB32
 			int pw = pictureBox1->Width, ph = pictureBox1->Height;
 			Bitmap^ img = gcnew Bitmap(pw, ph);
 			Graphics^ g = Graphics::FromImage(img);
-			int mx = pw / 2, my = ph / 2;
 			double a = Convert::ToDouble(line->Text);
 			array<double>^ x = gcnew array<double>(6), ^ y = gcnew array<double>(6);
 			for (double ys = 0; ys < ph; ys += a)
