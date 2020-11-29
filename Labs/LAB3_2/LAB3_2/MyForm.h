@@ -186,7 +186,7 @@ namespace LAB32
 						x[i] = cos(angle) * a  + xs;
 						y[i] = sin(angle) * a  + ys;
 					}
-					Color customColor = Color::FromArgb(50, Color::Black);
+					Color customColor = Color::FromArgb(150, Color::Black);
 					SolidBrush^ shadowBrush = gcnew SolidBrush(customColor);
 					g->FillPolygon(shadowBrush, gcnew array<Point>{
 						Point(x[0], y[0]),
