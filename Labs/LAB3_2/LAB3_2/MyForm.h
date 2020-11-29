@@ -8,6 +8,7 @@ namespace LAB32 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Text::RegularExpressions;
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -73,9 +74,12 @@ namespace LAB32 {
 			this->line->Name = L"line";
 			this->line->Size = System::Drawing::Size(100, 20);
 			this->line->TabIndex = 0;
+			this->line->TextChanged += gcnew System::EventHandler(this, &MyForm::line_TextChanged);
+			this->line->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::line_KeyPress);
 			// 
 			// start
 			// 
+			this->start->Enabled = false;
 			this->start->Location = System::Drawing::Point(3, 45);
 			this->start->Name = L"start";
 			this->start->Size = System::Drawing::Size(75, 23);
@@ -160,38 +164,77 @@ namespace LAB32 {
 	private: double x1 = -2 * Math::PI, x2 = 2 * Math::PI, xstep, y1, y2, ystep;
 	private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		int pw = pictureBox1->Width, ph = pictureBox1->Height;
-		Function^ f = gcnew Function(this, &MyForm::f);
-		Bitmap^ img = gcnew Bitmap(pw, ph);
-		Graphics^ g = Graphics::FromImage(img);
-		int mx = pw/2, my = ph/2;
-		const double pi = 3.14159265358979323846;
-		double a = Convert::ToDouble(line->Text);
-		array<double>^ x=gcnew array<double>(6), ^ y=gcnew array<double>(6);
-		for (int i = 0; i < 6; i++)
+		Regex^ r = gcnew Regex("^[0-9]*[,]?[0-9]+$");
+		Match^ value = r->Match(line->Text);
+		if (value->Success)
 		{
-			double angle = pi * i / 3;
-			x[i] = cos(angle) * a+a;
-			y[i] = sin(angle) * a+a-a/10;
+			int pw = pictureBox1->Width, ph = pictureBox1->Height;
+			Function^ f = gcnew Function(this, &MyForm::f);
+			Bitmap^ img = gcnew Bitmap(pw, ph);
+			Graphics^ g = Graphics::FromImage(img);
+			int mx = pw / 2, my = ph / 2;
+			const double pi = 3.14159265358979323846;
+			double a = Convert::ToDouble(line->Text);
+			array<double>^ x = gcnew array<double>(6), ^ y = gcnew array<double>(6);
+			for (double ys = 0; ys < ph; ys += a) {
+				for (double xs = 0; xs < pw; xs += a) {
+					for (int i = 0; i < 6; i++)
+					{
+						double angle = pi * i / 3;
+						x[i] = cos(angle) * a  + xs;
+						y[i] = sin(angle) * a  + ys;
+					}
+					Color customColor = Color::FromArgb(50, Color::Black);
+					SolidBrush^ shadowBrush = gcnew SolidBrush(customColor);
+					g->FillPolygon(shadowBrush, gcnew array<Point>{
+						Point(x[0], y[0]),
+							Point(x[1], y[1]),
+							Point(x[2], y[2]),
+							Point(x[3], y[3]),
+							Point(x[4], y[4]),
+							Point(x[5], y[5])
+					});
+					g->DrawPolygon(Pens::Red, gcnew array<Point>{
+						Point(x[0], y[0]),
+							Point(x[1], y[1]),
+							Point(x[2], y[2]),
+							Point(x[3], y[3]),
+							Point(x[4], y[4]),
+							Point(x[5], y[5])
+					});
+				}
+			}
+
+			this->pictureBox1->Image = img;
 		}
-		array<Point>^ myPoint =
-		{
-		Point(x[0], y[0]),
-		Point(x[1], y[1]),
-		Point(x[2], y[2]),
-		Point(x[3], y[3]),
-		Point(x[4], y[4]),
-		Point(x[5], y[5])
-		};
-		g->DrawPolygon(Pens::Blue, myPoint);
-		//g->DrawLine(Pens::Red, mx, 0, mx, ph);//верт
-		//g->DrawLine(Pens::Red, 0, my, pw, my);//гор
-		//g->DrawLine(Pens::Green, 10, 10, 20, 10);
-		//g->DrawLine(Pens::Green, 20, 10, 25, 15);
-		//g->DrawLine(Pens::Green, 25, 15, 25, 25);
-		//g->DrawLine(Pens::Green, 25, 25, 20, 30);
-		//g->DrawLine(Pens::Green, 20, 30, , );
-		this->pictureBox1->Image = img;
+		else
+			MessageBox::Show("Incorrect data! Please use integer or real numbers.", "Error!", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
+private: System::Void line_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+	if ((e->KeyChar >= '0') && (e->KeyChar <= '9'))
+		return;
+	if (e->KeyChar == '.')
+	{
+		e->KeyChar = ',';
+		return;
+	}
+	if (e->KeyChar == ',')
+		return;
+	if (Char::IsControl(e->KeyChar))
+	{
+		if (e->KeyChar == (char)Keys::Enter)
+			start->Focus();
+		return;
+	}
+	e->Handled = true;
+}
+private: System::Void line_TextChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	if (line->Text->Length == 0)
+		start->Enabled = false;
+	else
+		start->Enabled = true;
+}
 };
 }
