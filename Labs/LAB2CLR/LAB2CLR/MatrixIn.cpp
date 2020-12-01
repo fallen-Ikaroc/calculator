@@ -2,7 +2,6 @@
 #include "core.h"
 using namespace System;
 
-
 array<int,2>^ MatrixIn(int n, int m)
 {
 	Random^ rnd = gcnew Random;
