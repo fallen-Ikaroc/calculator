@@ -136,6 +136,7 @@ namespace LAB3
 			// 
 			// stop
 			// 
+			this->stop->Enabled = false;
 			this->stop->Location = System::Drawing::Point(314, 312);
 			this->stop->Name = L"stop";
 			this->stop->Size = System::Drawing::Size(306, 27);
@@ -152,7 +153,7 @@ namespace LAB3
 			this->start2->TabIndex = 1;
 			this->start2->Text = L"Start";
 			this->start2->UseVisualStyleBackColor = true;
-			this->start2->Click += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->start2->Click += gcnew System::EventHandler(this, &MyForm::start2_Click);
 			// 
 			// pictureBox2
 			// 
@@ -584,68 +585,94 @@ ref class ball
 		yrb = y - width;
 	}
 };
-array<ball^>^ b;
+array<ball^>^ balls;
 int point;
-int max = 100;
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e)
+int max = 1000;
+Random^ rndforballs = gcnew Random;
+private: System::Void start2_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	b = gcnew array<ball^>(max);
+	balls = gcnew array<ball^>(max);
 	for (int i = 0; i < max; i++)
-		b[i] = gcnew ball;
+		balls[i] = gcnew ball;
 	point = 0;
 	timer1->Interval = 20;
-	timer2->Interval = 20;
+	timer2->Interval = 100;
 	timer1->Start();
 	timer2->Start();
+	this->stop->Text = L"Stop";
+	this->stop->Enabled = true;
+	
+}
+private: System::Void stop_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (this->stop->Text == L"Stop") {
+		timer1->Stop();
+		timer2->Stop();
+		this->stop->Text = L"Restart";
+	}
+	else
+		if (this->stop->Text == L"Restart") {
+			this->stop->Text = L"Stop";
+			timer1->Start();
+			timer2->Start();
+		}
 }
 private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
 {
+	
 	int pw = pictureBox1->Width, ph = pictureBox1->Height;
 	for (int i = 0; i < point; i++)
-		if (b[i]->y + ph < 0)
+		if (balls[i]->y + ph < 0)
 		{
-			b[i]->y = 0;
-			b[i]->width = 1;
-			b[i]->recalculate();
+			balls[i]->y = 0;
+			balls[i]->width = 1;
+			balls[i]->recalculate();
 		}
 	for (int i = 0; i < point; i++)
 		for (int j = i + 1; j < point; j++)
 		{
 			if (
-				(b[i]->xlb == b[j]->x && b[i]->ylb >= b[j]->y && b[i]->xrb == b[j]->xrt && b[i]->yrb >= b[j]->yrt) || //bottom
-				(b[i]->x == b[j]->xlb && b[i]->y <= b[j]->ylb && b[i]->xrt == b[j]->xrb && b[i]->yrt <= b[j]->yrb) || //top
-				(b[i]->x <= b[j]->xrt && b[i]->y == b[j]->yrt && b[i]->xlb <= b[j]->xrb && b[i]->ylb == b[j]->yrb) || //left
-				(b[i]->xrt >= b[j]->x && b[i]->yrt == b[j]->y && b[i]->xrb >= b[j]->xlb && b[i]->yrb == b[j]->ylb) || //right
-
-				(b[i]->xrb > b[j]->x && b[i]->yrb > b[j]->y && b[i]->xrb < b[j]->xrt && b[i]->yrb > b[j]->yrt) || //bottom right
-				(b[i]->xlb < b[j]->xrt && b[i]->ylb > b[j]->yrt && b[i]->xlb > b[j]->x && b[i]->ylb > b[j]->y) || //bottom left
-				(b[i]->x > b[j]->x && b[i]->y > b[j]->y && b[i]->x < b[j]->xrt && b[i]->y > b[j]->yrt) || //top left
-				(b[i]->xrt > b[j]->xlb && b[i]->yrt < b[j]->ylb && b[i]->xrt < b[j]->xrb && b[i]->yrt < b[j]->yrb) //top right
+				(balls[i]->xlb == balls[j]->x && balls[i]->ylb <= balls[j]->y && balls[i]->xrb == balls[j]->xrt && balls[i]->yrb <= balls[j]->yrt && balls[i]->y > balls[j]->ylb && balls[i]->yrt > balls[j]->yrb) || //bottom
+				(balls[i]->x == balls[j]->xlb && balls[i]->y >= balls[j]->ylb && balls[i]->xrt == balls[j]->xrb && balls[i]->yrt >= balls[j]->yrb && balls[i]->y > balls[j]->ylb && balls[i]->yrt > balls[j]->yrb) || //top
+				(balls[i]->x <= balls[j]->xrt && balls[i]->y == balls[j]->yrt && balls[i]->xlb <= balls[j]->xrb && balls[i]->ylb == balls[j]->yrb && balls[i]->xrt > balls[j]->x && balls[i]->xrb > balls[j]->xlb) || //left
+				(balls[i]->xrt >= balls[j]->x && balls[i]->yrt == balls[j]->y && balls[i]->xrb >= balls[j]->xlb && balls[i]->yrb == balls[j]->ylb && balls[i]->x < balls[j]->xrt && balls[i]->xlb < balls[j]->xrb) || //right
+				(balls[i]->xrb > balls[j]->x && balls[i]->yrb < balls[j]->y && balls[i]->xrb < balls[j]->xrb && balls[i]->yrb > balls[j]->yrb) || //bottom right
+				(balls[i]->xlb < balls[j]->xrt && balls[i]->ylb < balls[j]->yrt && balls[i]->xlb > balls[j]->xlb && balls[i]->ylb > balls[j]->ylb) || //bottom left
+				(balls[i]->x > balls[j]->x && balls[i]->y < balls[j]->y && balls[i]->x < balls[j]->xrb && balls[i]->y > balls[j]->yrb) || //top left
+				(balls[i]->xrt > balls[j]->xlb && balls[i]->yrt > balls[j]->ylb && balls[i]->xrt < balls[j]->xrt && balls[i]->yrt < balls[j]->yrt) || //top right
+				(balls[i]->x<balls[j]->x && balls[i]->y>balls[j]->y && balls[i]->xrt>balls[j]->xrt && balls[i]->yrt>balls[j]->yrt && balls[i]->xrb>balls[j]->xrb && balls[i]->yrb<balls[j]->yrb && balls[i]->xlb<balls[j]->xlb && balls[i]->ylb<balls[j]->ylb)||
+				(balls[i]->x>balls[j]->x && balls[i]->y<balls[j]->y && balls[i]->xrt < balls[j]->xrt && balls[i]->yrt > balls[j]->yrt && balls[i]->xrb < balls[j]->xrb && balls[i]->yrb > balls[j]->yrb && balls[i]->xlb > balls[j]->xlb && balls[i]->ylb < balls[j]->ylb)
 				)
 			{
 				ball^ tmp = gcnew ball;
-				tmp->x = (b[i]->x + b[j]->x) / 2;
-					tmp->y = (b[i]->y + b[j]->y) / 2;
-				tmp->width = (b[i]->width + b[j]->width) / 2;
-				//tmp->width = Math::Sqrt(b[i]->width + b[j]->width);
+				tmp->x = (balls[i]->x + balls[j]->x) / 2;
+					tmp->y = (balls[i]->y + balls[j]->y) / 2;
+				tmp->width = (balls[i]->width + balls[j]->width)/2 ;
+				//tmp->width = Math::Sqrt(balls[i]->width + balls[j]->width);
 				tmp->recalculate();
-				b[i] = b[j] = tmp;
+				balls[i]  = tmp;
+				balls[j]->width = 10;
+				balls[j]->y = 0;
+				balls[j]->x += rndforballs->Next() % pw+3;
+				balls[j]->recalculate();
 			}
 		}
 	for (int i = 0; i < point; i++)
-		e->Graphics->DrawEllipse(Pens::Black, b[i]->x, b[i]->y + ph, b[i]->width, b[i]->width);
+		e->Graphics->DrawEllipse(Pens::Black, balls[i]->x, balls[i]->y + ph, balls[i]->width, balls[i]->width);
 }
 private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e)
 {
 	Random^ rnd = gcnew Random;
 	int pw = pictureBox1->Width, ph = pictureBox1->Height;
 	int k = rnd->Next() % 2;
-		for (int i = 0; i < k && point < max; i++)
+	if (point > max - 1)
+		point = 0;
+	for (int i = 0; i < k && point < max; i++)
 	{
-		b[point]->width = 1;
-		b[point]->y = 0;
-		b[point]->x += rnd->Next() % pw;
-		b[point]->recalculate();
+		balls[point]->width = 1;
+		balls[point]->y = 0;
+		balls[point]->x += rnd->Next() % pw;
+		balls[point]->recalculate();
 		point++;
 	}
 	pictureBox2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::pictureBox1_Paint);
@@ -655,16 +682,11 @@ private: System::Void timer2_Tick(System::Object^ sender, System::EventArgs^ e)
 	Random^ rnd = gcnew Random;
 	for (int i = 0; i < point; i++)
 	{
-		b[i]->y -= rnd->Next() % 10;
-		b[i]->width += rnd->Next() % 2;
-		b[i]->recalculate();
+		balls[i]->y -= rnd->Next() % 10;
+		balls[i]->width += rnd->Next() % 2;
+		balls[i]->recalculate();
 	}
 	pictureBox2->Invalidate();
-}
-private: System::Void stop_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	timer1->Stop();
-	timer2->Stop();
 }
 };
 }
