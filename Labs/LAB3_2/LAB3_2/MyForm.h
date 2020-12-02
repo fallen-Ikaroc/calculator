@@ -161,6 +161,7 @@ namespace LAB32
 			this->tableLayoutPanel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
+
 		}
 
 #pragma endregion
@@ -237,5 +238,6 @@ private: System::Void line_TextChanged(System::Object^ sender, System::EventArgs
 	else
 		start->Enabled = true;
 }
+
 };
 }
