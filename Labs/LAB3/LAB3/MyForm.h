@@ -656,12 +656,16 @@ private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows:
 				(balls[i]->xlb < balls[j]->x && balls[i]->ylb <= balls[j]->y && balls[i]->xrb > balls[j]->xrt && balls[i]->yrb <= balls[j]->yrt && balls[i]->x < balls[j]->xlb && balls[i]->y > balls[j]->ylb && balls[i]->xrt > balls[j]->xrb && balls[i]->yrt > balls[j]->yrb) || // inside bottom
 				(balls[i]->x < balls[j]->xlb && balls[i]->y >= balls[j]->ylb && balls[i]->xrt > balls[j]->xrb && balls[i]->yrt >= balls[j]->yrb && balls[i]->xlb > balls[j]->x && balls[i]->ylb > balls[j]->y && balls[i]->xrb > balls[j]->xrt && balls[i]->yrb > balls[j]->yrt) || // inside top
 				(balls[i]->x <= balls[j]->xrt && balls[i]->y > balls[j]->yrt && balls[i]->xlb <= balls[j]->xrb && balls[i]->ylb < balls[j]->yrb && balls[i]->xrt > balls[j]->x && balls[i]->yrt > balls[j]->y && balls[i]->xrb > balls[j]->xlb && balls[i]->yrb < balls[j]->ylb) || //inside left
-				(balls[i]->xrt >= balls[j]->x && balls[i]->yrt > balls[j]->y && balls[i]->xrb >= balls[j]->xlb && balls[i]->yrb < balls[j]->ylb && balls[i]->x < balls[j]->xrt && balls[i]->y > balls[j]->yrt && balls[i]->xlb < balls[j]->xrb && balls[i]->ylb < balls[j]->yrb)) //inside right
+				(balls[i]->xrt >= balls[j]->x && balls[i]->yrt > balls[j]->y && balls[i]->xrb >= balls[j]->xlb && balls[i]->yrb < balls[j]->ylb && balls[i]->x < balls[j]->xrt && balls[i]->y > balls[j]->yrt && balls[i]->xlb < balls[j]->xrb && balls[i]->ylb < balls[j]->yrb) || //inside right
+				(balls[j]->xlb < balls[i]->x&& balls[j]->ylb <= balls[i]->y && balls[j]->xrb > balls[i]->xrt && balls[j]->yrb <= balls[i]->yrt && balls[j]->x < balls[i]->xlb&& balls[j]->y > balls[i]->ylb && balls[j]->xrt > balls[i]->xrb && balls[j]->yrt > balls[i]->yrb) || // around bottom
+				(balls[j]->x < balls[i]->xlb&& balls[j]->y >= balls[i]->ylb && balls[j]->xrt > balls[i]->xrb && balls[j]->yrt >= balls[i]->yrb && balls[j]->xlb > balls[i]->x && balls[j]->ylb > balls[i]->y && balls[j]->xrb > balls[i]->xrt && balls[j]->yrb > balls[i]->yrt) || // around top
+				(balls[j]->x <= balls[i]->xrt && balls[j]->y > balls[i]->yrt && balls[j]->xlb <= balls[i]->xrb && balls[j]->ylb < balls[i]->yrb&& balls[j]->xrt > balls[i]->x && balls[j]->yrt > balls[i]->y && balls[j]->xrb > balls[i]->xlb && balls[j]->yrb < balls[i]->ylb) || //around left
+				(balls[j]->xrt >= balls[i]->x && balls[j]->yrt > balls[i]->y && balls[j]->xrb >= balls[i]->xlb && balls[j]->yrb < balls[i]->ylb&& balls[j]->x < balls[i]->xrt&& balls[j]->y > balls[i]->yrt&& balls[j]->xlb < balls[i]->xrb&& balls[j]->ylb < balls[i]->yrb)) //around right
 			{
 				ball^ tmp = gcnew ball;
 				tmp->x = (balls[i]->x + balls[j]->x) / 2;
-					tmp->y = (balls[i]->y + balls[j]->y) / 2;
-				tmp->width = (balls[i]->width + balls[j]->width)/2 ;
+				tmp->y = (balls[i]->y + balls[j]->y) / 2;
+				tmp->width = (balls[i]->width + balls[j]->width) / 2;
 				//tmp->width = Math::Sqrt(balls[i]->width + balls[j]->width);
 				tmp->recalculate();
 				balls[i] = tmp;
