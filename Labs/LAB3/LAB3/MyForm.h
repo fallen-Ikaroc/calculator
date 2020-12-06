@@ -43,21 +43,14 @@ namespace LAB3
 	private: System::Windows::Forms::TabPage^ tabPage2;
 	private: System::Windows::Forms::TabPage^ tabPage1;
 	private: System::Windows::Forms::Label^ task3;
-
 	private: System::Windows::Forms::Label^ task2;
-
 	private: System::Windows::Forms::Label^ task1;
-
 	private: System::Windows::Forms::Label^ main_title;
-
 	private: System::Windows::Forms::TabControl^ tabControl1;
 	private: System::Windows::Forms::Label^ triangles_height;
-
 	private: System::Windows::Forms::Label^ triangles_base;
-
 	private: System::Windows::Forms::Label^ result;
 	private: System::Windows::Forms::Label^ triangles_square;
-
 	private: System::Windows::Forms::Button^ calculate;
 	private: System::Windows::Forms::TextBox^ height;
 	private: System::Windows::Forms::TextBox^ base;
@@ -66,17 +59,17 @@ namespace LAB3
 	private: System::Windows::Forms::TextBox^ line;
 	private: System::Windows::Forms::Button^ start;
 	private: System::Windows::Forms::Label^ parametr;
-
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Timer^ generate;
 	private: System::Windows::Forms::Timer^ move;
-
-
 	private: System::Windows::Forms::Button^ stop;
-
 	private: System::Windows::Forms::Button^ start2;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::Timer^ rotater;
 
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::ComponentModel::IContainer^ components;
 	private:
 		/// <summary>
@@ -105,6 +98,9 @@ namespace LAB3
 			this->parametr = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->triangles_height = (gcnew System::Windows::Forms::Label());
 			this->triangles_base = (gcnew System::Windows::Forms::Label());
 			this->result = (gcnew System::Windows::Forms::Label());
@@ -120,6 +116,7 @@ namespace LAB3
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->generate = (gcnew System::Windows::Forms::Timer(this->components));
 			this->move = (gcnew System::Windows::Forms::Timer(this->components));
+			this->rotater = (gcnew System::Windows::Forms::Timer(this->components));
 			this->tabPage4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->tabPage3->SuspendLayout();
@@ -127,6 +124,9 @@ namespace LAB3
 			this->tableLayoutPanel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tabPage2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->tabPage1->SuspendLayout();
 			this->tabControl1->SuspendLayout();
 			this->SuspendLayout();
@@ -136,40 +136,48 @@ namespace LAB3
 			this->tabPage4->Controls->Add(this->stop);
 			this->tabPage4->Controls->Add(this->start2);
 			this->tabPage4->Controls->Add(this->pictureBox2);
-			this->tabPage4->Location = System::Drawing::Point(4, 30);
+			this->tabPage4->Location = System::Drawing::Point(4, 33);
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage4->Size = System::Drawing::Size(626, 345);
+			this->tabPage4->Size = System::Drawing::Size(626, 342);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Task 3";
 			this->tabPage4->UseVisualStyleBackColor = true;
 			// 
 			// stop
 			// 
+			this->stop->BackColor = System::Drawing::Color::Purple;
 			this->stop->Enabled = false;
-			this->stop->Location = System::Drawing::Point(314, 312);
+			this->stop->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->stop->ForeColor = System::Drawing::SystemColors::Control;
+			this->stop->Location = System::Drawing::Point(314, 307);
 			this->stop->Name = L"stop";
-			this->stop->Size = System::Drawing::Size(306, 27);
+			this->stop->Size = System::Drawing::Size(306, 32);
 			this->stop->TabIndex = 2;
 			this->stop->Text = L"Stop";
-			this->stop->UseVisualStyleBackColor = true;
+			this->stop->UseVisualStyleBackColor = false;
 			this->stop->Click += gcnew System::EventHandler(this, &MyForm::stop_Click);
 			// 
 			// start2
 			// 
-			this->start2->Location = System::Drawing::Point(3, 312);
+			this->start2->BackColor = System::Drawing::Color::Purple;
+			this->start2->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->start2->ForeColor = System::Drawing::SystemColors::Control;
+			this->start2->Location = System::Drawing::Point(6, 307);
 			this->start2->Name = L"start2";
-			this->start2->Size = System::Drawing::Size(306, 27);
+			this->start2->Size = System::Drawing::Size(306, 32);
 			this->start2->TabIndex = 1;
 			this->start2->Text = L"Start";
-			this->start2->UseVisualStyleBackColor = true;
+			this->start2->UseVisualStyleBackColor = false;
 			this->start2->Click += gcnew System::EventHandler(this, &MyForm::start2_Click);
 			// 
 			// pictureBox2
 			// 
 			this->pictureBox2->Location = System::Drawing::Point(3, 6);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(617, 303);
+			this->pictureBox2->Size = System::Drawing::Size(616, 295);
 			this->pictureBox2->TabIndex = 0;
 			this->pictureBox2->TabStop = false;
 			this->pictureBox2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::pictureBox1_Paint);
@@ -177,10 +185,10 @@ namespace LAB3
 			// tabPage3
 			// 
 			this->tabPage3->Controls->Add(this->tableLayoutPanel1);
-			this->tabPage3->Location = System::Drawing::Point(4, 30);
+			this->tabPage3->Location = System::Drawing::Point(4, 33);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(626, 345);
+			this->tabPage3->Size = System::Drawing::Size(626, 342);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Task 2";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -210,9 +218,9 @@ namespace LAB3
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				315)));
+				278)));
 			this->tableLayoutPanel2->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
-				145)));
+				146)));
 			this->tableLayoutPanel2->Controls->Add(this->line, 1, 0);
 			this->tableLayoutPanel2->Controls->Add(this->start, 2, 0);
 			this->tableLayoutPanel2->Controls->Add(this->parametr, 0, 0);
@@ -225,36 +233,38 @@ namespace LAB3
 			// 
 			// line
 			// 
-			this->line->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->line->Location = System::Drawing::Point(151, 3);
+			this->line->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->line->Location = System::Drawing::Point(187, 3);
 			this->line->Name = L"line";
-			this->line->Size = System::Drawing::Size(309, 32);
+			this->line->Size = System::Drawing::Size(272, 33);
 			this->line->TabIndex = 1;
 			this->line->TextChanged += gcnew System::EventHandler(this, &MyForm::base_TextChanged);
 			this->line->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::base_KeyPress);
 			// 
 			// start
 			// 
-			this->start->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->start->Location = System::Drawing::Point(466, 3);
+			this->start->BackColor = System::Drawing::Color::Purple;
+			this->start->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->start->ForeColor = System::Drawing::SystemColors::Control;
+			this->start->Location = System::Drawing::Point(465, 3);
 			this->start->Name = L"start";
-			this->start->Size = System::Drawing::Size(139, 32);
+			this->start->Size = System::Drawing::Size(140, 32);
 			this->start->TabIndex = 2;
 			this->start->Text = L"Start";
-			this->start->UseVisualStyleBackColor = true;
+			this->start->UseVisualStyleBackColor = false;
 			this->start->Click += gcnew System::EventHandler(this, &MyForm::start_Click);
 			// 
 			// parametr
 			// 
 			this->parametr->AutoSize = true;
-			this->parametr->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->parametr->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->parametr->Location = System::Drawing::Point(3, 0);
 			this->parametr->Name = L"parametr";
 			this->parametr->Padding = System::Windows::Forms::Padding(0, 6, 0, 0);
-			this->parametr->Size = System::Drawing::Size(139, 29);
+			this->parametr->Size = System::Drawing::Size(178, 30);
 			this->parametr->TabIndex = 0;
 			this->parametr->Text = L"Enter parametr:";
 			// 
@@ -268,6 +278,9 @@ namespace LAB3
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->Controls->Add(this->pictureBox5);
+			this->tabPage2->Controls->Add(this->pictureBox4);
+			this->tabPage2->Controls->Add(this->pictureBox3);
 			this->tabPage2->Controls->Add(this->triangles_height);
 			this->tabPage2->Controls->Add(this->triangles_base);
 			this->tabPage2->Controls->Add(this->result);
@@ -275,87 +288,114 @@ namespace LAB3
 			this->tabPage2->Controls->Add(this->calculate);
 			this->tabPage2->Controls->Add(this->height);
 			this->tabPage2->Controls->Add(this->base);
-			this->tabPage2->Location = System::Drawing::Point(4, 30);
+			this->tabPage2->Location = System::Drawing::Point(4, 33);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(626, 345);
+			this->tabPage2->Size = System::Drawing::Size(626, 342);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Task 1";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Location = System::Drawing::Point(533, 261);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(50, 50);
+			this->pictureBox5->TabIndex = 9;
+			this->pictureBox5->TabStop = false;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->Location = System::Drawing::Point(288, 261);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(50, 50);
+			this->pictureBox4->TabIndex = 8;
+			this->pictureBox4->TabStop = false;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Location = System::Drawing::Point(39, 261);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(50, 50);
+			this->pictureBox3->TabIndex = 7;
+			this->pictureBox3->TabStop = false;
+			// 
 			// triangles_height
 			// 
 			this->triangles_height->AutoSize = true;
-			this->triangles_height->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->triangles_height->Location = System::Drawing::Point(35, 131);
+			this->triangles_height->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->triangles_height->Location = System::Drawing::Point(34, 94);
 			this->triangles_height->Name = L"triangles_height";
-			this->triangles_height->Size = System::Drawing::Size(192, 23);
+			this->triangles_height->Size = System::Drawing::Size(230, 24);
 			this->triangles_height->TabIndex = 6;
 			this->triangles_height->Text = L"Triangles height (cm):";
 			// 
 			// triangles_base
 			// 
 			this->triangles_base->AutoSize = true;
-			this->triangles_base->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->triangles_base->Location = System::Drawing::Point(35, 77);
+			this->triangles_base->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->triangles_base->Location = System::Drawing::Point(34, 40);
 			this->triangles_base->Name = L"triangles_base";
-			this->triangles_base->Size = System::Drawing::Size(177, 23);
+			this->triangles_base->Size = System::Drawing::Size(210, 24);
 			this->triangles_base->TabIndex = 5;
 			this->triangles_base->Text = L"Triangles base (cm):";
 			// 
 			// result
 			// 
 			this->result->AutoSize = true;
-			this->result->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->result->Location = System::Drawing::Point(293, 256);
+			this->result->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->result->Location = System::Drawing::Point(345, 204);
 			this->result->Name = L"result";
-			this->result->Size = System::Drawing::Size(0, 23);
+			this->result->Size = System::Drawing::Size(0, 24);
 			this->result->TabIndex = 4;
 			// 
 			// triangles_square
 			// 
 			this->triangles_square->AutoSize = true;
-			this->triangles_square->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->triangles_square->Location = System::Drawing::Point(35, 256);
+			this->triangles_square->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->triangles_square->Location = System::Drawing::Point(35, 204);
 			this->triangles_square->Name = L"triangles_square";
-			this->triangles_square->Size = System::Drawing::Size(252, 23);
+			this->triangles_square->Size = System::Drawing::Size(304, 24);
 			this->triangles_square->TabIndex = 3;
 			this->triangles_square->Text = L"Triangle square equally (cm):";
 			// 
 			// calculate
 			// 
-			this->calculate->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->calculate->Location = System::Drawing::Point(39, 192);
+			this->calculate->BackColor = System::Drawing::Color::Purple;
+			this->calculate->Enabled = false;
+			this->calculate->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->calculate->ForeColor = System::Drawing::SystemColors::Control;
+			this->calculate->Location = System::Drawing::Point(39, 152);
 			this->calculate->Name = L"calculate";
-			this->calculate->Size = System::Drawing::Size(544, 29);
+			this->calculate->Size = System::Drawing::Size(544, 31);
 			this->calculate->TabIndex = 2;
 			this->calculate->Text = L"Calculate";
-			this->calculate->UseVisualStyleBackColor = true;
+			this->calculate->UseVisualStyleBackColor = false;
 			this->calculate->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// height
 			// 
-			this->height->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->height->Location = System::Drawing::Point(291, 128);
+			this->height->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->height->Location = System::Drawing::Point(291, 91);
 			this->height->Name = L"height";
-			this->height->Size = System::Drawing::Size(292, 32);
+			this->height->Size = System::Drawing::Size(292, 33);
 			this->height->TabIndex = 1;
 			this->height->TextChanged += gcnew System::EventHandler(this, &MyForm::base_TextChanged);
 			this->height->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::base_KeyPress);
 			// 
 			// base
 			// 
-			this->base->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->base->Location = System::Drawing::Point(291, 74);
+			this->base->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->base->Location = System::Drawing::Point(291, 37);
 			this->base->Name = L"base";
-			this->base->Size = System::Drawing::Size(292, 32);
+			this->base->Size = System::Drawing::Size(292, 33);
 			this->base->TabIndex = 0;
 			this->base->TextChanged += gcnew System::EventHandler(this, &MyForm::base_TextChanged);
 			this->base->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::base_KeyPress);
@@ -366,10 +406,10 @@ namespace LAB3
 			this->tabPage1->Controls->Add(this->task2);
 			this->tabPage1->Controls->Add(this->task1);
 			this->tabPage1->Controls->Add(this->main_title);
-			this->tabPage1->Location = System::Drawing::Point(4, 30);
+			this->tabPage1->Location = System::Drawing::Point(4, 33);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(6);
-			this->tabPage1->Size = System::Drawing::Size(626, 345);
+			this->tabPage1->Size = System::Drawing::Size(626, 342);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Main menu";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -377,24 +417,22 @@ namespace LAB3
 			// task3
 			// 
 			this->task3->AutoSize = true;
-			this->task3->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->task3->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12));
 			this->task3->Location = System::Drawing::Point(9, 221);
 			this->task3->Margin = System::Windows::Forms::Padding(3);
 			this->task3->Name = L"task3";
-			this->task3->Size = System::Drawing::Size(594, 115);
+			this->task3->Size = System::Drawing::Size(611, 105);
 			this->task3->TabIndex = 3;
 			this->task3->Text = resources->GetString(L"task3.Text");
 			// 
 			// task2
 			// 
 			this->task2->AutoSize = true;
-			this->task2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->task2->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12));
 			this->task2->Location = System::Drawing::Point(9, 146);
 			this->task2->Margin = System::Windows::Forms::Padding(3);
 			this->task2->Name = L"task2";
-			this->task2->Size = System::Drawing::Size(534, 69);
+			this->task2->Size = System::Drawing::Size(547, 63);
 			this->task2->TabIndex = 2;
 			this->task2->Text = L"Task 2. Machine graphics\r\nFill the screen with a drawing of fish scales with a gi"
 				L"ven size of\r\nelementary scales.";
@@ -402,12 +440,12 @@ namespace LAB3
 			// task1
 			// 
 			this->task1->AutoSize = true;
-			this->task1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->task1->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->task1->Location = System::Drawing::Point(9, 71);
 			this->task1->Margin = System::Windows::Forms::Padding(3);
 			this->task1->Name = L"task1";
-			this->task1->Size = System::Drawing::Size(578, 69);
+			this->task1->Size = System::Drawing::Size(606, 63);
 			this->task1->TabIndex = 1;
 			this->task1->Text = L"Task 1. The simplest Windows applications\r\nApplication for triangle area calculat"
 				L"ion, if the base and height of the\r\ntriangle are known (in cm).\r\n";
@@ -415,12 +453,12 @@ namespace LAB3
 			// main_title
 			// 
 			this->main_title->AutoSize = true;
-			this->main_title->Font = (gcnew System::Drawing::Font(L"Times New Roman", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->main_title->Location = System::Drawing::Point(9, 9);
+			this->main_title->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->main_title->Location = System::Drawing::Point(10, 15);
 			this->main_title->Margin = System::Windows::Forms::Padding(3);
 			this->main_title->Name = L"main_title";
-			this->main_title->Size = System::Drawing::Size(534, 46);
+			this->main_title->Size = System::Drawing::Size(606, 42);
 			this->main_title->TabIndex = 0;
 			this->main_title->Text = L"This is the Main menu available here, where you can select the\r\nrequired laborato"
 				L"ry work and learn the text of its task.";
@@ -431,9 +469,9 @@ namespace LAB3
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage4);
-			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->tabControl1->Location = System::Drawing::Point(13, 13);
+			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tabControl1->Location = System::Drawing::Point(14, 13);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
 			this->tabControl1->Size = System::Drawing::Size(634, 379);
@@ -449,13 +487,23 @@ namespace LAB3
 			this->move->Interval = 25;
 			this->move->Tick += gcnew System::EventHandler(this, &MyForm::timer2_Tick);
 			// 
+			// rotater
+			// 
+			this->rotater->Interval = 1000;
+			this->rotater->Tick += gcnew System::EventHandler(this, &MyForm::rotater_Tick);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(659, 401);
+			this->ClientSize = System::Drawing::Size(657, 401);
 			this->Controls->Add(this->tabControl1);
 			this->DoubleBuffered = true;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(673, 440);
+			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(673, 440);
 			this->Name = L"MyForm";
 			this->Text = L"Laboratory work ¹3";
 			this->tabPage4->ResumeLayout(false);
@@ -467,24 +515,28 @@ namespace LAB3
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
 			this->tabControl1->ResumeLayout(false);
 			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 
 //Task 1
+double rotate;
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	Regex^ r = gcnew Regex("^[0-9]*[,]?[0-9]+$");
 	Match^ name_ex = r->Match(base->Text);
 	Match^ name_ex2 = r->Match(height->Text);
-
+	double dbase = Convert::ToDouble(base->Text);
+	double dheight = Convert::ToDouble(height->Text);
 	if (name_ex->Success && name_ex2->Success)
 	{
-		double dbase = Convert::ToDouble(base->Text);
-		double dheight = Convert::ToDouble(height->Text);
 		if (dbase == 0 || dheight == 0)
 			MessageBox::Show("Incorrect data! Paramets can not be zero value.", "Error!", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		else
@@ -495,7 +547,45 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else
 		MessageBox::Show("Incorrect data! Please use integer or real numbers.", "Error!", MessageBoxButtons::OK, MessageBoxIcon::Error);
-	}
+
+	int pw = pictureBox3->Width, ph = pictureBox3->Height;
+
+	Bitmap^ img = gcnew Bitmap(pw, ph);
+	Graphics^ g = Graphics::FromImage(img);
+
+		array<double>^ x = gcnew array<double>(3), ^ y = gcnew array<double>(3);
+		x[0] = 0; y[0] = 50;
+		x[1] = 25; y[1] = 0;
+		x[2] = 50; y[2] = 50;
+
+		Color customColor = Color::FromArgb(150, Color::Purple);
+		SolidBrush^ shadowBrush = gcnew SolidBrush(customColor);
+		g->FillPolygon(shadowBrush, gcnew array<Point>
+		{
+			Point(x[0], y[0]),
+			Point(x[1], y[1]),
+			Point(x[2], y[2])
+		});
+		g->DrawPolygon(Pens::Purple, gcnew array<Point>
+		{
+			Point(x[0], y[0]),
+			Point(x[1], y[1]),
+			Point(x[2], y[2])
+		});
+
+	this->pictureBox3->Image = img;
+	this->pictureBox4->Image = img;
+	this->pictureBox5->Image = img;
+
+	rotater->Start();
+}
+private: System::Void rotater_Tick(System::Object^ sender, System::EventArgs^ e)
+{
+	this->pictureBox3->Image->RotateFlip(System::Drawing::RotateFlipType::Rotate90FlipXY);
+	this->pictureBox3->Invalidate();
+	this->pictureBox4->Invalidate();
+	this->pictureBox5->Invalidate();
+}
 private: System::Void base_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
 {
 	if ((e->KeyChar >= '0') && (e->KeyChar <= '9'))
@@ -515,7 +605,6 @@ private: System::Void base_KeyPress(System::Object^ sender, System::Windows::For
 	}
 	e->Handled = true;
 }
-//Task 2
 private: System::Void base_TextChanged(System::Object^ sender, System::EventArgs^ e)
 {
 	if ((base->Text->Length == 0) || (height->Text->Length == 0))
@@ -523,6 +612,7 @@ private: System::Void base_TextChanged(System::Object^ sender, System::EventArgs
 	else
 		calculate->Enabled = true;
 }
+//Task 2
 private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	Regex^ r = gcnew Regex("^[0-9]*[,]?[0-9]+$");
@@ -611,7 +701,6 @@ private: System::Void start2_Click(System::Object^ sender, System::EventArgs^ e)
 	move->Start();
 	this->stop->Text = L"Stop";
 	this->stop->Enabled = true;
-	
 }
 private: System::Void stop_Click(System::Object^ sender, System::EventArgs^ e)
 {
@@ -631,7 +720,6 @@ private: System::Void stop_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
 {
-	
 	int pw = pictureBox1->Width, ph = pictureBox1->Height;
 	for (int i = 0; i < point; i++)
 		if (balls[i]->y + ph < 0)
@@ -659,8 +747,8 @@ private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows:
 				(balls[i]->xrt >= balls[j]->x && balls[i]->yrt > balls[j]->y && balls[i]->xrb >= balls[j]->xlb && balls[i]->yrb < balls[j]->ylb && balls[i]->x < balls[j]->xrt && balls[i]->y > balls[j]->yrt && balls[i]->xlb < balls[j]->xrb && balls[i]->ylb < balls[j]->yrb) || //inside right
 				(balls[j]->xlb < balls[i]->x&& balls[j]->ylb <= balls[i]->y && balls[j]->xrb > balls[i]->xrt && balls[j]->yrb <= balls[i]->yrt && balls[j]->x < balls[i]->xlb&& balls[j]->y > balls[i]->ylb && balls[j]->xrt > balls[i]->xrb && balls[j]->yrt > balls[i]->yrb) || // around bottom
 				(balls[j]->x < balls[i]->xlb&& balls[j]->y >= balls[i]->ylb && balls[j]->xrt > balls[i]->xrb && balls[j]->yrt >= balls[i]->yrb && balls[j]->xlb > balls[i]->x && balls[j]->ylb > balls[i]->y && balls[j]->xrb > balls[i]->xrt && balls[j]->yrb > balls[i]->yrt) || // around top
-				(balls[j]->x <= balls[i]->xrt && balls[j]->y > balls[i]->yrt && balls[j]->xlb <= balls[i]->xrb && balls[j]->ylb < balls[i]->yrb&& balls[j]->xrt > balls[i]->x && balls[j]->yrt > balls[i]->y && balls[j]->xrb > balls[i]->xlb && balls[j]->yrb < balls[i]->ylb) || //around left
-				(balls[j]->xrt >= balls[i]->x && balls[j]->yrt > balls[i]->y && balls[j]->xrb >= balls[i]->xlb && balls[j]->yrb < balls[i]->ylb&& balls[j]->x < balls[i]->xrt&& balls[j]->y > balls[i]->yrt&& balls[j]->xlb < balls[i]->xrb&& balls[j]->ylb < balls[i]->yrb)) //around right
+				(balls[j]->x <= balls[i]->xrt && balls[j]->y > balls[i]->yrt && balls[j]->xlb <= balls[i]->xrb && balls[j]->ylb < balls[i]->yrb && balls[j]->xrt > balls[i]->x && balls[j]->yrt > balls[i]->y && balls[j]->xrb > balls[i]->xlb && balls[j]->yrb < balls[i]->ylb) || //around left
+				(balls[j]->xrt >= balls[i]->x && balls[j]->yrt > balls[i]->y && balls[j]->xrb >= balls[i]->xlb && balls[j]->yrb < balls[i]->ylb && balls[j]->x < balls[i]->xrt&& balls[j]->y > balls[i]->yrt&& balls[j]->xlb < balls[i]->xrb&& balls[j]->ylb < balls[i]->yrb)) //around right
 			{
 				ball^ tmp = gcnew ball;
 				tmp->x = (balls[i]->x + balls[j]->x) / 2;
