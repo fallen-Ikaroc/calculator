@@ -70,6 +70,7 @@ namespace LAB3
 
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::Timer^ formove;
 	private: System::ComponentModel::IContainer^ components;
 	private:
 		/// <summary>
@@ -117,6 +118,7 @@ namespace LAB3
 			this->generate = (gcnew System::Windows::Forms::Timer(this->components));
 			this->move = (gcnew System::Windows::Forms::Timer(this->components));
 			this->rotater = (gcnew System::Windows::Forms::Timer(this->components));
+			this->formove = (gcnew System::Windows::Forms::Timer(this->components));
 			this->tabPage4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->tabPage3->SuspendLayout();
@@ -148,7 +150,7 @@ namespace LAB3
 			// 
 			this->stop->BackColor = System::Drawing::Color::Purple;
 			this->stop->Enabled = false;
-			this->stop->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->stop->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->stop->ForeColor = System::Drawing::SystemColors::Control;
 			this->stop->Location = System::Drawing::Point(314, 307);
@@ -162,7 +164,7 @@ namespace LAB3
 			// start2
 			// 
 			this->start2->BackColor = System::Drawing::Color::Purple;
-			this->start2->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->start2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->start2->ForeColor = System::Drawing::SystemColors::Control;
 			this->start2->Location = System::Drawing::Point(6, 307);
@@ -233,11 +235,11 @@ namespace LAB3
 			// 
 			// line
 			// 
-			this->line->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->line->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->line->Location = System::Drawing::Point(187, 3);
 			this->line->Name = L"line";
-			this->line->Size = System::Drawing::Size(272, 33);
+			this->line->Size = System::Drawing::Size(272, 29);
 			this->line->TabIndex = 1;
 			this->line->TextChanged += gcnew System::EventHandler(this, &MyForm::base_TextChanged);
 			this->line->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::base_KeyPress);
@@ -245,7 +247,7 @@ namespace LAB3
 			// start
 			// 
 			this->start->BackColor = System::Drawing::Color::Purple;
-			this->start->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->start->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->start->ForeColor = System::Drawing::SystemColors::Control;
 			this->start->Location = System::Drawing::Point(465, 3);
@@ -259,12 +261,12 @@ namespace LAB3
 			// parametr
 			// 
 			this->parametr->AutoSize = true;
-			this->parametr->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->parametr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->parametr->Location = System::Drawing::Point(3, 0);
 			this->parametr->Name = L"parametr";
 			this->parametr->Padding = System::Windows::Forms::Padding(0, 6, 0, 0);
-			this->parametr->Size = System::Drawing::Size(178, 30);
+			this->parametr->Size = System::Drawing::Size(139, 30);
 			this->parametr->TabIndex = 0;
 			this->parametr->Text = L"Enter parametr:";
 			// 
@@ -323,29 +325,29 @@ namespace LAB3
 			// triangles_height
 			// 
 			this->triangles_height->AutoSize = true;
-			this->triangles_height->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->triangles_height->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->triangles_height->Location = System::Drawing::Point(34, 94);
 			this->triangles_height->Name = L"triangles_height";
-			this->triangles_height->Size = System::Drawing::Size(230, 24);
+			this->triangles_height->Size = System::Drawing::Size(193, 24);
 			this->triangles_height->TabIndex = 6;
 			this->triangles_height->Text = L"Triangles height (cm):";
 			// 
 			// triangles_base
 			// 
 			this->triangles_base->AutoSize = true;
-			this->triangles_base->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->triangles_base->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->triangles_base->Location = System::Drawing::Point(34, 40);
 			this->triangles_base->Name = L"triangles_base";
-			this->triangles_base->Size = System::Drawing::Size(210, 24);
+			this->triangles_base->Size = System::Drawing::Size(182, 24);
 			this->triangles_base->TabIndex = 5;
 			this->triangles_base->Text = L"Triangles base (cm):";
 			// 
 			// result
 			// 
 			this->result->AutoSize = true;
-			this->result->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->result->Location = System::Drawing::Point(345, 204);
 			this->result->Name = L"result";
@@ -355,11 +357,11 @@ namespace LAB3
 			// triangles_square
 			// 
 			this->triangles_square->AutoSize = true;
-			this->triangles_square->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->triangles_square->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->triangles_square->Location = System::Drawing::Point(35, 204);
 			this->triangles_square->Name = L"triangles_square";
-			this->triangles_square->Size = System::Drawing::Size(304, 24);
+			this->triangles_square->Size = System::Drawing::Size(255, 24);
 			this->triangles_square->TabIndex = 3;
 			this->triangles_square->Text = L"Triangle square equally (cm):";
 			// 
@@ -367,7 +369,7 @@ namespace LAB3
 			// 
 			this->calculate->BackColor = System::Drawing::Color::Purple;
 			this->calculate->Enabled = false;
-			this->calculate->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->calculate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->calculate->ForeColor = System::Drawing::SystemColors::Control;
 			this->calculate->Location = System::Drawing::Point(39, 152);
@@ -380,22 +382,22 @@ namespace LAB3
 			// 
 			// height
 			// 
-			this->height->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->height->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->height->Location = System::Drawing::Point(291, 91);
 			this->height->Name = L"height";
-			this->height->Size = System::Drawing::Size(292, 33);
+			this->height->Size = System::Drawing::Size(292, 29);
 			this->height->TabIndex = 1;
 			this->height->TextChanged += gcnew System::EventHandler(this, &MyForm::base_TextChanged);
 			this->height->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::base_KeyPress);
 			// 
 			// base
 			// 
-			this->base->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->base->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->base->Location = System::Drawing::Point(291, 37);
 			this->base->Name = L"base";
-			this->base->Size = System::Drawing::Size(292, 33);
+			this->base->Size = System::Drawing::Size(292, 29);
 			this->base->TabIndex = 0;
 			this->base->TextChanged += gcnew System::EventHandler(this, &MyForm::base_TextChanged);
 			this->base->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::base_KeyPress);
@@ -417,22 +419,22 @@ namespace LAB3
 			// task3
 			// 
 			this->task3->AutoSize = true;
-			this->task3->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12));
+			this->task3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
 			this->task3->Location = System::Drawing::Point(9, 221);
 			this->task3->Margin = System::Windows::Forms::Padding(3);
 			this->task3->Name = L"task3";
-			this->task3->Size = System::Drawing::Size(611, 105);
+			this->task3->Size = System::Drawing::Size(504, 100);
 			this->task3->TabIndex = 3;
 			this->task3->Text = resources->GetString(L"task3.Text");
 			// 
 			// task2
 			// 
 			this->task2->AutoSize = true;
-			this->task2->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12));
+			this->task2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
 			this->task2->Location = System::Drawing::Point(9, 146);
 			this->task2->Margin = System::Windows::Forms::Padding(3);
 			this->task2->Name = L"task2";
-			this->task2->Size = System::Drawing::Size(547, 63);
+			this->task2->Size = System::Drawing::Size(443, 60);
 			this->task2->TabIndex = 2;
 			this->task2->Text = L"Task 2. Machine graphics\r\nFill the screen with a drawing of fish scales with a gi"
 				L"ven size of\r\nelementary scales.";
@@ -440,12 +442,12 @@ namespace LAB3
 			// task1
 			// 
 			this->task1->AutoSize = true;
-			this->task1->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->task1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->task1->Location = System::Drawing::Point(9, 71);
 			this->task1->Margin = System::Windows::Forms::Padding(3);
 			this->task1->Name = L"task1";
-			this->task1->Size = System::Drawing::Size(606, 63);
+			this->task1->Size = System::Drawing::Size(487, 60);
 			this->task1->TabIndex = 1;
 			this->task1->Text = L"Task 1. The simplest Windows applications\r\nApplication for triangle area calculat"
 				L"ion, if the base and height of the\r\ntriangle are known (in cm).\r\n";
@@ -453,12 +455,12 @@ namespace LAB3
 			// main_title
 			// 
 			this->main_title->AutoSize = true;
-			this->main_title->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->main_title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->main_title->Location = System::Drawing::Point(10, 15);
 			this->main_title->Margin = System::Windows::Forms::Padding(3);
 			this->main_title->Name = L"main_title";
-			this->main_title->Size = System::Drawing::Size(606, 42);
+			this->main_title->Size = System::Drawing::Size(508, 40);
 			this->main_title->TabIndex = 0;
 			this->main_title->Text = L"This is the Main menu available here, where you can select the\r\nrequired laborato"
 				L"ry work and learn the text of its task.";
@@ -469,7 +471,7 @@ namespace LAB3
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage4);
-			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Lucida Calligraphy", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tabControl1->Location = System::Drawing::Point(14, 13);
 			this->tabControl1->Name = L"tabControl1";
@@ -491,6 +493,10 @@ namespace LAB3
 			// 
 			this->rotater->Interval = 1000;
 			this->rotater->Tick += gcnew System::EventHandler(this, &MyForm::rotater_Tick);
+			// 
+			// formove
+			// 
+			this->formove->Tick += gcnew System::EventHandler(this, &MyForm::formove_Tick);
 			// 
 			// MyForm
 			// 
@@ -578,6 +584,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->pictureBox5->Image = img;
 
 	rotater->Start();
+	formove->Start();
+}
+private: System::Void formove_Tick(System::Object^ sender, System::EventArgs^ e)
+{
+	
+	result->Left += 10;
+	if (result->Left > 600)
+		result->Left = 300;
 }
 private: System::Void rotater_Tick(System::Object^ sender, System::EventArgs^ e)
 {
@@ -697,6 +711,7 @@ private: System::Void start2_Click(System::Object^ sender, System::EventArgs^ e)
 	for (int i = 0; i < max; i++)
 		balls[i] = gcnew ball;
 	point = 0;
+	generate->Interval(500);
 	generate->Start();
 	move->Start();
 	this->stop->Text = L"Stop";
@@ -794,5 +809,6 @@ private: System::Void timer2_Tick(System::Object^ sender, System::EventArgs^ e)
 	}
 	pictureBox2->Invalidate();
 }
+
 };
 }
