@@ -650,23 +650,23 @@ private: System::Void start_Click(System::Object^ sender, System::EventArgs^ e)
 				}
 				Color customColor = Color::FromArgb(150, Color::Black);
 				SolidBrush^ shadowBrush = gcnew SolidBrush(customColor);
-				g->FillPolygon(shadowBrush, gcnew array<Point>
+				g->FillPolygon(shadowBrush, gcnew array<PointF>
 				{
-					Point(x[0], y[0]),
-					Point(x[1], y[1]),
-					Point(x[2], y[2]),
-					Point(x[3], y[3]),
-					Point(x[4], y[4]),
-					Point(x[5], y[5])
+					PointF(x[0], y[0]),
+					PointF(x[1], y[1]),
+					PointF(x[2], y[2]),
+					PointF(x[3], y[3]),
+					PointF(x[4], y[4]),
+					PointF(x[5], y[5])
 				});
-				g->DrawPolygon(Pens::Red, gcnew array<Point>
+				g->DrawPolygon(Pens::Red, gcnew array<PointF>
 				{
-					Point(x[0], y[0]),
-					Point(x[1], y[1]),
-					Point(x[2], y[2]),
-					Point(x[3], y[3]),
-					Point(x[4], y[4]),
-					Point(x[5], y[5])
+					PointF(x[0], y[0]),
+					PointF(x[1], y[1]),
+					PointF(x[2], y[2]),
+					PointF(x[3], y[3]),
+					PointF(x[4], y[4]),
+					PointF(x[5], y[5])
 				});
 			}
 		}
@@ -711,7 +711,6 @@ private: System::Void start2_Click(System::Object^ sender, System::EventArgs^ e)
 	for (int i = 0; i < max; i++)
 		balls[i] = gcnew ball;
 	point = 0;
-	generate->Interval(500);
 	generate->Start();
 	move->Start();
 	this->stop->Text = L"Stop";

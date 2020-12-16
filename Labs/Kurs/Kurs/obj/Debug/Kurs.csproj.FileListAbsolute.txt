@@ -1,0 +1,12 @@
+E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Database1.mdf
+E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Database1_log.ldf
+E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe.config
+E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe
+E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.pdb
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csprojAssemblyReference.cache
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form1.resources
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Properties.Resources.resources
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.GenerateResource.cache
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.CoreCompileInputs.cache
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.exe
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.pdb
