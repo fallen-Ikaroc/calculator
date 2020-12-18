@@ -17,3 +17,4 @@ C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.G
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.CoreCompileInputs.cache
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.exe
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.pdb
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form2.resources
