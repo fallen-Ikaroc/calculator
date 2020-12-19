@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Printing;
+using System.Data.SqlClient;
 namespace Kurs
 {
     public partial class Form2 : Form
     {
+        private string result;
         Form1 main;
         public Form2()
         {
@@ -43,7 +46,10 @@ namespace Kurs
                 if (main.table.Rows[j]["medicines"].ToString() == main.medicine.Text.ToString())
                     quantity.Text += main.table.Rows[j]["quantity"].ToString();
             if (quantity.Text != "")
+            {
                 save.Enabled = true;
+                print.Enabled = true;
+            }
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -55,6 +61,32 @@ namespace Kurs
                 f.WriteLine("Medicine: " + Medicine.SelectedItem.ToString());
                 f.WriteLine(quantity.Text.ToString());
             }
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void print_Click(object sender, EventArgs e)
+        {
+            result = "aaaa";
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += PrintPageHandler;
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDialog.Document.Print();
+        }
+        void PrintPageHandler(object sender, PrintPageEventArgs e)
+        {
+            // печать строки result
+            e.Graphics.DrawString(result, new Font("Arial", 14), Brushes.Black, 0, 0);
+        }
+
+        private void dispense_Click(object sender, EventArgs e)
+        {
+            SqlCommand sql = new SqlCommand("UPDATE medicines ");
         }
     }
 }

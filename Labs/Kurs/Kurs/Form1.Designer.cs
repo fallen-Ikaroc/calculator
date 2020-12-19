@@ -29,40 +29,35 @@ namespace Kurs
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.recipe = new System.Windows.Forms.Button();
+            this.quantity2 = new System.Windows.Forms.Label();
+            this.label_quantity2 = new System.Windows.Forms.Label();
+            this.analogue = new System.Windows.Forms.Label();
+            this.label_analogue = new System.Windows.Forms.Label();
+            this.quantity = new System.Windows.Forms.Label();
+            this.label_quantity = new System.Windows.Forms.Label();
+            this.medicine = new System.Windows.Forms.Label();
+            this.label_medicine = new System.Windows.Forms.Label();
             this.disease = new System.Windows.Forms.Label();
             this.label_disease = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.save = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label_medicine = new System.Windows.Forms.Label();
-            this.medicine = new System.Windows.Forms.Label();
-            this.label_quantity = new System.Windows.Forms.Label();
-            this.quantity = new System.Windows.Forms.Label();
-            this.label_analogue = new System.Windows.Forms.Label();
-            this.analogue = new System.Windows.Forms.Label();
-            this.database1DataSet = new Kurs.Database1DataSet();
-            this.illnessBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.illnessTableAdapter = new Kurs.Database1DataSetTableAdapters.illnessTableAdapter();
-            this.medicinesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.medicinesTableAdapter = new Kurs.Database1DataSetTableAdapters.medicinesTableAdapter();
-            this.label_quantity2 = new System.Windows.Forms.Label();
-            this.quantity2 = new System.Windows.Forms.Label();
-            this.recipe = new System.Windows.Forms.Button();
+            this.add = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.illnessBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -100,6 +95,97 @@ namespace Kurs
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main Page";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // recipe
+            // 
+            this.recipe.Location = new System.Drawing.Point(221, 378);
+            this.recipe.Name = "recipe";
+            this.recipe.Size = new System.Drawing.Size(146, 34);
+            this.recipe.TabIndex = 17;
+            this.recipe.Text = "Form a recipe";
+            this.recipe.UseVisualStyleBackColor = true;
+            this.recipe.Visible = false;
+            this.recipe.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // quantity2
+            // 
+            this.quantity2.AutoSize = true;
+            this.quantity2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.quantity2.Location = new System.Drawing.Point(217, 320);
+            this.quantity2.Name = "quantity2";
+            this.quantity2.Size = new System.Drawing.Size(0, 20);
+            this.quantity2.TabIndex = 16;
+            // 
+            // label_quantity2
+            // 
+            this.label_quantity2.AutoSize = true;
+            this.label_quantity2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_quantity2.Location = new System.Drawing.Point(76, 320);
+            this.label_quantity2.Name = "label_quantity2";
+            this.label_quantity2.Size = new System.Drawing.Size(126, 20);
+            this.label_quantity2.TabIndex = 15;
+            this.label_quantity2.Text = "Quantity in stock";
+            this.label_quantity2.Visible = false;
+            // 
+            // analogue
+            // 
+            this.analogue.AutoSize = true;
+            this.analogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.analogue.Location = new System.Drawing.Point(217, 274);
+            this.analogue.Name = "analogue";
+            this.analogue.Size = new System.Drawing.Size(0, 20);
+            this.analogue.TabIndex = 14;
+            // 
+            // label_analogue
+            // 
+            this.label_analogue.AutoSize = true;
+            this.label_analogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_analogue.Location = new System.Drawing.Point(125, 274);
+            this.label_analogue.Name = "label_analogue";
+            this.label_analogue.Size = new System.Drawing.Size(77, 20);
+            this.label_analogue.TabIndex = 13;
+            this.label_analogue.Text = "Analogue";
+            this.label_analogue.Visible = false;
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSize = true;
+            this.quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.quantity.Location = new System.Drawing.Point(217, 218);
+            this.quantity.Name = "quantity";
+            this.quantity.Size = new System.Drawing.Size(0, 20);
+            this.quantity.TabIndex = 12;
+            // 
+            // label_quantity
+            // 
+            this.label_quantity.AutoSize = true;
+            this.label_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_quantity.Location = new System.Drawing.Point(76, 218);
+            this.label_quantity.Name = "label_quantity";
+            this.label_quantity.Size = new System.Drawing.Size(126, 20);
+            this.label_quantity.TabIndex = 11;
+            this.label_quantity.Text = "Quantity in stock";
+            this.label_quantity.Visible = false;
+            // 
+            // medicine
+            // 
+            this.medicine.AutoSize = true;
+            this.medicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.medicine.Location = new System.Drawing.Point(217, 167);
+            this.medicine.Name = "medicine";
+            this.medicine.Size = new System.Drawing.Size(0, 20);
+            this.medicine.TabIndex = 10;
+            // 
+            // label_medicine
+            // 
+            this.label_medicine.AutoSize = true;
+            this.label_medicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_medicine.Location = new System.Drawing.Point(130, 167);
+            this.label_medicine.Name = "label_medicine";
+            this.label_medicine.Size = new System.Drawing.Size(72, 20);
+            this.label_medicine.TabIndex = 9;
+            this.label_medicine.Text = "Medicine";
+            this.label_medicine.Visible = false;
             // 
             // disease
             // 
@@ -144,6 +230,9 @@ namespace Kurs
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.delete);
+            this.tabPage2.Controls.Add(this.add);
+            this.tabPage2.Controls.Add(this.save);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
@@ -153,147 +242,73 @@ namespace Kurs
             this.tabPage2.Text = "Illnesses Table ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // save
+            // 
+            this.save.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.save.Location = new System.Drawing.Point(15, 333);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(75, 40);
+            this.save.TabIndex = 1;
+            this.save.Text = "save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1243, 536);
+            this.dataGridView1.Size = new System.Drawing.Size(944, 239);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1249, 549);
+            this.tabPage3.Size = new System.Drawing.Size(1249, 542);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Medicines Table";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(639, 108);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView2.Location = new System.Drawing.Point(-4, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1047, 472);
+            this.dataGridView2.Size = new System.Drawing.Size(515, 253);
             this.dataGridView2.TabIndex = 0;
             // 
-            // label_medicine
+            // add
             // 
-            this.label_medicine.AutoSize = true;
-            this.label_medicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_medicine.Location = new System.Drawing.Point(130, 167);
-            this.label_medicine.Name = "label_medicine";
-            this.label_medicine.Size = new System.Drawing.Size(72, 20);
-            this.label_medicine.TabIndex = 9;
-            this.label_medicine.Text = "Medicine";
-            this.label_medicine.Visible = false;
+            this.add.Location = new System.Drawing.Point(161, 317);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(75, 36);
+            this.add.TabIndex = 2;
+            this.add.Text = "add";
+            this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
-            // medicine
+            // delete
             // 
-            this.medicine.AutoSize = true;
-            this.medicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.medicine.Location = new System.Drawing.Point(217, 167);
-            this.medicine.Name = "medicine";
-            this.medicine.Size = new System.Drawing.Size(0, 20);
-            this.medicine.TabIndex = 10;
-            // 
-            // label_quantity
-            // 
-            this.label_quantity.AutoSize = true;
-            this.label_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_quantity.Location = new System.Drawing.Point(76, 218);
-            this.label_quantity.Name = "label_quantity";
-            this.label_quantity.Size = new System.Drawing.Size(126, 20);
-            this.label_quantity.TabIndex = 11;
-            this.label_quantity.Text = "Quantity in stock";
-            this.label_quantity.Visible = false;
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSize = true;
-            this.quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.quantity.Location = new System.Drawing.Point(217, 218);
-            this.quantity.Name = "quantity";
-            this.quantity.Size = new System.Drawing.Size(0, 20);
-            this.quantity.TabIndex = 12;
-            // 
-            // label_analogue
-            // 
-            this.label_analogue.AutoSize = true;
-            this.label_analogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_analogue.Location = new System.Drawing.Point(125, 274);
-            this.label_analogue.Name = "label_analogue";
-            this.label_analogue.Size = new System.Drawing.Size(77, 20);
-            this.label_analogue.TabIndex = 13;
-            this.label_analogue.Text = "Analogue";
-            this.label_analogue.Visible = false;
-            // 
-            // analogue
-            // 
-            this.analogue.AutoSize = true;
-            this.analogue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.analogue.Location = new System.Drawing.Point(217, 274);
-            this.analogue.Name = "analogue";
-            this.analogue.Size = new System.Drawing.Size(0, 20);
-            this.analogue.TabIndex = 14;
-            // 
-            // database1DataSet
-            // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // illnessBindingSource
-            // 
-            this.illnessBindingSource.DataMember = "illness";
-            this.illnessBindingSource.DataSource = this.database1DataSet;
-            // 
-            // illnessTableAdapter
-            // 
-            this.illnessTableAdapter.ClearBeforeFill = true;
-            // 
-            // medicinesBindingSource
-            // 
-            this.medicinesBindingSource.DataMember = "medicines";
-            this.medicinesBindingSource.DataSource = this.database1DataSet;
-            // 
-            // medicinesTableAdapter
-            // 
-            this.medicinesTableAdapter.ClearBeforeFill = true;
-            // 
-            // label_quantity2
-            // 
-            this.label_quantity2.AutoSize = true;
-            this.label_quantity2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_quantity2.Location = new System.Drawing.Point(76, 320);
-            this.label_quantity2.Name = "label_quantity2";
-            this.label_quantity2.Size = new System.Drawing.Size(126, 20);
-            this.label_quantity2.TabIndex = 15;
-            this.label_quantity2.Text = "Quantity in stock";
-            this.label_quantity2.Visible = false;
-            // 
-            // quantity2
-            // 
-            this.quantity2.AutoSize = true;
-            this.quantity2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.quantity2.Location = new System.Drawing.Point(217, 320);
-            this.quantity2.Name = "quantity2";
-            this.quantity2.Size = new System.Drawing.Size(0, 20);
-            this.quantity2.TabIndex = 16;
-            // 
-            // recipe
-            // 
-            this.recipe.Location = new System.Drawing.Point(221, 378);
-            this.recipe.Name = "recipe";
-            this.recipe.Size = new System.Drawing.Size(146, 34);
-            this.recipe.TabIndex = 17;
-            this.recipe.Text = "Form a recipe";
-            this.recipe.UseVisualStyleBackColor = true;
-            this.recipe.Visible = false;
-            this.recipe.Click += new System.EventHandler(this.button1_Click);
+            this.delete.Location = new System.Drawing.Point(325, 317);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(75, 23);
+            this.delete.TabIndex = 3;
+            this.delete.Text = "delete";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // Form1
             // 
@@ -311,25 +326,17 @@ namespace Kurs
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.illnessBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicinesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Database1DataSet database1DataSet;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.BindingSource illnessBindingSource;
-        private Database1DataSetTableAdapters.illnessTableAdapter illnessTableAdapter;
-        private System.Windows.Forms.BindingSource medicinesBindingSource;
-        private Database1DataSetTableAdapters.medicinesTableAdapter medicinesTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label_disease;
@@ -343,6 +350,10 @@ namespace Kurs
         private System.Windows.Forms.Label label_quantity2;
         public System.Windows.Forms.Label quantity2;
         private System.Windows.Forms.Button recipe;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button add;
+        private System.Windows.Forms.Button delete;
     }
 }
 
