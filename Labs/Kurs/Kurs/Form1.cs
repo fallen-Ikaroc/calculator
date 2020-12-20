@@ -12,7 +12,7 @@ namespace Kurs
 {
     public partial class Form1 : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Git\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
         string sql = "SELECT * FROM illness";
         string sql_ = "SELECT * FROM medicines";
         public SqlDataAdapter adapter, adapter_;
@@ -22,6 +22,16 @@ namespace Kurs
         public Form1()
         {
             InitializeComponent();
+            Connection();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Former();
+        }
+
+        private void Connection()
+        {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -35,9 +45,7 @@ namespace Kurs
                 adapter_.Fill(ds_);
 
                 dataGridView1.DataSource = ds.Tables[0];
-               
                 dataGridView2.DataSource = ds_.Tables[0];
-                dataGridView2.Columns["Id"].ReadOnly = true;
 
                 table = new DataTable();
                 table_ = new DataTable();
@@ -46,8 +54,9 @@ namespace Kurs
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Former()
         {
+            comboBox1.Items.Clear();
             string[] desease;
             string[] _desease;
             int count = 0;
@@ -65,18 +74,25 @@ namespace Kurs
             comboBox1.Items.AddRange(desease);
         }
 
-        private void add_Click(object sender, EventArgs e)
+        private void name_TextChanged(object sender, EventArgs e)
         {
-            DataRow row = ds.Tables[0].NewRow(); 
-            ds.Tables[0].Rows.Add(row);
+            if (name.Text.ToString().Length >= 3) 
+                form_recipe.Enabled = true;
+            else
+                form_recipe.Enabled = false;
         }
 
-        private void delete_Click(object sender, EventArgs e)
+        private void name_KeyPress(object sender, KeyPressEventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            if ((e.KeyChar >= 'A') && (e.KeyChar <= 'z'))
+                return;
+            if (Char.IsControl(e.KeyChar))
             {
-                dataGridView1.Rows.Remove(row);
+                if (e.KeyChar == (char)Keys.Enter)
+                    form_recipe.Focus();
+                return;
             }
+            e.Handled = true;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,25 +113,95 @@ namespace Kurs
                                     quantity2.Text = table_.Rows[k]["quantity"].ToString();
                         }
                 }     
-            label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = recipe.Visible = true;
+            label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = form_recipe.Visible = true;
         }
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void form_recipe_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Owner = this;
             form2.ShowDialog();
         }
+
         private void save_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                adapter = new SqlDataAdapter(sql, connection);
-                commandBuilder = new SqlCommandBuilder(adapter);
-                
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    adapter = new SqlDataAdapter(sql, connection);
+                    commandBuilder = new SqlCommandBuilder(adapter);
 
-                adapter.Update(ds);
+                    adapter.Update(ds);
+                    Connection();
+                    Former();
+
+                    MessageBox.Show("Table saved!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            catch
+            {
+                MessageBox.Show("Fill the row before saving!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void add_Click(object sender, EventArgs e)
+        {
+            DataRow row = ds.Tables[0].NewRow();
+            ds.Tables[0].Rows.Add(row);
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            bool error = true;
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.Remove(row);
+                error = false;
+            }
+            if (error)
+                MessageBox.Show("Select the line to delete!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void save1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    adapter_ = new SqlDataAdapter(sql_, connection);
+                    commandBuilder = new SqlCommandBuilder(adapter_);
+
+                    adapter_.Update(ds_);
+                    Connection();
+                    Former();
+
+                    MessageBox.Show("Table saved!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Fill the row before saving!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void add1_Click(object sender, EventArgs e)
+        {
+            DataRow row = ds_.Tables[0].NewRow();
+            ds_.Tables[0].Rows.Add(row);
+        }
+
+        private void delete1_Click(object sender, EventArgs e)
+        {
+            bool error = true;
+            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+            {
+                dataGridView2.Rows.Remove(row);
+                error = false;
+            }
+            if (error)
+                MessageBox.Show("Select the line to delete!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

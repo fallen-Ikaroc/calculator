@@ -18,3 +18,9 @@ C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.C
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.exe
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.pdb
 E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form2.resources
+C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Database1.mdf
+C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Database1_log.ldf
+C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe.config
+C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe
+C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.pdb
+C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form2.resources

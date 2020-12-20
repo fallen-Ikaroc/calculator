@@ -29,46 +29,32 @@ namespace Kurs
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.recipe = new System.Windows.Forms.Label();
             this.Medicine = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.quantity = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
             this.print = new System.Windows.Forms.Button();
-            this.dispense = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
+            this.date = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(197, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Recipe";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // recipe
             // 
             this.recipe.AutoSize = true;
-            this.recipe.Location = new System.Drawing.Point(20, 47);
+            this.recipe.Location = new System.Drawing.Point(27, 24);
             this.recipe.Name = "recipe";
             this.recipe.Size = new System.Drawing.Size(0, 20);
             this.recipe.TabIndex = 1;
+            this.recipe.Click += new System.EventHandler(this.recipe_Click);
             // 
             // Medicine
             // 
             this.Medicine.FormattingEnabled = true;
-            this.Medicine.Location = new System.Drawing.Point(97, 129);
+            this.Medicine.Location = new System.Drawing.Point(113, 93);
             this.Medicine.Name = "Medicine";
-            this.Medicine.Size = new System.Drawing.Size(139, 28);
+            this.Medicine.Size = new System.Drawing.Size(154, 28);
             this.Medicine.TabIndex = 2;
             this.Medicine.Text = "Choose";
             this.Medicine.SelectedIndexChanged += new System.EventHandler(this.Medicine_SelectedIndexChanged);
@@ -76,80 +62,94 @@ namespace Kurs
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 132);
+            this.label2.Location = new System.Drawing.Point(27, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.Size = new System.Drawing.Size(80, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Medicine";
             // 
             // quantity
             // 
             this.quantity.AutoSize = true;
-            this.quantity.Location = new System.Drawing.Point(20, 178);
+            this.quantity.Location = new System.Drawing.Point(27, 131);
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(0, 20);
             this.quantity.TabIndex = 4;
+            this.quantity.Click += new System.EventHandler(this.quantity_Click);
             // 
             // save
             // 
+            this.save.BackColor = System.Drawing.Color.DarkOrchid;
             this.save.Enabled = false;
-            this.save.Location = new System.Drawing.Point(23, 227);
+            this.save.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.save.ForeColor = System.Drawing.Color.White;
+            this.save.Location = new System.Drawing.Point(31, 164);
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(75, 35);
+            this.save.Size = new System.Drawing.Size(225, 35);
             this.save.TabIndex = 5;
             this.save.Text = "Save";
-            this.save.UseVisualStyleBackColor = true;
+            this.save.UseVisualStyleBackColor = false;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // print
             // 
+            this.print.BackColor = System.Drawing.Color.DarkOrchid;
             this.print.Enabled = false;
-            this.print.Location = new System.Drawing.Point(104, 227);
+            this.print.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.print.ForeColor = System.Drawing.Color.White;
+            this.print.Location = new System.Drawing.Point(288, 164);
             this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(75, 35);
+            this.print.Size = new System.Drawing.Size(225, 35);
             this.print.TabIndex = 6;
             this.print.Text = "Print";
-            this.print.UseVisualStyleBackColor = true;
+            this.print.UseVisualStyleBackColor = false;
             this.print.Click += new System.EventHandler(this.print_Click);
-            // 
-            // dispense
-            // 
-            this.dispense.Location = new System.Drawing.Point(185, 227);
-            this.dispense.Name = "dispense";
-            this.dispense.Size = new System.Drawing.Size(168, 35);
-            this.dispense.TabIndex = 7;
-            this.dispense.Text = "Dispense medicines";
-            this.dispense.UseVisualStyleBackColor = true;
-            this.dispense.Click += new System.EventHandler(this.dispense_Click);
             // 
             // close
             // 
-            this.close.Location = new System.Drawing.Point(359, 227);
+            this.close.BackColor = System.Drawing.Color.DarkOrchid;
+            this.close.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.close.ForeColor = System.Drawing.Color.White;
+            this.close.Location = new System.Drawing.Point(547, 164);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(75, 35);
+            this.close.Size = new System.Drawing.Size(225, 35);
             this.close.TabIndex = 8;
             this.close.Text = "Close";
-            this.close.UseVisualStyleBackColor = true;
+            this.close.UseVisualStyleBackColor = false;
             this.close.Click += new System.EventHandler(this.close_Click);
+            // 
+            // date
+            // 
+            this.date.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.date.AutoSize = true;
+            this.date.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.date.Location = new System.Drawing.Point(610, 24);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(0, 20);
+            this.date.TabIndex = 9;
+            this.date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 308);
+            this.ClientSize = new System.Drawing.Size(799, 222);
+            this.Controls.Add(this.date);
             this.Controls.Add(this.close);
-            this.Controls.Add(this.dispense);
             this.Controls.Add(this.print);
             this.Controls.Add(this.save);
             this.Controls.Add(this.quantity);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Medicine);
             this.Controls.Add(this.recipe);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(815, 261);
+            this.MinimumSize = new System.Drawing.Size(815, 261);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Padding = new System.Windows.Forms.Padding(24);
+            this.Text = "Recipe";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,15 +157,13 @@ namespace Kurs
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label recipe;
         private System.Windows.Forms.ComboBox Medicine;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label quantity;
         private System.Windows.Forms.Button save;
         private System.Windows.Forms.Button print;
-        private System.Windows.Forms.Button dispense;
         private System.Windows.Forms.Button close;
+        private System.Windows.Forms.Label date;
     }
 }

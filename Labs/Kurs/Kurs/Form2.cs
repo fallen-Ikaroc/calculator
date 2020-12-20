@@ -26,9 +26,10 @@ namespace Kurs
             main = this.Owner as Form1;
 
             string[] s = {main.medicine.Text.ToString(),main.analogue.Text.ToString()};
-            recipe.Text ="Desease: " + main.disease.Text+"\n\n"+
-                "Symptoms: " + main.comboBox1.SelectedItem.ToString()+"\n";
+            recipe.Text = "Patient: " + main.name.Text + "\n" + "Desease: " + main.disease.Text + "\n" +
+                "Symptoms: " + main.comboBox1.SelectedItem.ToString() + "\n";
             Medicine.Items.AddRange(s);
+            date.Text = DateTime.Now.ToString("dd MMMM yyyy");
         }
 
         private void Medicine_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace Kurs
             for (int j = 0; j < main.table.Rows.Count; j++)
                 if (main.table.Rows[j]["medicines"].ToString() == main.medicine.Text.ToString())
                     quantity.Text += main.table.Rows[j]["quantity"].ToString();
+
             if (quantity.Text != "")
             {
                 save.Enabled = true;
@@ -54,13 +56,16 @@ namespace Kurs
 
         private void save_Click(object sender, EventArgs e)
         {
-            string filename = main.disease.Text.ToString()+"_" + DateTime.Now.ToString("HH.mm.ss")+"_"+ DateTime.Now.ToString("ddMMMMyyyy") + ".txt";
+            string filename = main.name.Text.ToString() + "_" + DateTime.Now.ToString("HH.mm") + "_" + DateTime.Now.ToString("dd/MM/yy") + ".txt";
             using (StreamWriter f = new StreamWriter(filename, false, Encoding.GetEncoding(1251)))
             {
-                f.WriteLine(recipe.Text.ToString());
+                f.WriteLine("Patient: " + main.name.Text);
+                f.WriteLine("Desease: " + main.disease.Text);
+                f.WriteLine("Symptoms: " + main.comboBox1.SelectedItem.ToString());
                 f.WriteLine("Medicine: " + Medicine.SelectedItem.ToString());
                 f.WriteLine(quantity.Text.ToString());
             }
+            MessageBox.Show("Recipe saved!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -70,7 +75,8 @@ namespace Kurs
 
         private void print_Click(object sender, EventArgs e)
         {
-            result = "aaaa";
+            result = "Patient: " + main.name.Text.ToString() + "\n" + "Desease: " + main.disease.Text.ToString() + "\n" +
+                "Symptoms: " + main.comboBox1.SelectedItem.ToString() + "\n" + "Medicine: " + Medicine.SelectedItem.ToString() + "\n";
             PrintDocument printDocument = new PrintDocument();
             printDocument.PrintPage += PrintPageHandler;
             PrintDialog printDialog = new PrintDialog();
@@ -87,6 +93,16 @@ namespace Kurs
         private void dispense_Click(object sender, EventArgs e)
         {
             SqlCommand sql = new SqlCommand("UPDATE medicines ");
+        }
+
+        private void quantity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void recipe_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
