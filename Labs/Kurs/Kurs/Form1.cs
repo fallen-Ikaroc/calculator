@@ -12,7 +12,8 @@ namespace Kurs
 {
     public partial class Form1 : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
+        //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Git\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
         string sql = "SELECT * FROM illness";
         string sql_ = "SELECT * FROM medicines";
         public SqlDataAdapter adapter, adapter_;
