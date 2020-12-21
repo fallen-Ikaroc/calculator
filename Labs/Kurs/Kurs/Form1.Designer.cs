@@ -205,7 +205,7 @@ namespace Kurs
             // 
             this.medicine.AutoSize = true;
             this.medicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.medicine.Location = new System.Drawing.Point(128, 220);
+            this.medicine.Location = new System.Drawing.Point(134, 220);
             this.medicine.Name = "medicine";
             this.medicine.Size = new System.Drawing.Size(0, 20);
             this.medicine.TabIndex = 10;
@@ -225,7 +225,7 @@ namespace Kurs
             // 
             this.disease.AutoSize = true;
             this.disease.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.disease.Location = new System.Drawing.Point(122, 178);
+            this.disease.Location = new System.Drawing.Point(134, 178);
             this.disease.Name = "disease";
             this.disease.Size = new System.Drawing.Size(0, 20);
             this.disease.TabIndex = 8;
