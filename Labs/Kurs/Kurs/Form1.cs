@@ -77,7 +77,7 @@ namespace Kurs
 
         private void name_TextChanged(object sender, EventArgs e)
         {
-            if (name.Text.ToString().Length >= 3) 
+            if (name.Text.ToString().Length >= 3)
                 form_recipe.Enabled = true;
             else
                 form_recipe.Enabled = false;
@@ -113,10 +113,10 @@ namespace Kurs
                                 if(table_.Rows[k]["name"].ToString() == table_.Rows[j]["analog"].ToString())
                                     quantity2.Text = table_.Rows[k]["quantity"].ToString();
                         }
-                }     
+                }
             label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = form_recipe.Visible = true;
         }
-        
+
         private void form_recipe_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
@@ -168,7 +168,7 @@ namespace Kurs
         {
             int res;
             if (e.ColumnIndex == 0 || e.ColumnIndex == 5)
-            { 
+            {
                 if (e.FormattedValue.ToString() == string.Empty)
                     return;
                 if (!int.TryParse(e.FormattedValue.ToString(), out res))
