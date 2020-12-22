@@ -25,9 +25,10 @@ namespace Kurs
         private void Form2_Load(object sender, EventArgs e)
         {
             main = this.Owner as Form1;
-
             string[] s = {main.medicine.Text.ToString(),main.analogue.Text.ToString()};
-            recipe.Text = "Patient: " + main.name.Text + "\n" + "Desease: " + main.disease.Text + "\n" +
+            recipe.Text = 
+                "Patient: " + main.name.Text.ToString() + "\n" + 
+                "Desease: " + main.disease.Text.ToString() + "\n" + 
                 "Symptoms: " + main.comboBox1.SelectedItem.ToString() + "\n";
             Medicine.Items.AddRange(s);
             date.Text = DateTime.Now.ToString("dd MMMM yyyy");
@@ -116,7 +117,6 @@ namespace Kurs
                             connection.Open();
                             main.adapter_ = new SqlDataAdapter(main.sql_, connection);
                             main.commandBuilder = new SqlCommandBuilder(main.adapter_);
-
                             main.adapter_.Update(main.ds_);
                             main.Connection();
                             main.Former();
@@ -126,7 +126,7 @@ namespace Kurs
                             if (med == 0 && main.ds_.Tables[0].Rows[j]["name"].ToString() == Medicine.SelectedItem.ToString())
                                 main.quantity.Text = main.ds_.Tables[0].Rows[j]["quantity"].ToString();
                             if (med == 1 && main.ds_.Tables[0].Rows[j]["name"].ToString() == Medicine.SelectedItem.ToString()) 
-                                    main.quantity2.Text = main.ds_.Tables[0].Rows[j]["quantity"].ToString();
+                                main.quantity2.Text = main.ds_.Tables[0].Rows[j]["quantity"].ToString();
                         }
                         Medicine_SelectedIndexChanged(null, null);
                         MessageBox.Show("The medicine has been dispensed successfully!"+ main.ds_.Tables[0].Rows[i]["quantity"].ToString(), "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);

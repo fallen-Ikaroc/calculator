@@ -98,23 +98,26 @@ namespace Kurs
 
         public void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedState = comboBox1.SelectedItem.ToString();
-            for (int i = 0; i < table.Rows.Count; i++)
-                if (table.Rows[i]["symptoms"].ToString() == selectedState)
-                {
-                    disease.Text = table.Rows[i]["name"].ToString();
-                    medicine.Text = table.Rows[i]["medicines"].ToString();
-                    for (int j = 0; j < table_.Rows.Count; j++)
-                        if(table.Rows[i]["medicines"].ToString() == table_.Rows[j]["name"].ToString())
-                        {
-                            quantity.Text = table_.Rows[j]["quantity"].ToString();
-                            analogue.Text = table_.Rows[j]["analog"].ToString();
-                            for (int k = 0; k < table_.Rows.Count; k++)
-                                if(table_.Rows[k]["name"].ToString() == table_.Rows[j]["analog"].ToString())
-                                    quantity2.Text = table_.Rows[k]["quantity"].ToString();
-                        }
-                }
-            label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = form_recipe.Visible = true;
+            if (comboBox1.SelectedIndex != -1)
+            {
+                string selectedState = comboBox1.SelectedItem.ToString();
+                for (int i = 0; i < table.Rows.Count; i++)
+                    if (table.Rows[i]["symptoms"].ToString() == selectedState)
+                    {
+                        disease.Text = table.Rows[i]["name"].ToString();
+                        medicine.Text = table.Rows[i]["medicines"].ToString();
+                        for (int j = 0; j < table_.Rows.Count; j++)
+                            if (table.Rows[i]["medicines"].ToString() == table_.Rows[j]["name"].ToString())
+                            {
+                                quantity.Text = table_.Rows[j]["quantity"].ToString();
+                                analogue.Text = table_.Rows[j]["analog"].ToString();
+                                for (int k = 0; k < table_.Rows.Count; k++)
+                                    if (table_.Rows[k]["name"].ToString() == table_.Rows[j]["analog"].ToString())
+                                        quantity2.Text = table_.Rows[k]["quantity"].ToString();
+                            }
+                    }
+                label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = form_recipe.Visible = true;
+            }
         }
 
         private void form_recipe_Click(object sender, EventArgs e)
@@ -122,6 +125,11 @@ namespace Kurs
             Form2 form2 = new Form2();
             form2.Owner = this;
             form2.ShowDialog();
+            form2.Dispose();
+            label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = form_recipe.Visible = false;
+            comboBox1.SelectedIndex = -1;
+            name.Text = "";
+            disease.Text = medicine.Text = quantity.Text = analogue.Text = quantity2.Text = "";
         }
 
         private void save_Click(object sender, EventArgs e)
