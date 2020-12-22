@@ -15,6 +15,7 @@ namespace Kurs
     public partial class Form2 : Form
     {
         private string result;
+        private int med;
         Form1 main;
         public Form2()
         {
@@ -34,6 +35,7 @@ namespace Kurs
 
         private void Medicine_SelectedIndexChanged(object sender, EventArgs e)
         {
+            med= Medicine.SelectedIndex;
             string selectedState = Medicine.SelectedItem.ToString();
             if (selectedState == main.medicine.Text.ToString())
             {
@@ -84,25 +86,58 @@ namespace Kurs
             if (printDialog.ShowDialog() == DialogResult.OK)
                 printDialog.Document.Print();
         }
+
         void PrintPageHandler(object sender, PrintPageEventArgs e)
         {
-            // печать строки result
             e.Graphics.DrawString(result, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
 
-        private void dispense_Click(object sender, EventArgs e)
+        private void outMedicine_Click(object sender, EventArgs e)
         {
-            SqlCommand sql = new SqlCommand("UPDATE medicines ");
-        }
+            int qnt=0, size=0;
+            try
+            {
+                for (int i = 0; i < main.ds_.Tables[0].Rows.Count; i++)
+                {
+                    if (main.ds_.Tables[0].Rows[i]["name"].ToString() == Medicine.SelectedItem.ToString())
+                    {
+                        qnt = Convert.ToInt32(main.ds_.Tables[0].Rows[i]["quantity"].ToString());
+                        for(int j=0; j< main.ds.Tables[0].Rows.Count; j++)
+                        {
+                            if(main.ds.Tables[0].Rows[j]["name"].ToString()== main.disease.Text.ToString())
+                            {
+                                size = Convert.ToInt32(main.ds.Tables[0].Rows[j]["quantity"].ToString());
+                            }
+                        }
+                        qnt -= size;
+                        main.ds_.Tables[0].Rows[i]["quantity"] = qnt;
+                        using (SqlConnection connection = new SqlConnection(main.connectionString))
+                        {
+                            connection.Open();
+                            main.adapter_ = new SqlDataAdapter(main.sql_, connection);
+                            main.commandBuilder = new SqlCommandBuilder(main.adapter_);
 
-        private void quantity_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void recipe_Click(object sender, EventArgs e)
-        {
-
+                            main.adapter_.Update(main.ds_);
+                            main.Connection();
+                            main.Former();
+                        }
+                        for(int j=0; j<main.ds_.Tables[0].Rows.Count; j++)
+                        {
+                            if (med == 0 && main.ds_.Tables[0].Rows[j]["name"].ToString() == Medicine.SelectedItem.ToString())
+                                main.quantity.Text = main.ds_.Tables[0].Rows[j]["quantity"].ToString();
+                            if (med == 1 && main.ds_.Tables[0].Rows[j]["name"].ToString() == Medicine.SelectedItem.ToString()) 
+                                    main.quantity2.Text = main.ds_.Tables[0].Rows[j]["quantity"].ToString();
+                        }
+                        Medicine_SelectedIndexChanged(null, null);
+                        MessageBox.Show("The medicine has been dispensed successfully!"+ main.ds_.Tables[0].Rows[i]["quantity"].ToString(), "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please choose medicine!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

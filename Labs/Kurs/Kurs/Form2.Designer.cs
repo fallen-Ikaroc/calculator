@@ -38,6 +38,7 @@ namespace Kurs
             this.print = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
             this.date = new System.Windows.Forms.Label();
+            this.outMedicine = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // recipe
@@ -47,7 +48,6 @@ namespace Kurs
             this.recipe.Name = "recipe";
             this.recipe.Size = new System.Drawing.Size(0, 20);
             this.recipe.TabIndex = 1;
-            this.recipe.Click += new System.EventHandler(this.recipe_Click);
             // 
             // Medicine
             // 
@@ -64,7 +64,7 @@ namespace Kurs
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(27, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 20);
+            this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Medicine";
             // 
@@ -75,13 +75,12 @@ namespace Kurs
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(0, 20);
             this.quantity.TabIndex = 4;
-            this.quantity.Click += new System.EventHandler(this.quantity_Click);
             // 
             // save
             // 
             this.save.BackColor = System.Drawing.Color.DarkOrchid;
             this.save.Enabled = false;
-            this.save.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.save.ForeColor = System.Drawing.Color.White;
             this.save.Location = new System.Drawing.Point(31, 164);
             this.save.Name = "save";
@@ -95,7 +94,7 @@ namespace Kurs
             // 
             this.print.BackColor = System.Drawing.Color.DarkOrchid;
             this.print.Enabled = false;
-            this.print.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.print.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.print.ForeColor = System.Drawing.Color.White;
             this.print.Location = new System.Drawing.Point(288, 164);
             this.print.Name = "print";
@@ -108,7 +107,7 @@ namespace Kurs
             // close
             // 
             this.close.BackColor = System.Drawing.Color.DarkOrchid;
-            this.close.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.close.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.close.ForeColor = System.Drawing.Color.White;
             this.close.Location = new System.Drawing.Point(547, 164);
             this.close.Name = "close";
@@ -122,18 +121,29 @@ namespace Kurs
             // 
             this.date.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.date.AutoSize = true;
-            this.date.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.date.Location = new System.Drawing.Point(610, 24);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(0, 20);
             this.date.TabIndex = 9;
             this.date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // outMedicine
+            // 
+            this.outMedicine.Location = new System.Drawing.Point(645, 74);
+            this.outMedicine.Name = "outMedicine";
+            this.outMedicine.Size = new System.Drawing.Size(75, 23);
+            this.outMedicine.TabIndex = 10;
+            this.outMedicine.Text = "button1";
+            this.outMedicine.UseVisualStyleBackColor = true;
+            this.outMedicine.Click += new System.EventHandler(this.outMedicine_Click);
+            // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 222);
+            this.Controls.Add(this.outMedicine);
             this.Controls.Add(this.date);
             this.Controls.Add(this.close);
             this.Controls.Add(this.print);
@@ -142,7 +152,7 @@ namespace Kurs
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Medicine);
             this.Controls.Add(this.recipe);
-            this.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximumSize = new System.Drawing.Size(815, 261);
@@ -165,5 +175,6 @@ namespace Kurs
         private System.Windows.Forms.Button print;
         private System.Windows.Forms.Button close;
         private System.Windows.Forms.Label date;
+        private System.Windows.Forms.Button outMedicine;
     }
 }

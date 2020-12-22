@@ -298,6 +298,8 @@ namespace Kurs
             this.dataGridView1.RowHeadersWidth = 30;
             this.dataGridView1.Size = new System.Drawing.Size(651, 335);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
             // 
             // delete
             // 
@@ -424,6 +426,8 @@ namespace Kurs
             this.dataGridView2.RowHeadersWidth = 30;
             this.dataGridView2.Size = new System.Drawing.Size(651, 335);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView2_CellValidating);
+            this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
             // 
             // Form1
             // 

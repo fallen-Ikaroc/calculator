@@ -13,13 +13,13 @@ namespace Kurs
     public partial class Form1 : Form
     {
         //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Git\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
-        string sql = "SELECT * FROM illness";
-        string sql_ = "SELECT * FROM medicines";
+        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Git\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
+        public string sql = "SELECT * FROM illness";
+        public string sql_ = "SELECT * FROM medicines";
         public SqlDataAdapter adapter, adapter_;
         public DataSet ds, ds_;
         public DataTable table, table_;
-        SqlCommandBuilder commandBuilder;
+        public SqlCommandBuilder commandBuilder;
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace Kurs
             Former();
         }
 
-        private void Connection()
+        public void Connection()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -55,7 +55,7 @@ namespace Kurs
             }
         }
 
-        private void Former()
+        public void Former()
         {
             comboBox1.Items.Clear();
             string[] desease;
@@ -96,7 +96,7 @@ namespace Kurs
             e.Handled = true;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedState = comboBox1.SelectedItem.ToString();
             for (int i = 0; i < table.Rows.Count; i++)
@@ -162,6 +162,48 @@ namespace Kurs
             }
             if (error)
                 MessageBox.Show("Select the line to delete!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            int res;
+            if (e.ColumnIndex == 0 || e.ColumnIndex == 5)
+            { 
+                if (e.FormattedValue.ToString() == string.Empty)
+                    return;
+                if (!int.TryParse(e.FormattedValue.ToString(), out res))
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = string.Empty;
+                    e.Cancel = true;
+                    return;
+                }
+            }
+        }
+
+        private void dataGridView2_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            int res;
+            if (e.ColumnIndex == 0 || e.ColumnIndex == 2)
+            {
+                if (e.FormattedValue.ToString() == string.Empty)
+                    return;
+                if (!int.TryParse(e.FormattedValue.ToString(), out res))
+                {
+                    dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = string.Empty;
+                    e.Cancel = true;
+                    return;
+                }
+            }
+        }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Incorrect data! Please reenter!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Incorrect data! Please reenter!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void save1_Click(object sender, EventArgs e)
