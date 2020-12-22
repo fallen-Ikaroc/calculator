@@ -129,7 +129,7 @@ namespace Kurs
                                 main.quantity2.Text = main.ds_.Tables[0].Rows[j]["quantity"].ToString();
                         }
                         Medicine_SelectedIndexChanged(null, null);
-                        MessageBox.Show("The medicine has been dispensed successfully!"+ main.ds_.Tables[0].Rows[i]["quantity"].ToString(), "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("The medicine has been dispensed successfully!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
                     }
                 }

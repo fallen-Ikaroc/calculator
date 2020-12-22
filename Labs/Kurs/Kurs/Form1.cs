@@ -12,8 +12,8 @@ namespace Kurs
 {
     public partial class Form1 : Form
     {
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
-        //public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Git\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
+        //public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
+        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Git\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
         public string sql = "SELECT * FROM illness";
         public string sql_ = "SELECT * FROM medicines";
         public SqlDataAdapter adapter, adapter_;
@@ -85,8 +85,13 @@ namespace Kurs
 
         private void name_KeyPress(object sender, KeyPressEventArgs e)
         {
+            alert.Text = "Please enter latin symbols!";
             if ((e.KeyChar >= 'A') && (e.KeyChar <= 'z'))
+            {
+                alert.Text = "";
                 return;
+            }
+                
             if (Char.IsControl(e.KeyChar))
             {
                 if (e.KeyChar == (char)Keys.Enter)

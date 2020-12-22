@@ -3,7 +3,6 @@ E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Database1_log.ldf
 E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe.config
 E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe
 E:\Git\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.pdb
-E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csprojAssemblyReference.cache
 E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form1.resources
 E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Properties.Resources.resources
 E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.GenerateResource.cache
@@ -24,3 +23,4 @@ C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe.conf
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.pdb
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form2.resources
+E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csprojAssemblyReference.cache

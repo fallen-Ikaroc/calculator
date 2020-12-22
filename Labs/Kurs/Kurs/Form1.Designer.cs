@@ -60,6 +60,7 @@ namespace Kurs
             this.save1 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.alert = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -83,6 +84,7 @@ namespace Kurs
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.alert);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.name);
             this.tabPage1.Controls.Add(this.form_recipe);
@@ -429,6 +431,15 @@ namespace Kurs
             this.dataGridView2.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView2_CellValidating);
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
             // 
+            // alert
+            // 
+            this.alert.AutoSize = true;
+            this.alert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.alert.Location = new System.Drawing.Point(205, 30);
+            this.alert.Name = "alert";
+            this.alert.Size = new System.Drawing.Size(0, 20);
+            this.alert.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,6 +492,7 @@ namespace Kurs
         private System.Windows.Forms.Button add1;
         private System.Windows.Forms.Button save1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label alert;
     }
 }
 
