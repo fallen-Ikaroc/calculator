@@ -28,6 +28,7 @@ namespace Kurs
             else
                 MessageBox.Show("There was a failure and we don't know what happened yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
         public Form2(Form1 _main)
         {
             main = _main;
@@ -36,7 +37,7 @@ namespace Kurs
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string[] s = {main.medicine.Text.ToString(),main.analogue.Text.ToString()};
+            string[] s = {main.medicine.Text,main.analogue.Text};
             recipe.Text = 
                 "Patient: " + main.name.Text.ToString() + "\n" + 
                 "Desease: " + main.disease.Text.ToString() + "\n" + 
@@ -86,7 +87,7 @@ namespace Kurs
             Close();
         }
 
-        private async void print_Click(object sender, EventArgs e)
+        private void print_Click(object sender, EventArgs e)
         {
             try
             {

@@ -21,9 +21,9 @@ namespace Kurs
         private SqlCommandBuilder commandBuilder { get; set; }
         private BindingList<string> desease { get; set; }
 
-        internal string PconnectionString { get => connectionString; }
+        internal string PconnectionString => connectionString;
 
-        internal string Psql { get => sql; }
+        internal string Psql => sql;
 
         internal SqlDataAdapter Padapter
         {
