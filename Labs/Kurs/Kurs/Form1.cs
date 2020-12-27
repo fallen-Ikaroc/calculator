@@ -45,8 +45,6 @@ namespace Kurs
 
         internal Form1()
         {
-            dataSet = new DataSet("dataset");
-            desease = new BindingList<string>();
             InitializeComponent();
         }
 
