@@ -8,92 +8,103 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
+
 namespace Kurs
 {
-    public partial class Form1 : Form
+    internal partial class Form1 : Form
     {
-        //public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
-        public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Git\calculator\Labs\Kurs\Kurs\Database1.mdf;Integrated Security=True";
-        public string sql = "SELECT * FROM illness";
-        public string sql_ = "SELECT * FROM medicines";
-        public SqlDataAdapter adapter, adapter_;
-        public DataSet ds, ds_;
-        public DataTable table, table_;
-        public SqlCommandBuilder commandBuilder;
-        public Form1()
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["Kurs.Properties.Settings.Database1ConnectionString"].ConnectionString;
+        private readonly string sql = "SELECT * FROM illness; SELECT * FROM medicines";
+        private SqlDataAdapter adapter { get; set; }
+        private DataSet dataSet { get; set; }
+        private SqlCommandBuilder commandBuilder { get; set; }
+        private BindingList<string> desease { get; set; }
+
+        internal string PconnectionString { get => connectionString; }
+
+        internal string Psql { get => sql; }
+
+        internal SqlDataAdapter Padapter
         {
+            get => adapter;
+            set => adapter = value;
+        }
+
+        internal DataSet PdataSet
+        {
+            get => dataSet;
+            set => dataSet = value;
+        }
+
+        internal SqlCommandBuilder PcommandBuilder
+        {
+            get => commandBuilder;
+            set => commandBuilder = value;
+        }
+
+        internal Form1()
+        {
+            dataSet = new DataSet("dataset");
+            desease = new BindingList<string>();
             InitializeComponent();
-            Connection();
+        }
+
+        delegate void ErrorMessage(Exception ex);
+
+        private void errorMessage(Exception ex)
+        {
+            if (ex != null)
+                MessageBox.Show("There was a problem. Try again or contact the developers. Error info:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                MessageBox.Show("There was a failure and we don't know what happened yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Former();
+            Connection();
         }
 
-        public void Connection()
+        internal async void Connection()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                adapter = new SqlDataAdapter(sql, connection);
-                adapter_ = new SqlDataAdapter(sql_, connection);
-
-                ds = new DataSet();
-                ds_ = new DataSet();
-
-                adapter.Fill(ds);
-                adapter_.Fill(ds_);
-
-                dataGridView1.DataSource = ds.Tables[0];
-                dataGridView2.DataSource = ds_.Tables[0];
-
-                table = new DataTable();
-                table_ = new DataTable();
-                adapter.Fill(table);
-                adapter_.Fill(table_);
+                if (desease != null)
+                    desease.Clear();
+                if (dataSet.DataSetName == "dataset")
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        dataSet.DataSetName = "DataBase";
+                        await connection.OpenAsync();
+                        adapter = new SqlDataAdapter(sql, connection);
+                        adapter.Fill(dataSet);
+                    }
+                    dataGridView1.DataSource = dataSet.Tables[0];
+                    dataGridView2.DataSource = dataSet.Tables[1];
+                }
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                    desease.Add(dataSet.Tables[0].Rows[i]["symptoms"].ToString());
+                comboBox1.DataSource = desease;
             }
-        }
-
-        public void Former()
-        {
-            comboBox1.Items.Clear();
-            string[] desease;
-            string[] _desease;
-            int count = 0;
-            desease = new string[count];
-            for (int i = 0; i < table.Rows.Count; i++)
+            catch(Exception ex)
             {
-                string s = table.Rows[i]["symptoms"].ToString();
-                count++;
-                _desease = new string[count];
-                for (int _i = 0; _i < _desease.Length - 1; _i++)
-                    _desease[_i] = desease[_i];
-                _desease[count - 1] = s;
-                desease = _desease;
+                ErrorMessage error = errorMessage;
+                error(ex);
             }
-            comboBox1.Items.AddRange(desease);
         }
 
         private void name_TextChanged(object sender, EventArgs e)
         {
-            if (name.Text.ToString().Length >= 3)
-                form_recipe.Enabled = true;
-            else
-                form_recipe.Enabled = false;
+            form_recipe.Enabled = name.Text.ToString().Length >= 3;
         }
 
         private void name_KeyPress(object sender, KeyPressEventArgs e)
         {
             alert.Text = "Please enter latin symbols!";
-            if ((e.KeyChar >= 'A') && (e.KeyChar <= 'z'))
+            if (((e.KeyChar >= 'A') && (e.KeyChar <= 'z')) || (Char.IsControl(e.KeyChar)))
             {
-                alert.Text = "";
-                return;
-            }
-                
-            if (Char.IsControl(e.KeyChar))
-            {
+                alert.Text = string.Empty;
                 if (e.KeyChar == (char)Keys.Enter)
                     form_recipe.Focus();
                 return;
@@ -101,24 +112,23 @@ namespace Kurs
             e.Handled = true;
         }
 
-        public void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        internal void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex != -1)
             {
-                string selectedState = comboBox1.SelectedItem.ToString();
-                for (int i = 0; i < table.Rows.Count; i++)
-                    if (table.Rows[i]["symptoms"].ToString() == selectedState)
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                    if (dataSet.Tables[0].Rows[i]["symptoms"].Equals(comboBox1.SelectedItem))
                     {
-                        disease.Text = table.Rows[i]["name"].ToString();
-                        medicine.Text = table.Rows[i]["medicines"].ToString();
-                        for (int j = 0; j < table_.Rows.Count; j++)
-                            if (table.Rows[i]["medicines"].ToString() == table_.Rows[j]["name"].ToString())
+                        disease.Text = dataSet.Tables[0].Rows[i]["name"].ToString();
+                        medicine.Text = dataSet.Tables[0].Rows[i]["medicines"].ToString();
+                        for (int j = 0; j < dataSet.Tables[1].Rows.Count; j++)
+                            if (dataSet.Tables[0].Rows[i]["medicines"].Equals(dataSet.Tables[1].Rows[j]["name"]))
                             {
-                                quantity.Text = table_.Rows[j]["quantity"].ToString();
-                                analogue.Text = table_.Rows[j]["analog"].ToString();
-                                for (int k = 0; k < table_.Rows.Count; k++)
-                                    if (table_.Rows[k]["name"].ToString() == table_.Rows[j]["analog"].ToString())
-                                        quantity2.Text = table_.Rows[k]["quantity"].ToString();
+                                quantity.Text = dataSet.Tables[1].Rows[j]["quantity"].ToString();
+                                analogue.Text = dataSet.Tables[1].Rows[j]["analog"].ToString();
+                                for (int k = 0; k < dataSet.Tables[1].Rows.Count; k++)
+                                    if (dataSet.Tables[1].Rows[k]["name"].Equals(dataSet.Tables[1].Rows[j]["analog"]))
+                                        quantity2.Text = dataSet.Tables[1].Rows[k]["quantity"].ToString();
                             }
                     }
                 label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = form_recipe.Visible = true;
@@ -127,64 +137,94 @@ namespace Kurs
 
         private void form_recipe_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
-            form2.Owner = this;
+            Form2 form2 = new Form2(this);
             form2.ShowDialog();
-            form2.Dispose();
+
             label_disease.Visible = label_medicine.Visible = label_quantity.Visible = label_analogue.Visible = label_quantity2.Visible = form_recipe.Visible = false;
             comboBox1.SelectedIndex = -1;
-            name.Text = "";
-            disease.Text = medicine.Text = quantity.Text = analogue.Text = quantity2.Text = "";
+            name.Text=disease.Text = medicine.Text = quantity.Text = analogue.Text = quantity2.Text = "";
         }
 
         private void save_Click(object sender, EventArgs e)
+        {
+            Updatedb();
+        }
+
+        private async void Updatedb()
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    connection.Open();
+                    await connection.OpenAsync();
                     adapter = new SqlDataAdapter(sql, connection);
                     commandBuilder = new SqlCommandBuilder(adapter);
-
-                    adapter.Update(ds);
+                    adapter.Update(dataSet);
                     Connection();
-                    Former();
-
                     MessageBox.Show("Table saved!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Fill the row before saving!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ErrorMessage error = errorMessage;
+                error(ex);
             }
         }
+
         private void add_Click(object sender, EventArgs e)
         {
-            DataRow row = ds.Tables[0].NewRow();
-            ds.Tables[0].Rows.Add(row);
+            int tag = Convert.ToInt32(((Button)(sender)).Tag.ToString());
+            DataRow row = dataSet.Tables[tag].NewRow();
+            dataSet.Tables[tag].Rows.Add(row);    
         }
 
         private void delete_Click(object sender, EventArgs e)
         {
-            bool error = true;
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            try
             {
-                dataGridView1.Rows.Remove(row);
-                error = false;
+                int count = 0;
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    dataGridView1.Rows.Remove(row);
+                    count++;
+                }
+                if (count == 0)
+                    throw new Exception("Not a single line was highlighted!");
             }
-            if (error)
-                MessageBox.Show("Select the line to delete!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch(Exception ex)
+            {
+                ErrorMessage error = errorMessage;
+                error(ex);
+            }
+        }
+
+        private void delete1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int count = 0;
+                foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+                {
+                    dataGridView2.Rows.Remove(row);
+                    count++;
+                }
+                if (count == 0)
+                    throw new Exception("Not a single line was highlighted!");
+            }
+            catch(Exception ex)
+            {
+                ErrorMessage error = errorMessage;
+                error(ex);
+            }
         }
 
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            int res;
             if (e.ColumnIndex == 0 || e.ColumnIndex == 5)
             {
                 if (e.FormattedValue.ToString() == string.Empty)
                     return;
-                if (!int.TryParse(e.FormattedValue.ToString(), out res))
+                if (!int.TryParse(e.FormattedValue.ToString(), out _))
                 {
                     dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = string.Empty;
                     e.Cancel = true;
@@ -195,12 +235,11 @@ namespace Kurs
 
         private void dataGridView2_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            int res;
             if (e.ColumnIndex == 0 || e.ColumnIndex == 2)
             {
                 if (e.FormattedValue.ToString() == string.Empty)
                     return;
-                if (!int.TryParse(e.FormattedValue.ToString(), out res))
+                if (!int.TryParse(e.FormattedValue.ToString(), out _))
                 {
                     dataGridView2.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = string.Empty;
                     e.Cancel = true;
@@ -211,65 +250,14 @@ namespace Kurs
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Incorrect data! Please reenter!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ErrorMessage error = errorMessage;
+            error(e.Exception);
         }
 
         private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Incorrect data! Please reenter!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void save1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    adapter_ = new SqlDataAdapter(sql_, connection);
-                    commandBuilder = new SqlCommandBuilder(adapter_);
-
-                    adapter_.Update(ds_);
-                    Connection();
-                    Former();
-
-                    MessageBox.Show("Table saved!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Fill the row before saving!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void add1_Click(object sender, EventArgs e)
-        {
-            DataRow row = ds_.Tables[0].NewRow();
-            ds_.Tables[0].Rows.Add(row);
-        }
-
-        private void delete1_Click(object sender, EventArgs e)
-        {
-            bool error = true;
-            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
-            {
-                dataGridView2.Rows.Remove(row);
-                error = false;
-            }
-            if (error)
-                MessageBox.Show("Select the line to delete!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ErrorMessage error = errorMessage;
+            error(e.Exception);
         }
     }
 }
-//usless code
-/*
-for (int j = 0; j < table.Columns.Count; j++)
-                    label2.Text += table.Rows[i][j].ToString() + " ";
-                label2.Text += "\n";
-// TODO: данная строка кода позволяет загрузить данные в таблицу "database1DataSet1.medicines". При необходимости она может быть перемещена или удалена.
-            this.medicinesTableAdapter.Fill(this.database1DataSet.medicines);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "database1DataSet1.illness". При необходимости она может быть перемещена или удалена.
-            this.illnessTableAdapter.Fill(this.database1DataSet.illness);
-illnessTableAdapter.Update(database1DataSet);
-medicinesTableAdapter.Update(database1DataSet);
-*/

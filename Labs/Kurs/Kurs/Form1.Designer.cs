@@ -34,6 +34,7 @@ namespace Kurs
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.alert = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
             this.form_recipe = new System.Windows.Forms.Button();
@@ -60,7 +61,6 @@ namespace Kurs
             this.save1 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.alert = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -81,6 +81,7 @@ namespace Kurs
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(661, 415);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Tag = "med";
             // 
             // tabPage1
             // 
@@ -107,6 +108,15 @@ namespace Kurs
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main Page";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // alert
+            // 
+            this.alert.AutoSize = true;
+            this.alert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.alert.Location = new System.Drawing.Point(205, 30);
+            this.alert.Name = "alert";
+            this.alert.Size = new System.Drawing.Size(0, 20);
+            this.alert.TabIndex = 21;
             // 
             // label2
             // 
@@ -325,6 +335,7 @@ namespace Kurs
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(210, 30);
             this.add.TabIndex = 2;
+            this.add.Tag = "0";
             this.add.Text = "Add";
             this.add.UseVisualStyleBackColor = false;
             this.add.Click += new System.EventHandler(this.add_Click);
@@ -380,9 +391,10 @@ namespace Kurs
             this.add1.Name = "add1";
             this.add1.Size = new System.Drawing.Size(210, 30);
             this.add1.TabIndex = 3;
+            this.add1.Tag = "1";
             this.add1.Text = "Add";
             this.add1.UseVisualStyleBackColor = false;
-            this.add1.Click += new System.EventHandler(this.add1_Click);
+            this.add1.Click += new System.EventHandler(this.add_Click);
             // 
             // save1
             // 
@@ -395,7 +407,7 @@ namespace Kurs
             this.save1.TabIndex = 2;
             this.save1.Text = "Save";
             this.save1.UseVisualStyleBackColor = false;
-            this.save1.Click += new System.EventHandler(this.save1_Click);
+            this.save1.Click += new System.EventHandler(this.save_Click);
             // 
             // button1
             // 
@@ -430,15 +442,6 @@ namespace Kurs
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView2_CellValidating);
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
-            // 
-            // alert
-            // 
-            this.alert.AutoSize = true;
-            this.alert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.alert.Location = new System.Drawing.Point(205, 30);
-            this.alert.Name = "alert";
-            this.alert.Size = new System.Drawing.Size(0, 20);
-            this.alert.TabIndex = 21;
             // 
             // Form1
             // 
