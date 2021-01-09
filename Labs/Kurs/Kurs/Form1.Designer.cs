@@ -29,8 +29,6 @@ namespace Kurs
         /// </summary>
         private void InitializeComponent()
         {
-            dataSet = new System.Data.DataSet("dataset");
-            desease = new System.ComponentModel.BindingList<string>();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
