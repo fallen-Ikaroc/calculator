@@ -24,3 +24,16 @@ C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.pdb
 C:\Users\Vlad\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form2.resources
 E:\Git\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csprojAssemblyReference.cache
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Database1.mdf
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Database1_log.ldf
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe.config
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.exe
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\bin\Debug\Kurs.pdb
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csprojAssemblyReference.cache
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form1.resources
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Form2.resources
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.Properties.Resources.resources
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.GenerateResource.cache
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.csproj.CoreCompileInputs.cache
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.exe
+C:\Users\gosha\Documents\GitHub\calculator\Labs\Kurs\Kurs\obj\Debug\Kurs.pdb
